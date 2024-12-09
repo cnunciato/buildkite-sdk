@@ -120,7 +120,7 @@
       },
       "go": {
         "moduleName": "github.com/cnunciato/buildkite-sdk",
-        "packageName": "buildkite-sdk"
+        "packageName": "buildkite"
       }
     },
     "tsc": {

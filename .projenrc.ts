@@ -34,7 +34,7 @@ const project = new cdk.JsiiProject({
     },
     publishToGo: {
         moduleName: "github.com/cnunciato/buildkite-sdk",
-        packageName: "buildkite-sdk",
+        packageName: "buildkite",
     },
     deps: [],
     devDeps: ["publib"],
