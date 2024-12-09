@@ -18,7 +18,6 @@ npm test
 npm run package-all
 
 # Bump the version.
-git tag v0.0.x
 npm run bump
 
 # Generate a release. (Requires a clean working directory.)
