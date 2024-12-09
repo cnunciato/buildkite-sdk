@@ -173,6 +173,21 @@
       "steps": [
         {
           "spawn": "package:js"
+        },
+        {
+          "spawn": "package:python"
+        },
+        {
+          "spawn": "package:go"
+        }
+      ]
+    },
+    "package:go": {
+      "name": "package:go",
+      "description": "Create go language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target go"
         }
       ]
     },
@@ -182,6 +197,15 @@
       "steps": [
         {
           "exec": "jsii-pacmak -v --target js"
+        }
+      ]
+    },
+    "package:python": {
+      "name": "package:python",
+      "description": "Create python language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target python"
         }
       ]
     },
@@ -273,13 +297,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,projen,ts-jest,ts-node,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-pacmak,prettier,projen,publib,ts-jest,ts-node,typescript"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest ts-node typescript"
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii prettier projen publib ts-jest ts-node typescript"
         },
         {
           "exec": "npx projen"
