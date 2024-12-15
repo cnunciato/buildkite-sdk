@@ -14,22 +14,24 @@
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
-    "generate": "curl -fs https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json -o ./schema.json && npx json2ts ./schema.json > ./src/types.d.ts",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:dotnet": "npx projen package:dotnet",
     "package:go": "npx projen package:go",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
+    "publish:git": "npx projen publish:git",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "generate": "curl -fs https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json -o ./schema.json && npx json2ts ./schema.json > ./src/types.d.ts"
   },
   "author": {
     "name": "Christian Nunciato",
@@ -65,7 +67,7 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.5",
+  "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",
     "testMatch": [
@@ -120,9 +122,13 @@
         "distName": "buildkite-sdk",
         "module": "buildkite_sdk"
       },
+      "dotnet": {
+        "namespace": "Buildkite.SDK",
+        "packageId": "Buildkite.SDK"
+      },
       "go": {
         "moduleName": "github.com/cnunciato/buildkite-sdk",
-        "packageName": "buildkite"
+        "packageName": "buildkitesdk"
       }
     },
     "tsc": {

@@ -1,7 +1,10 @@
 import { cdk } from "projen";
 import { TrailingComma } from "projen/lib/javascript";
+import { ReleaseTrigger } from "projen/lib/release";
 
 const project = new cdk.JsiiProject({
+    majorVersion: 0,
+    releaseTrigger: ReleaseTrigger.manual(),
     name: "@cnunciato/buildkite-sdk",
     author: "Christian Nunciato",
     authorAddress: "chris.nunciato@buildkite.com",
@@ -34,11 +37,20 @@ const project = new cdk.JsiiProject({
     },
     publishToGo: {
         moduleName: "github.com/cnunciato/buildkite-sdk",
-        packageName: "buildkite",
+        packageName: "buildkitesdk",
+    },
+    publishToNuget: {
+        dotNetNamespace: "Buildkite.SDK",
+        packageId: "Buildkite.SDK",
     },
     deps: [],
-    devDeps: ["publib"],
+    devDeps: ["publib", "json-schema-to-typescript"],
 });
+
+project.setScript(
+    "generate",
+    "curl -fs https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json -o ./schema.json && npx json2ts ./schema.json > ./src/types.d.ts",
+);
 
 project.vscode?.settings.addSettings({
     "editor.defaultFormatter": "esbenp.prettier-vscode",
