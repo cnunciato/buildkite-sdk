@@ -1,0 +1,73 @@
+{
+    "name": "buildkite-sdk-python",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/sdk/python/buildkite_sdk",
+    "targets": {
+        "lock": {
+            "executor": "@nxlv/python:run-commands",
+            "options": {
+                "command": "uv lock",
+                "cwd": "libs/sdk/python"
+            }
+        },
+        "add": {
+            "executor": "@nxlv/python:add",
+            "options": {}
+        },
+        "update": {
+            "executor": "@nxlv/python:update",
+            "options": {}
+        },
+        "remove": {
+            "executor": "@nxlv/python:remove",
+            "options": {}
+        },
+        "build": {
+            "executor": "@nxlv/python:build",
+            "outputs": ["{projectRoot}/dist"],
+            "options": {
+                "outputPath": "libs/sdk/python/dist",
+                "publish": false,
+                "lockedVersions": true,
+                "bundleLocalDependencies": true
+            },
+            "cache": true
+        },
+        "install": {
+            "executor": "@nxlv/python:install",
+            "options": {
+                "silent": false,
+                "args": "",
+                "verbose": false,
+                "debug": false
+            }
+        },
+        "lint": {
+            "executor": "@nxlv/python:ruff-check",
+            "outputs": [],
+            "options": {
+                "lintFilePatterns": ["buildkite_sdk", "tests"]
+            },
+            "cache": true
+        },
+        "test": {
+            "executor": "@nxlv/python:run-commands",
+            "outputs": [
+                "{workspaceRoot}/reports/libs/sdk/python/unittests",
+                "{workspaceRoot}/coverage/libs/sdk/python"
+            ],
+            "options": {
+                "command": "uv run pytest tests/",
+                "cwd": "libs/sdk/python"
+            },
+            "cache": true
+        }
+    },
+    "tags": [],
+    "release": {
+        "version": {
+            "generator": "@nxlv/python:release-version"
+        }
+    }
+}

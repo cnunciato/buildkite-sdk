@@ -1,0 +1,34 @@
+{
+    "targets": {
+        "fetch": {
+            "command": "curl -fs https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json -o libs/sdk/schema.json"
+        },
+        "gen:typescript": {
+            "command": "quicktype --src ./libs/sdk/schema.json --lang typescript --out libs/sdk/typescript/src/schema.ts",
+            "dependsOn": ["fetch"]
+        },
+        "gen:python": {
+            "command": "quicktype --src ./libs/sdk/schema.json --lang python --out libs/sdk/python/schema.py",
+            "dependsOn": ["fetch"]
+        },
+        "gen:go": {
+            "command": "quicktype --src ./libs/sdk/schema.json --lang go --package buildkite --out libs/sdk/go/schema.go",
+            "dependsOn": ["fetch"]
+        },
+        "gen:all": {
+            "dependsOn": ["gen:typescript", "gen:python", "gen:go"]
+        },
+        "test:typescript": {
+            "command": "tsc && node -C test/typescript index.js"
+        },
+        "test:python": {
+            "command": "python test/python/main.py"
+        },
+        "test:go": {
+            "command": "go -C test/go run ."
+        },
+        "test:all": {
+            "dependsOn": ["test:typescript", "test:python", "test:go"]
+        }
+    }
+}

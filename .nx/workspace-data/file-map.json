@@ -1,0 +1,314 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.3.0",
+  "pathMappings": {
+    "@buildkite/buildkite-sdk": [
+      "libs/sdk/typescript/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.lib.json"
+        }
+      }
+    },
+    {
+      "name": "@nx-go/nx-go",
+      "version": "^3.3.1"
+    },
+    {
+      "name": "@nxlv/python",
+      "version": "^20.3.0"
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [],
+    "projectFileMap": {
+      "app-typescript": [
+        {
+          "file": "apps/typescript/eslint.config.cjs",
+          "hash": "7759795430795630113"
+        },
+        {
+          "file": "apps/typescript/jest.config.ts",
+          "hash": "10378778310427517132"
+        },
+        {
+          "file": "apps/typescript/project.json",
+          "hash": "9852076360360740875"
+        },
+        {
+          "file": "apps/typescript/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/typescript/src/main.ts",
+          "hash": "17145611812958259554",
+          "deps": [
+            "buildkite-sdk-typescript"
+          ]
+        },
+        {
+          "file": "apps/typescript/tsconfig.app.json",
+          "hash": "3662175709051481300"
+        },
+        {
+          "file": "apps/typescript/tsconfig.json",
+          "hash": "14517671628822477823"
+        },
+        {
+          "file": "apps/typescript/tsconfig.spec.json",
+          "hash": "7230845108145087438"
+        }
+      ],
+      "buildkite-sdk-python": [
+        {
+          "file": "libs/sdk/python/.python-version",
+          "hash": "13648901043608344200"
+        },
+        {
+          "file": "libs/sdk/python/README.md",
+          "hash": "16662560130211746111"
+        },
+        {
+          "file": "libs/sdk/python/buildkite_sdk/__init__.py",
+          "hash": "17960801969217970829"
+        },
+        {
+          "file": "libs/sdk/python/buildkite_sdk/hello.py",
+          "hash": "8520633345838421757"
+        },
+        {
+          "file": "libs/sdk/python/project.json",
+          "hash": "16936919172626217236"
+        },
+        {
+          "file": "libs/sdk/python/pyproject.toml",
+          "hash": "18268766918197859898"
+        },
+        {
+          "file": "libs/sdk/python/schema.py",
+          "hash": "7735509594030175766"
+        },
+        {
+          "file": "libs/sdk/python/tests/__init__.py",
+          "hash": "462151863455090031"
+        },
+        {
+          "file": "libs/sdk/python/tests/conftest.py",
+          "hash": "17640809267765960585"
+        },
+        {
+          "file": "libs/sdk/python/tests/test_hello.py",
+          "hash": "13519621700281423059"
+        }
+      ],
+      "@buildkite/sdk": [
+        {
+          "file": ".gitignore",
+          "hash": "9272704909629702199"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "14688272390704683536"
+        },
+        {
+          "file": ".prettierrc",
+          "hash": "12424778538387151723"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "4637156562308165301"
+        },
+        {
+          "file": ".vscode/settings.json",
+          "hash": "568693847912190526"
+        },
+        {
+          "file": "README.md",
+          "hash": "15763990811493680040"
+        },
+        {
+          "file": "apps/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "eslint.config.cjs",
+          "hash": "2305971847055092564",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "jest.config.ts",
+          "hash": "15363968756790069221",
+          "deps": [
+            "npm:@nx/jest"
+          ]
+        },
+        {
+          "file": "jest.preset.js",
+          "hash": "14932722313705501266",
+          "deps": [
+            "npm:@nx/jest"
+          ]
+        },
+        {
+          "file": "libs/sdk/schema.json",
+          "hash": "9971772509525092606"
+        },
+        {
+          "file": "nx.json",
+          "hash": "14093596427049831230"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "9548600944264790565"
+        },
+        {
+          "file": "package.json",
+          "hash": "11479353273806237401",
+          "deps": [
+            "npm:@eslint/js",
+            "npm:@nx-go/nx-go",
+            "npm:@nx/esbuild",
+            "npm:@nx/eslint",
+            "npm:@nx/eslint-plugin",
+            "npm:@nx/jest",
+            "npm:@nx/js",
+            "npm:@nx/node",
+            "npm:@nxlv/python",
+            "npm:@swc-node/register",
+            "npm:@swc/core",
+            "npm:@swc/helpers",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:esbuild",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:jest",
+            "npm:jest-environment-node",
+            "npm:nx",
+            "npm:prettier",
+            "npm:quicktype",
+            "npm:ts-jest",
+            "npm:ts-node",
+            "npm:tslib",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "packages/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "project.json",
+          "hash": "2899917429436900200"
+        },
+        {
+          "file": "tsconfig.base.json",
+          "hash": "787634043424665551"
+        }
+      ],
+      "buildkite-sdk-go": [
+        {
+          "file": "libs/sdk/go/api.go",
+          "hash": "8114796977979988188"
+        },
+        {
+          "file": "libs/sdk/go/buildkite-sdk.go",
+          "hash": "18371058094259758996"
+        },
+        {
+          "file": "libs/sdk/go/buildkite-sdk_test.go",
+          "hash": "4665742290079986230"
+        },
+        {
+          "file": "libs/sdk/go/go.mod",
+          "hash": "3154499243777276486"
+        },
+        {
+          "file": "libs/sdk/go/project.json",
+          "hash": "14823577573940914070"
+        },
+        {
+          "file": "libs/sdk/go/schema.go",
+          "hash": "1970790566739376390"
+        }
+      ],
+      "buildkite-sdk-typescript": [
+        {
+          "file": "libs/sdk/typescript/README.md",
+          "hash": "15217974904967655081"
+        },
+        {
+          "file": "libs/sdk/typescript/eslint.config.cjs",
+          "hash": "1445429177915402845",
+          "deps": [
+            "npm:jsonc-eslint-parser"
+          ]
+        },
+        {
+          "file": "libs/sdk/typescript/jest.config.ts",
+          "hash": "15318183355519190653"
+        },
+        {
+          "file": "libs/sdk/typescript/package.json",
+          "hash": "10391080683743591822",
+          "deps": [
+            "npm:tslib"
+          ]
+        },
+        {
+          "file": "libs/sdk/typescript/project.json",
+          "hash": "9400359841560088393"
+        },
+        {
+          "file": "libs/sdk/typescript/src/index.ts",
+          "hash": "5152229072972752843"
+        },
+        {
+          "file": "libs/sdk/typescript/src/schema.ts",
+          "hash": "18361082689630894949"
+        },
+        {
+          "file": "libs/sdk/typescript/src/sdk.spec.ts",
+          "hash": "13481799808636743466"
+        },
+        {
+          "file": "libs/sdk/typescript/src/sdk.ts",
+          "hash": "8218787186260317360"
+        },
+        {
+          "file": "libs/sdk/typescript/tsconfig.lib.json",
+          "hash": "3983044673577612181"
+        },
+        {
+          "file": "libs/sdk/typescript/tsconfig.spec.json",
+          "hash": "14575937654359467186"
+        }
+      ]
+    }
+  }
+}

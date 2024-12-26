@@ -1,0 +1,19 @@
+{
+    "name": "buildkite-sdk-typescript",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/sdk/typescript/src",
+    "projectType": "library",
+    "tags": [],
+    "targets": {
+        "build": {
+            "executor": "@nx/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/sdk/typescript",
+                "main": "libs/sdk/typescript/src/index.ts",
+                "tsConfig": "libs/sdk/typescript/tsconfig.lib.json",
+                "assets": ["libs/sdk/typescript/*.md"]
+            }
+        }
+    }
+}
