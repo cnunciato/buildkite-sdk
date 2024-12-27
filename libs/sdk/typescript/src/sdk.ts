@@ -26,10 +26,18 @@ export class Pipeline {
     }
 
     toJSON() {
-        return JSON.stringify(this.steps, null, 4);
+        return JSON.stringify(
+            {
+                steps: this.steps,
+            },
+            null,
+            4
+        );
     }
 
     toYAML() {
-        return yaml.stringify(this.steps);
+        return yaml.stringify({
+            steps: this.steps,
+        });
     }
 }
