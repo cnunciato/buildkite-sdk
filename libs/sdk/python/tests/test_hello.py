@@ -1,6 +1,6 @@
 """Hello unit test module."""
 
-from buildkite_sdk.hello import hello
+from src.hello import hello
 
 
 def test_hello():

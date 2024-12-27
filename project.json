@@ -20,6 +20,9 @@
         },
         "test:all": {
             "dependsOn": [
+                "lib-typescript:test",
+                "lib-python:test",
+                "lib-go:test",
                 "app-typescript:test",
                 "app-python:test",
                 "app-go:test"
