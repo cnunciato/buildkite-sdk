@@ -48,9 +48,6 @@
             "configurations": {
                 "development": {
                     "buildTarget": "app-typescript:build:development"
-                },
-                "production": {
-                    "buildTarget": "app-typescript:build:production"
                 }
             }
         },
