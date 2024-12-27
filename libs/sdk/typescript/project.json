@@ -1,5 +1,5 @@
 {
-    "name": "buildkite-sdk-typescript",
+    "name": "lib-typescript",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/sdk/typescript/src",
     "projectType": "library",

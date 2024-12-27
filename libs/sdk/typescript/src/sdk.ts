@@ -1,27 +1,22 @@
 import * as yaml from "yaml";
 import * as schema from "./schema";
 
-type Step =
+type PipelineStep =
     | schema.CommandStep
     | schema.WaitStep
     | schema.InputStep
     | schema.TriggerStep
-    | schema.GroupStepClass;
+    | schema.GroupStep;
 
 export class Pipeline {
-    private steps: Step[] = [];
+    private steps: PipelineStep[] = [];
 
     constructor() {
         this.steps = [];
     }
 
-    addStep(step: Step) {
+    addStep(step: PipelineStep) {
         this.steps.push(step);
-        return this;
-    }
-
-    addSteps(steps: Step[]) {
-        this.steps.push(...steps);
         return this;
     }
 

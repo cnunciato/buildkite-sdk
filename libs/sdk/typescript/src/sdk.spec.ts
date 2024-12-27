@@ -1,7 +1,7 @@
-import { buildkiteSdk } from "./sdk";
+import * as buildkite from "./sdk";
 
-describe("buildkiteSdk", () => {
+describe("toJSON()", () => {
     it("should work", () => {
-        expect(buildkiteSdk()).toEqual("buildkite-sdk");
+        expect(new buildkite.Pipeline().toJSON()).toBe({ steps: [] });
     });
 });
