@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	buildkite "github.com/buildkite/buildkite-sdk"
+	"github.com/buildkite/buildkite-sdk/pkg/buildkite"
 )
 
 func TestHello(t *testing.T) {

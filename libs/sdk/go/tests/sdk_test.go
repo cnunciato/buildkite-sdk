@@ -2,12 +2,14 @@ package buildkite
 
 import (
 	"testing"
+
+	"github.com/buildkite/buildkite-sdk/pkg/buildkite"
 )
 
 func TestBuildkite(t *testing.T) {
-	pipeline := Pipeline{}
+	pipeline := buildkite.Pipeline{}
 
-	pipeline.AddStep(Step{
+	pipeline.AddStep(buildkite.Step{
 		Type: "something",
 	})
 
