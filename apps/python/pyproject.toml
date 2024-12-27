@@ -1,6 +1,6 @@
 [tool.coverage.run]
 branch = true
-source = [ "app_python" ]
+source = [ "src" ]
 
 [tool.coverage.report]
 exclude_lines = ['if TYPE_CHECKING:']
@@ -18,7 +18,7 @@ readme = 'README.md'
 dependencies = []
 
 [tool.hatch.build.targets.wheel]
-packages = ["app_python"]
+packages = ["src"]
 
 [tool.hatch.metadata]
 allow-direct-references = true

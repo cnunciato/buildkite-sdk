@@ -2,7 +2,7 @@
     "name": "app-python",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "projectType": "application",
-    "sourceRoot": "apps/python/app_python",
+    "sourceRoot": "apps/python/src",
     "targets": {
         "lock": {
             "executor": "@nxlv/python:run-commands",
@@ -47,7 +47,7 @@
             "executor": "@nxlv/python:ruff-check",
             "outputs": [],
             "options": {
-                "lintFilePatterns": ["app_python", "tests"]
+                "lintFilePatterns": ["src", "tests"]
             },
             "cache": true
         },
