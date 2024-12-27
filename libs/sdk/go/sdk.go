@@ -5,15 +5,15 @@ import (
 )
 
 type Pipeline struct {
-	steps []Step
+	Steps []Step
 }
 
 func (p *Pipeline) AddStep(step Step) {
-	p.steps = append(p.steps, step)
+	p.Steps = append(p.Steps, step)
 }
 
 func (p *Pipeline) ToJSON() (string, error) {
-	data, err := json.Marshal(p.steps)
+	data, err := json.Marshal(p.Steps)
 	if err != nil {
 		return "", err
 	}
