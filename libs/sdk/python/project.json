@@ -2,7 +2,7 @@
     "name": "lib-python",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "sourceRoot": "libs/sdk/python/buildkite_sdk",
+    "sourceRoot": "libs/sdk/python/src",
     "targets": {
         "lock": {
             "executor": "@nxlv/python:run-commands",
