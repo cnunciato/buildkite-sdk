@@ -1,6 +1,6 @@
 [tool.coverage.run]
 branch = true
-source = [ "buildkite_sdk" ]
+source = [ "src/buildkite_sdk" ]
 
 [tool.coverage.report]
 exclude_lines = ['if TYPE_CHECKING:']
@@ -8,6 +8,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-report html:'../../../coverage/libs/sdk/python/html' --cov-report xml:'../../../coverage/libs/sdk/python/coverage.xml' --html='../../../reports/libs/sdk/python/unittests/html/index.html' --junitxml='../../../reports/libs/sdk/python/unittests/junit.xml'"
+# pythonpath = "src"
 
 [project]
 name = "buildkite-sdk"
@@ -18,7 +19,7 @@ readme = 'README.md'
 dependencies = []
 
 [tool.hatch.build.targets.wheel]
-packages = ["buildkite_sdk"]
+packages = ["src/buildkite_sdk"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -68,3 +69,6 @@ ignore = []
 
 fixable = ["ALL"]
 unfixable = []
+
+[tool.uv]
+package = true

@@ -8,11 +8,11 @@
             "dependsOn": ["fetch"]
         },
         "gen:python": {
-            "command": "quicktype --src ./libs/sdk/schema.json --lang python --out libs/sdk/python/schema.py",
+            "command": "quicktype --src ./libs/sdk/schema.json --lang python --out libs/sdk/python/src/schema.py",
             "dependsOn": ["fetch"]
         },
         "gen:go": {
-            "command": "quicktype --src ./libs/sdk/schema.json --lang go --package buildkite --out libs/sdk/go/schema.go",
+            "command": "quicktype --src ./libs/sdk/schema.json --lang go --package buildkite --out libs/sdk/go/pkg/buildkite/schema.go",
             "dependsOn": ["fetch"]
         },
         "gen:all": {

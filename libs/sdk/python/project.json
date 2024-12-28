@@ -47,7 +47,7 @@
             "executor": "@nxlv/python:ruff-check",
             "outputs": [],
             "options": {
-                "lintFilePatterns": ["buildkite_sdk", "tests"]
+                "lintFilePatterns": ["src", "tests"]
             },
             "cache": true
         },
