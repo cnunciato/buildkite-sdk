@@ -8,7 +8,7 @@
             "dependsOn": ["fetch"]
         },
         "gen:python": {
-            "command": "quicktype --src ./libs/sdk/schema.json --lang python --out libs/sdk/python/src/schema.py",
+            "command": "uvx jsonschema-gentypes --json-schema libs/sdk/schema.json --python libs/sdk/python/src/buildkite_sdk/schema.py",
             "dependsOn": ["fetch"]
         },
         "gen:go": {

@@ -6,6 +6,7 @@ apps/python/.pytest_cache
 apps/python/.venv
 apps/python/uv.lock
 __pycache__
+.coverage
 /coverage
 /reports
 

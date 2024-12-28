@@ -8,7 +8,6 @@ show_missing = true
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-report html:'../../../coverage/libs/sdk/python/html' --cov-report xml:'../../../coverage/libs/sdk/python/coverage.xml' --html='../../../reports/libs/sdk/python/unittests/html/index.html' --junitxml='../../../reports/libs/sdk/python/unittests/junit.xml'"
-# pythonpath = "src"
 
 [project]
 name = "buildkite-sdk"
@@ -32,6 +31,7 @@ dev = [
   "pytest-sugar>=1.0.0",
   "pytest-cov>=6.0.0",
   "pytest-html>=4.1.1",
+  "typing-extensions>=4.12.2"
 ]
 
 [build-system]

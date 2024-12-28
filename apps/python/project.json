@@ -4,6 +4,13 @@
     "projectType": "application",
     "sourceRoot": "apps/python/src",
     "targets": {
+        "run": {
+            "executor": "@nxlv/python:run-commands",
+            "options": {
+                "command": "PYTHONPATH=../../libs/sdk/python/src uv run src/main.py",
+                "cwd": "apps/python"
+            }
+        },
         "lock": {
             "executor": "@nxlv/python:run-commands",
             "options": {
@@ -58,7 +65,7 @@
                 "{workspaceRoot}/coverage/apps/python"
             ],
             "options": {
-                "command": "uv run pytest tests/",
+                "command": "PYTHONPATH=../../libs/sdk/python/src uv run pytest tests/",
                 "cwd": "apps/python"
             },
             "cache": true
