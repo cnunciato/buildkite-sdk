@@ -1,6 +1,11 @@
 from buildkite_sdk.sdk import Pipeline
 
-pipeline = Pipeline()
-pipeline.add_command_step({"label": "some-label", "command": "echo 'Hello, world!'"})
-print(pipeline.to_json())
-print(pipeline.to_yaml())
+def generate_json():
+    pipeline = Pipeline()
+    pipeline.add_command_step({"label": "some-label", "command": "echo 'Hello, world!'"})
+    return pipeline.to_json()
+
+def generate_yaml():
+    pipeline = Pipeline()
+    pipeline.add_command_step({"label": "some-label", "command": "echo 'Hello, world!'"})
+    return pipeline.to_yaml()

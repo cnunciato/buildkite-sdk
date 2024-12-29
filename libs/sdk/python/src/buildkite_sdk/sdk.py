@@ -13,4 +13,4 @@ class Pipeline:
         return json.dumps(self.__dict__)
 
     def to_yaml(self):
-        return yaml.dumps(self.__dict__)
+        return yaml.dump(self.__dict__)
