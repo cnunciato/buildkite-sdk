@@ -22,7 +22,11 @@
             ]
         },
         "publish:all": {
-            "dependsOn": ["lib-typescript:publish", "lib-python:publish"]
+            "dependsOn": [
+                "lib-typescript:publish",
+                "lib-python:publish",
+                "lib-go:build"
+            ]
         }
     }
 }

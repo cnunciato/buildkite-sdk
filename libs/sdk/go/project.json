@@ -9,9 +9,9 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "rm -rf dist/libs/sdk/go",
+                    "rm -rf dist/libs/sdk/go/*",
                     "mkdir -p dist/libs/sdk/go",
-                    "cp -R libs/sdk/go dist/libs/sdk/"
+                    "cp -R libs/sdk/go/* dist/libs/sdk/go/"
                 ]
             },
             "cache": false
