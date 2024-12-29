@@ -5,10 +5,10 @@ import (
 )
 
 type Pipeline struct {
-	Steps []Step
+	Steps []CommandStep
 }
 
-func (p *Pipeline) AddStep(step Step) {
+func (p *Pipeline) AddCommandStep(step CommandStep) {
 	p.Steps = append(p.Steps, step)
 }
 

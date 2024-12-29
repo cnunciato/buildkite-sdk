@@ -1,22 +1,8 @@
 {
     "targets": {
-        "fetch": {
-            "command": "curl -fs https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json -o libs/sdk/schema.json"
-        },
-        "gen:typescript": {
-            "command": "json2ts --input ./libs/sdk/schema.json --output libs/sdk/typescript/src/schema.d.ts",
+        "gen:types": {
+            "command": "node libs/sdk/gen-types.js",
             "dependsOn": ["fetch"]
-        },
-        "gen:python": {
-            "command": "uvx jsonschema-gentypes --json-schema libs/sdk/schema.json --python libs/sdk/python/src/buildkite_sdk/schema.py",
-            "dependsOn": ["fetch"]
-        },
-        "gen:go": {
-            "command": "quicktype --src ./libs/sdk/schema.json --lang go --package buildkite --out libs/sdk/go/pkg/buildkite/schema.go",
-            "dependsOn": ["fetch"]
-        },
-        "gen:all": {
-            "dependsOn": ["gen:typescript", "gen:python", "gen:go"]
         },
         "test:all": {
             "dependsOn": [

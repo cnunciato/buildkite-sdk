@@ -1,4 +1,4 @@
-from buildkite_sdk.schema import _CommandStep
+from buildkite_sdk.schema import CommandStep
 import json
 import yaml
 
@@ -6,7 +6,7 @@ class Pipeline:
     def __init__(self):
         self.steps = []
 
-    def add_command_step(self, props: _CommandStep):
+    def add_command_step(self, props: CommandStep):
         self.steps.append(props)
 
     def to_json(self):

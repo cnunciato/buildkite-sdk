@@ -6,17 +6,11 @@ import (
 	"github.com/buildkite/buildkite-sdk/pkg/buildkite"
 )
 
-func Hello(name string) string {
-	result := "Hello " + name
-	return result
-}
-
 func main() {
-	fmt.Println(Hello("app-go"))
-
 	pipeline := buildkite.Pipeline{}
-	pipeline.AddStep(buildkite.Step{
-		Type: "thing",
+	label := "some-label"
+	pipeline.AddCommandStep(buildkite.CommandStep{
+		Label: &label,
 	})
 
 	fmt.Println(pipeline.ToJSON())

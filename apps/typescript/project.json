@@ -37,13 +37,14 @@
                 }
             }
         },
-        "serve": {
+        "start": {
             "executor": "@nx/js:node",
             "defaultConfiguration": "development",
             "dependsOn": ["build"],
             "options": {
                 "buildTarget": "app-typescript:build",
-                "runBuildTargetDependencies": false
+                "runBuildTargetDependencies": false,
+                "watch": false
             },
             "configurations": {
                 "development": {

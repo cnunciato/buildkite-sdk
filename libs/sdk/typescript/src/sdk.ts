@@ -5,8 +5,7 @@ type PipelineStep =
     | schema.CommandStep
     | schema.WaitStep
     | schema.InputStep
-    | schema.TriggerStep
-    | schema.GroupStep;
+    | schema.TriggerStep;
 
 export class Pipeline {
     private steps: PipelineStep[] = [];
