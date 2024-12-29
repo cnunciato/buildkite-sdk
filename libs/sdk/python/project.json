@@ -62,6 +62,12 @@
                 "cwd": "libs/sdk/python"
             },
             "cache": true
+        },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "uvx twine upload dist/libs/sdk/python/* --repository testpypi --username __token__ --password $TEST_PYPI_TOKEN"
+            }
         }
     },
     "tags": [],
