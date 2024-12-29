@@ -1,6 +1,5 @@
 from buildkite_sdk.schema import CommandStep
 import json
-import yaml
 
 class Pipeline:
     def __init__(self):
@@ -11,6 +10,3 @@ class Pipeline:
 
     def to_json(self):
         return json.dumps(self.__dict__)
-
-    def to_yaml(self):
-        return yaml.dump(self.__dict__)

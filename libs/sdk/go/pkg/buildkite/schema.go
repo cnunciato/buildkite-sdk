@@ -77,7 +77,7 @@ type GroupStepClass struct {
 	Input                                                                                    *Input                       `json:"input"`
 	Agents                                                                                   *Agents                      `json:"agents"`
 	// The glob path/s of artifacts to upload once this step has finished running                                         
-	ArtifactPaths                                                                            *Branches                    `json:"artifact_paths"`
+	ArtifactPaths                                                                            []string                     `json:"artifact_paths"`
 	Cache                                                                                    *Cache                       `json:"cache"`
 	CancelOnBuildFailing                                                                     *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
 	// The commands to run on the agent                                                                                   
@@ -211,14 +211,14 @@ type CommandStep struct {
 	Agents                                                                                   *Agents                      `json:"agents"`
 	AllowDependencyFailure                                                                   *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
 	// The glob path/s of artifacts to upload once this step has finished running                                         
-	ArtifactPaths                                                                            *Branches                    `json:"artifact_paths"`
+	ArtifactPaths                                                                            []string                     `json:"artifact_paths"`
 	Branches                                                                                 *Branches                    `json:"branches"`
 	Cache                                                                                    *Cache                       `json:"cache"`
 	CancelOnBuildFailing                                                                     *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
 	// The commands to run on the agent                                                                                   
-	Command                                                                                  *Branches                    `json:"command"`
+	Command                                                                                  *CommandUnion                `json:"command"`
 	// The commands to run on the agent                                                                                   
-	Commands                                                                                 *Branches                    `json:"commands"`
+	Commands                                                                                 *CommandUnion                `json:"commands"`
 	// The maximum number of jobs created from this step that are allowed to run at the same                              
 	// time. If you use this attribute, you must also define concurrency_group.                                           
 	Concurrency                                                                              *int64                       `json:"concurrency,omitempty"`
@@ -402,7 +402,7 @@ type PurpleStep struct {
 	Input                                                                                    *Input                       `json:"input"`
 	Agents                                                                                   *Agents                      `json:"agents"`
 	// The glob path/s of artifacts to upload once this step has finished running                                         
-	ArtifactPaths                                                                            *Branches                    `json:"artifact_paths"`
+	ArtifactPaths                                                                            []string                     `json:"artifact_paths"`
 	Cache                                                                                    *Cache                       `json:"cache"`
 	CancelOnBuildFailing                                                                     *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
 	// The commands to run on the agent                                                                                   

@@ -5,11 +5,15 @@ describe("toJSON()", () => {
         const pipeline = new buildkite.Pipeline();
 
         pipeline.addStep({
-            label: "some-label",
+            command: "echo 'Hello, world!'",
         });
 
         expect(pipeline.toJSON()).toBe(
-            JSON.stringify({ steps: [{ label: "some-label" }] }, null, 4)
+            JSON.stringify(
+                { steps: [{ command: "echo 'Hello, world!'" }] },
+                null,
+                4
+            )
         );
     });
 });

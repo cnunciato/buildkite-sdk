@@ -11,16 +11,12 @@ const {
 
 async function main() {
     const inputData = new InputData();
-    // const source = {
-    //     name: "schema",
-    //     schema: fs.readFileSync("./libs/sdk/schema.json", "utf8"),
-    // };
 
     const result = await fetch(
         "https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json"
     );
-    const schema = await result.json();
 
+    const schema = await result.json();
     const source = {
         name: "schema",
         schema: JSON.stringify(schema),
@@ -51,17 +47,33 @@ async function main() {
         },
         go: {
             path: "./libs/sdk/go/pkg/buildkite/schema.go",
-            options: { package: "buildkite" },
+            options: { package: "buildkite", srcLang: "poop" },
         },
     };
 
     for await (lang of [typescript, python, go]) {
         const langOpts = opts[lang.name];
-        const { lines } = await quicktype({
+        let { lines } = await quicktype({
             lang,
             inputData,
             rendererOptions: langOpts.options,
         });
+
+        // Go formatter seems a bit buggy.
+        if (lang.name === "go") {
+            lines = lines.map((line) => {
+                if (line.match(/Command[s]?\W+\*Branches/)) {
+                    return line.replace("*Branches    ", "*CommandUnion");
+                }
+
+                if (line.match(/ArtifactPaths\W+\*Branches/)) {
+                    return line.replace("*Branches", "[]string ");
+                }
+
+                return line;
+            });
+        }
+
         fs.writeFileSync(langOpts.path, lines.join("\n"), "utf-8");
     }
 }
