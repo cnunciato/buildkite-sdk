@@ -1,0 +1,28 @@
+{
+    "targets": {
+        "gen:types": {
+            "command": "node libs/sdk/gen-types.js",
+            "dependsOn": ["fetch"]
+        },
+        "test:all": {
+            "dependsOn": [
+                "lib-typescript:test",
+                "lib-python:test",
+                "lib-go:test",
+                "app-typescript:test",
+                "app-python:test",
+                "app-go:test"
+            ]
+        },
+        "build:all": {
+            "dependsOn": [
+                "lib-typescript:build",
+                "lib-python:build",
+                "lib-go:build"
+            ]
+        },
+        "publish:all": {
+            "dependsOn": ["lib-typescript:publish", "lib-python:publish"]
+        }
+    }
+}
