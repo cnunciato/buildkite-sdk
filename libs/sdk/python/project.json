@@ -27,12 +27,12 @@
             "executor": "@nxlv/python:build",
             "outputs": ["{projectRoot}/dist"],
             "options": {
-                "outputPath": "libs/sdk/python/dist",
+                "outputPath": "dist/libs/sdk/python",
                 "publish": false,
                 "lockedVersions": true,
                 "bundleLocalDependencies": true
             },
-            "cache": true
+            "cache": false
         },
         "install": {
             "executor": "@nxlv/python:install",

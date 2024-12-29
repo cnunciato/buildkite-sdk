@@ -13,6 +13,13 @@
                 "app-python:test",
                 "app-go:test"
             ]
+        },
+        "build:all": {
+            "dependsOn": [
+                "lib-typescript:build",
+                "lib-python:build",
+                "lib-go:build"
+            ]
         }
     }
 }

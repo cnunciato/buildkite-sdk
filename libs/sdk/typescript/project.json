@@ -12,8 +12,10 @@
                 "outputPath": "dist/libs/sdk/typescript",
                 "main": "libs/sdk/typescript/src/index.ts",
                 "tsConfig": "libs/sdk/typescript/tsconfig.lib.json",
-                "assets": ["libs/sdk/typescript/*.md"]
-            }
+                "assets": ["libs/sdk/typescript/*.md"],
+                "clean": true
+            },
+            "cache": false
         }
     }
 }

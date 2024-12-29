@@ -61,5 +61,8 @@
             "dependsOn": ["^build"],
             "inputs": ["production", "^production"]
         }
+    },
+    "release": {
+        "projects": ["libs/sdk/typescript", "libs/sdk/python", "libs/sdk/go"]
     }
 }

@@ -37,7 +37,8 @@
                 "outputPath": "apps/python/dist",
                 "publish": false,
                 "lockedVersions": true,
-                "bundleLocalDependencies": true
+                "bundleLocalDependencies": true,
+                "keepBuildFolder": false
             },
             "cache": true
         },
