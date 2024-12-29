@@ -16,6 +16,16 @@
                 "clean": true
             },
             "cache": false
+        },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN",
+                    "npm publish"
+                ],
+                "cwd": "dist/libs/sdk/typescript"
+            }
         }
     }
 }

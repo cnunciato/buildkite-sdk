@@ -20,6 +20,9 @@
                 "lib-python:build",
                 "lib-go:build"
             ]
+        },
+        "publish:all": {
+            "dependsOn": ["lib-typescript:publish", "lib-python:publish"]
         }
     }
 }

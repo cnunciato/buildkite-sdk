@@ -1,4 +1,4 @@
-import { Pipeline } from "@buildkite/buildkite-sdk";
+import { Pipeline } from "@cnunciato/buildkite-sdk";
 
 const pipeline = new Pipeline();
 

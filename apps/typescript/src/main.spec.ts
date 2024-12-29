@@ -1,4 +1,4 @@
-import { Pipeline } from "@buildkite/buildkite-sdk";
+import { Pipeline } from "@cnunciato/buildkite-sdk";
 
 describe("toJSON()", () => {
     it("should work", () => {
