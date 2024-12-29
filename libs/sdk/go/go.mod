@@ -1,3 +1,3 @@
-module github.com/buildkite/buildkite-sdk
+module github.com/cnunciato/buildkite-sdk
 
 go 1.23.2

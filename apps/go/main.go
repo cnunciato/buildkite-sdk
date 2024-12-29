@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/buildkite/buildkite-sdk/pkg/buildkite"
+	"github.com/cnunciato/buildkite-sdk/pkg/buildkite"
 )
 
 func main() {
