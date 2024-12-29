@@ -16,6 +16,18 @@
             },
             "cache": false
         },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "go list -m github.com/cnunciato/buildkite-sdk@v0.0.10"
+                ],
+                "env": {
+                    "GOPROXY": "proxy.golang.org"
+                }
+            },
+            "cache": false
+        },
         "test": {
             "executor": "@nx-go/nx-go:test"
         },
