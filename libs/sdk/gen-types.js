@@ -46,7 +46,7 @@ async function main() {
             options: undefined,
         },
         go: {
-            path: "./libs/sdk/go/pkg/buildkite/schema.go",
+            path: "./libs/sdk/go/sdk/buildkite/schema.go",
             options: { package: "buildkite", srcLang: "poop" },
         },
     };
