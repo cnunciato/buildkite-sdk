@@ -2,7 +2,7 @@
 
 A multi-language SDK for [Buildkite](https://buildkite.com) managed with [Nx](https://nx.dev/). 🪁
 
-Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for Node.js (TypeScript/JavaScript), Python, Go.
+Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for Node.js (TS/JS), Python, Go.
 
 ```bash
 # Install dependencies.
@@ -40,8 +40,9 @@ console.log(pipeline.toJSON());
 
 ### Python
 
+Currently publishing to TestPyPI (to leave `buildkite-sdk` unclaimed).
+
 ```bash
-uv init .
 uv add buildkite-sdk --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple
 ```
 
