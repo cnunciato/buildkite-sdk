@@ -20,11 +20,11 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "go list -m github.com/cnunciato/buildkite-sdk/sdk/buildkite@v$VERSION"
+                    "go list -m github.com/cnunciato/buildkite-sdk/libs/sdk/go@v$VERSION"
                 ],
                 "env": {
                     "GOPROXY": "proxy.golang.org",
-                    "VERSION": "0.0.16"
+                    "VERSION": "0.0.17"
                 }
             },
             "cache": false
