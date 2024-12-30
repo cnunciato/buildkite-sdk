@@ -2,7 +2,7 @@
 
 A multi-language SDK for [Buildkite](https://buildkite.com) managed with [Nx](https://nx.dev/). 🪁
 
-Generates packages for Node.js (TypeScript/JavaScript), Python, Go.
+Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for Node.js (TypeScript/JavaScript), Python, Go.
 
 ```bash
 # Install dependencies.
