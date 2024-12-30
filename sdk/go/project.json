@@ -2,16 +2,16 @@
     "name": "lib-go",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "sourceRoot": "libs/sdk/go/sdk/buildkite",
+    "sourceRoot": "sdkgo/sdk/buildkite",
     "tags": [],
     "targets": {
         "build": {
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "rm -rf dist/libs/sdk/go/*",
-                    "mkdir -p dist/libs/sdk/go",
-                    "cp -R libs/sdk/go/* dist/libs/sdk/go/"
+                    "rm -rf dist/sdk/go/*",
+                    "mkdir -p dist/sdk/go",
+                    "cp -R sdk/go/* dist/sdk/go/"
                 ]
             },
             "cache": false
@@ -20,11 +20,11 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "go list -m github.com/cnunciato/buildkite-sdk/libs/sdk/go@v$VERSION"
+                    "go list -m github.com/cnunciato/buildkite-sdk/sdkgo@v$VERSION"
                 ],
                 "env": {
                     "GOPROXY": "proxy.golang.org",
-                    "VERSION": "0.0.18"
+                    "VERSION": "0.0.19"
                 }
             },
             "cache": false

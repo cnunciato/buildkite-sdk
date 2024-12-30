@@ -1,6 +1,6 @@
 export default {
     displayName: "buildkite-sdk",
-    preset: "../../../jest.preset.js",
+    preset: "../../jest.preset.js",
     testEnvironment: "node",
     transform: {
         "^.+\\.[tj]s$": [
@@ -9,5 +9,5 @@ export default {
         ],
     },
     moduleFileExtensions: ["ts", "js", "html"],
-    coverageDirectory: "../../../coverage/libs/sdk/typescript",
+    coverageDirectory: "../../../coverage/sdktypescript",
 };

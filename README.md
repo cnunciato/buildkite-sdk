@@ -62,7 +62,7 @@ print(pipeline.to_yaml())
 ### Go
 
 ```bash
-go get github.com/cnunciato/buildkite-sdk/libs/sdk/go
+go get github.com/cnunciato/buildkite-sdk/sdkgo
 ```
 
 ```go
@@ -70,7 +70,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/cnunciato/buildkite-sdk/libs/sdk/go/sdk/buildkite"
+	"github.com/cnunciato/buildkite-sdk/sdkgo/sdk/buildkite"
 )
 
 func main() {

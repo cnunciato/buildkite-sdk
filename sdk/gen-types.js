@@ -38,15 +38,15 @@ async function main() {
 
     const opts = {
         typescript: {
-            path: "./libs/sdk/typescript/src/schema.d.ts",
+            path: "./sdktypescript/src/schema.d.ts",
             options: undefined,
         },
         python: {
-            path: "./libs/sdk/python/src/buildkite_sdk/schema.py",
+            path: "./sdkpython/src/buildkite_sdk/schema.py",
             options: undefined,
         },
         go: {
-            path: "./libs/sdk/go/sdk/buildkite/schema.go",
+            path: "./sdkgo/sdk/buildkite/schema.go",
             options: { package: "buildkite", srcLang: "poop" },
         },
     };

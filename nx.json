@@ -63,6 +63,6 @@
         }
     },
     "release": {
-        "projects": ["libs/sdk/typescript", "libs/sdk/python", "libs/sdk/go"]
+        "projects": ["sdktypescript", "sdkpython", "sdkgo"]
     }
 }

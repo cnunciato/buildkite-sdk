@@ -1,7 +1,7 @@
 {
     "name": "lib-typescript",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/sdk/typescript/src",
+    "sourceRoot": "sdktypescript/src",
     "projectType": "library",
     "tags": [],
     "targets": {
@@ -9,10 +9,10 @@
             "executor": "@nx/js:tsc",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/libs/sdk/typescript",
-                "main": "libs/sdk/typescript/src/index.ts",
-                "tsConfig": "libs/sdk/typescript/tsconfig.lib.json",
-                "assets": ["libs/sdk/typescript/*.md"],
+                "outputPath": "dist/sdktypescript",
+                "main": "sdktypescript/src/index.ts",
+                "tsConfig": "sdktypescript/tsconfig.lib.json",
+                "assets": ["sdktypescript/*.md"],
                 "clean": true
             },
             "cache": false
@@ -24,7 +24,7 @@
                     "npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN",
                     "npm publish"
                 ],
-                "cwd": "dist/libs/sdk/typescript"
+                "cwd": "dist/sdktypescript"
             }
         }
     }

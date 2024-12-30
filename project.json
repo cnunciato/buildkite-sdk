@@ -1,7 +1,7 @@
 {
     "targets": {
         "gen:types": {
-            "command": "node libs/sdk/gen-types.js",
+            "command": "node sdkgen-types.js",
             "dependsOn": ["fetch"]
         },
         "test:all": {
