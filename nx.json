@@ -64,6 +64,5 @@
     },
     "release": {
         "projects": ["libs/sdk/typescript", "libs/sdk/python", "libs/sdk/go"]
-    },
-    "neverConnectToCloud": true
+    }
 }
