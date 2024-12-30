@@ -2,7 +2,9 @@
     "name": "@cnunciato/buildkite-sdk",
     "version": "0.0.0",
     "license": "MIT",
-    "scripts": {},
+    "scripts": {
+        "agent:local": "buildkite-agent start --token $(pulumi env open cnunciato/default/personal buildkite.apiToken --format yaml)"
+    },
     "private": true,
     "devDependencies": {
         "@cnunciato/buildkite-sdk": "^0.0.15",
