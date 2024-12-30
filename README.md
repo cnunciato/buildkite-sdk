@@ -4,7 +4,7 @@
 
 A multi-language SDK for [Buildkite](https://buildkite.com) managed with [Nx](https://nx.dev/). 🪁
 
-Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for Node.js (TS/JS), Python, Go.
+Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for Node.js (TS/JS), Python, and Go.
 
 ```bash
 # Install dependencies.
@@ -28,8 +28,8 @@ npx nx publish:all
 npm install @cnunciato/buildkite-sdk
 ```
 
-```typescript
-import { Pipeline } from "@cnunciato/buildkite-sdk";
+```javascript
+const { Pipeline } = require("@cnunciato/buildkite-sdk");
 
 const pipeline = new Pipeline();
 
@@ -38,6 +38,7 @@ pipeline.addStep({
 });
 
 console.log(pipeline.toJSON());
+console.log(pipeline.toYAML());
 ```
 
 ### Python
@@ -53,7 +54,6 @@ from buildkite_sdk import Pipeline
 
 pipeline = Pipeline()
 pipeline.add_command_step({"command": "echo 'Hello, world!'"})
-return
 
 print(pipeline.to_json())
 print(pipeline.to_yaml())
