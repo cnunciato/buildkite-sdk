@@ -1,5 +1,7 @@
 # buildkite-sdk
 
+[![Build status](https://badge.buildkite.com/a21842ec1f3c8f405b167966b2468ef995317dfe568836aa63.svg)](https://buildkite.com/nunciato/buildkite-sdk)
+
 A multi-language SDK for [Buildkite](https://buildkite.com) managed with [Nx](https://nx.dev/). 🪁
 
 Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for Node.js (TS/JS), Python, Go.
