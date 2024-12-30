@@ -4,4 +4,4 @@ steps:
           - npm install
           - npx nx test:all
           - npx nx build:all
-          #   - npx nx publish:all
+          # - npx nx publish:all
