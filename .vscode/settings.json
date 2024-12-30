@@ -6,5 +6,5 @@
     "files.insertFinalNewline": true,
     "prettier.configPath": "./.prettierrc",
     "prettier.documentSelectors": ["**/*.{ts,js,cjs,mjs,json,md,svg}"],
-    "python.analysis.extraPaths": ["./sdkpython/src"]
+    "python.analysis.extraPaths": ["./sdk/python/src"]
 }

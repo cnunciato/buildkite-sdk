@@ -7,7 +7,7 @@
         "start": {
             "executor": "@nxlv/python:run-commands",
             "options": {
-                "command": "PYTHONPATH=../../sdkpython/src uv run src/main.py",
+                "command": "PYTHONPATH=../../sdk/python/src uv run src/main.py",
                 "cwd": "apps/python"
             }
         },
@@ -66,7 +66,7 @@
                 "{workspaceRoot}/coverage/apps/python"
             ],
             "options": {
-                "command": "PYTHONPATH=../../sdkpython/src uv run pytest tests/",
+                "command": "PYTHONPATH=../../sdk/python/src uv run pytest tests/",
                 "cwd": "apps/python"
             },
             "cache": true

@@ -7,7 +7,7 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = "--cov --cov-report html:'../../../coverage/sdkpython/html' --cov-report xml:'../../../coverage/sdkpython/coverage.xml' --html='../../../reports/sdkpython/unittests/html/index.html' --junitxml='../../../reports/sdkpython/unittests/junit.xml'"
+addopts = "--cov --cov-report html:'../../../coverage/sdk/python/html' --cov-report xml:'../../../coverage/sdk/python/coverage.xml' --html='../../../reports/sdk/python/unittests/html/index.html' --junitxml='../../../reports/sdk/python/unittests/junit.xml'"
 
 [project]
 name = "buildkite-sdk"

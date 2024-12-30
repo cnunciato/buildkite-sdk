@@ -1,14 +1,14 @@
 {
-    "name": "lib-python",
+    "name": "sdk-python",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "sourceRoot": "sdkpython/src",
+    "sourceRoot": "sdk/python/src",
     "targets": {
         "lock": {
             "executor": "@nxlv/python:run-commands",
             "options": {
                 "command": "uv lock",
-                "cwd": "sdkpython"
+                "cwd": "sdk/python"
             }
         },
         "add": {
@@ -27,7 +27,7 @@
             "executor": "@nxlv/python:build",
             "outputs": ["{projectRoot}/dist"],
             "options": {
-                "outputPath": "dist/sdkpython",
+                "outputPath": "dist/sdk/python",
                 "publish": false,
                 "lockedVersions": true,
                 "bundleLocalDependencies": true
@@ -54,19 +54,19 @@
         "test": {
             "executor": "@nxlv/python:run-commands",
             "outputs": [
-                "{workspaceRoot}/reports/sdkpython/unittests",
-                "{workspaceRoot}/coverage/sdkpython"
+                "{workspaceRoot}/reports/sdk/python/unittests",
+                "{workspaceRoot}/coverage/sdk/python"
             ],
             "options": {
                 "command": "uv run pytest tests/",
-                "cwd": "sdkpython"
+                "cwd": "sdk/python"
             },
             "cache": true
         },
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "uvx twine upload dist/sdkpython/* --repository testpypi --username __token__ --password $TEST_PYPI_TOKEN"
+                "command": "uvx twine upload dist/sdk/python/* --repository testpypi --username __token__ --password $TEST_PYPI_TOKEN"
             }
         }
     },

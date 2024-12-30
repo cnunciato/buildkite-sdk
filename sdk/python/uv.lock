@@ -16,7 +16,7 @@ wheels = [
 
 [[package]]
 name = "buildkite-sdk"
-version = "0.0.14"
+version = "0.0.19"
 source = { editable = "." }
 dependencies = [
     { name = "pyyaml" },
