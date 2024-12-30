@@ -2,7 +2,7 @@
 
 A multi-language SDK for [Buildkite](https://buildkite.com) managed with [Nx](https://nx.dev/). 🪁
 
-Generates packages in JS/TS, Python, Go.
+Generates packages for Node.js (TypeScript/JavaScript), Python, Go.
 
 ```bash
 # Install dependencies.
@@ -20,6 +20,8 @@ npx nx publish:all
 
 ## Try it out
 
+### Node.js
+
 ```bash
 npm install @cnunciato/buildkite-sdk
 ```
@@ -36,6 +38,13 @@ pipeline.addStep({
 console.log(pipeline.toJSON());
 ```
 
+### Python
+
+```bash
+uv init .
+uv add buildkite-sdk --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple
+```
+
 ```python
 from buildkite_sdk import Pipeline
 
@@ -45,6 +54,12 @@ return
 
 print(pipeline.to_json())
 print(pipeline.to_yaml())
+```
+
+### Go
+
+```bash
+go get github.com/cnunciato/buildkite-sdk/libs/sdk/go
 ```
 
 ```go
