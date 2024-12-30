@@ -1,0 +1,7 @@
+steps:
+    - label: ":rocket: Make it work"
+      commands:
+          - npm install
+          - npx nx test:all
+          - npx nx build:all
+          - npx nx publish:all
