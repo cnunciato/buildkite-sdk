@@ -19,4 +19,10 @@ func TestAddCommandStep(t *testing.T) {
 	if actual != expected {
 		t.Errorf("Expected '%s' to be '%s'", actual, expected)
 	}
+
+	// actual, _ = pipeline.ToYAML()
+	// expected = `nope`
+	// if actual != expected {
+	// 	t.Errorf("Expected '%s' to be '%s'", actual, expected)
+	// }
 }
