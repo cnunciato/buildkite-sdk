@@ -1,8 +1,8 @@
 {
-    "name": "lib-go",
+    "name": "sdk-go",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
     "projectType": "library",
-    "sourceRoot": "sdkgo/sdk/buildkite",
+    "sourceRoot": "sdk/go/sdk/buildkite",
     "tags": [],
     "targets": {
         "build": {
@@ -20,7 +20,7 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "go list -m github.com/cnunciato/buildkite-sdk/sdkgo@v$VERSION"
+                    "go list -m github.com/cnunciato/buildkite-sdk/sdk/go@v$VERSION"
                 ],
                 "env": {
                     "GOPROXY": "proxy.golang.org",

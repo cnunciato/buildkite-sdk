@@ -15,7 +15,7 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@cnunciato/buildkite-sdk": ["sdktypescript/src/index.ts"]
+            "@cnunciato/buildkite-sdk": ["sdk/typescript/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

@@ -63,6 +63,6 @@
         }
     },
     "release": {
-        "projects": ["sdktypescript", "sdkpython", "sdkgo"]
+        "projects": ["sdk-typescript", "sdk-python", "sdk-go"]
     }
 }

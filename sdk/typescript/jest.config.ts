@@ -9,5 +9,5 @@ export default {
         ],
     },
     moduleFileExtensions: ["ts", "js", "html"],
-    coverageDirectory: "../../../coverage/sdktypescript",
+    coverageDirectory: "../../../coverage/sdk/typescript",
 };
