@@ -1,0 +1,41 @@
+"cnunciato/buildkite_sdk"
+
+module(
+    name = "buildkite_sdk",
+)
+
+bazel_dep(name = "rules_nodejs", version = "6.3.2")
+bazel_dep(name = "aspect_rules_js", version = "2.1.2")
+bazel_dep(name = "aspect_rules_ts", version = "3.3.2")
+
+http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+http_file(
+    name = "schema",
+    downloaded_file_path = "sdk/schema.json",
+    sha256 = "62c52d12f959a2f919ec4efc1352ef175781d8ba81f8cc7feb19564b391700d8",
+    url = "https://raw.githubusercontent.com/buildkite/pipeline-schema/refs/heads/main/schema.json",
+)
+
+node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node", dev_dependency = True)
+node.toolchain(node_version = "20.18.0")
+
+npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm", dev_dependency = True)
+npm.npm_translate_lock(
+    name = "npm",
+    # npm_package_lock = "//:package-lock.json",
+    pnpm_lock = "//:pnpm-lock.yaml",
+    verify_node_modules_ignored = "//:.bazelignore",
+    generate_bzl_library_targets = True,
+    update_pnpm_lock = True,
+    # npm_package_target_name = "typescript",
+    data = [
+        "//:package.json",
+        "//sdk/typescript:package.json",
+        "//:pnpm-workspace.yaml",
+    ],
+)
+use_repo(npm, "npm")
+
+rules_ts_ext = use_extension("@aspect_rules_ts//ts:extensions.bzl", "ext", dev_dependency = True)
+rules_ts_ext.deps()
+use_repo(rules_ts_ext, "npm_typescript")

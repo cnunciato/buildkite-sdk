@@ -6,5 +6,10 @@
     "files.insertFinalNewline": true,
     "prettier.configPath": "./.prettierrc",
     "prettier.documentSelectors": ["**/*.{ts,js,cjs,mjs,json,md,svg}"],
-    "python.analysis.extraPaths": ["./sdk/python/src"]
+
+    // Not sure why we need this, but we seem to. (Otherwise, type hinting/Intellisense doesn't work for Python.)
+    "python.analysis.extraPaths": ["./sdk/python/src"],
+    "[starlark]": {
+        "editor.defaultFormatter": "BazelBuild.vscode-bazel"
+    }
 }

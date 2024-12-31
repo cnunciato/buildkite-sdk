@@ -1,0 +1,19 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages(name = "node_modules")
+
+ts_project(
+    name = "sdk_typescript",
+    srcs = [
+        "src/index.ts",
+        "src/schema.d.ts",
+        "src/sdk.ts",
+    ],
+    declaration = True,
+    # out_dir = ".",
+    deps = [
+        ":node_modules/tslib",
+        ":node_modules/yaml",
+    ],
+)

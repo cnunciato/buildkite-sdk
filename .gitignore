@@ -1,18 +1,42 @@
+# Nx-related files.
 .nx/cache
 .nx/workspace-data
 
+# Test results, caches.
 apps/python/.coverage
 apps/python/.pytest_cache
 apps/python/.venv
 apps/python/uv.lock
-__pycache__
 .coverage
 /coverage
 /reports
-
+__pycache__
 node_modules
-dist
-tmp
 
+# Build artifacts.
+dist
+.aspect
+
+# macOS files.
 .DS_Store
 Thumbs.db
+
+# Bazel output directories.
+bazel-*
+
+# Bazel test logs
+bazel-testlogs/
+
+# Temporary files created during Bazel builds.
+*.runfiles/
+*.log
+*.logs/
+
+# Generated output files.
+bazel-*
+
+# IDE and editor files.
+.idea/
+
+# Temporary files.
+tmp

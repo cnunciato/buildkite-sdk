@@ -1,0 +1,16 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+genrule(
+    name = "export_schema_file",
+    srcs = [":schema_file"],
+    outs = ["sdk/schema.json"],
+    cmd = "cp $< $@",
+)
+
+filegroup(
+    name = "schema_file",
+    srcs = ["@schema//file"],
+)
+
+# This macro expands to a npm_link_package for each third-party package in package.json
+npm_link_all_packages(name = "node_modules")
