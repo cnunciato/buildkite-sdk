@@ -1,0 +1,10 @@
+py_binary(
+    name = "sdk_python",
+    srcs = [
+        "src/buildkite_sdk/__init__.py",
+        "src/buildkite_sdk/schema.py",
+        "src/buildkite_sdk/sdk.py",
+    ],
+    main = "src/buildkite_sdk/__init__.py",
+    visibility = ["//visibility:public"],
+)
