@@ -11,7 +11,7 @@ ts_project(
         "src/sdk.ts",
     ],
     declaration = True,
-    # out_dir = ".",
+    out_dir = "dist",
     deps = [
         ":node_modules/tslib",
         ":node_modules/yaml",

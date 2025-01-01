@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "sdk_go",
+    srcs = [
+        "sdk/buildkite/schema.go",
+        "sdk/buildkite/sdk.go",
+    ],
+    importpath = "github.com/cnunciato/buildkite-sdk/sdk/go/sdk/buildkite",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@in_gopkg_yaml_v3//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "sdk_go_test",
+    srcs = ["sdk/buildkite/sdk_test.go"],
+    embed = [":sdk_go"],
+)
