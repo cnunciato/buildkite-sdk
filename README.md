@@ -99,3 +99,4 @@ This is still done manually. For example, to upgrade from `0.0.24` to `0.0.25`:
 -   Commit those changes with a message like `Release v0.0.25`.
 -   Tag thusly: `git tag sdk/go/v0.0.25`.
 -   Push the commit and the tag to `main`: `git push origin main`.
+-   Run `npm run publish`.
