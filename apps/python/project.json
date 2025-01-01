@@ -4,7 +4,7 @@
     "projectType": "application",
     "sourceRoot": "apps/python/src",
     "targets": {
-        "start": {
+        "run": {
             "executor": "@nxlv/python:run-commands",
             "options": {
                 "command": "PYTHONPATH=../../sdk/python/src uv run src/main.py",
