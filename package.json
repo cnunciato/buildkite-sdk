@@ -3,7 +3,11 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK"
+        "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK",
+        "test": "nx test:all --no-cloud",
+        "build": "nx build:all --no-cloud",
+        "run": "nx run:all --no-cloud",
+        "publish": "nx publish:all --no-cloud"
     },
     "private": true,
     "devDependencies": {

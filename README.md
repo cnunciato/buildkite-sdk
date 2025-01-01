@@ -11,13 +11,16 @@ Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-s
 npm install
 
 # Test.
-npx nx test:all
+npm test
 
 # Build.
-npx nx build:all
+npm run build
+
+# Run apps (e.g., to use the SDKs to generate pipelines).
+npm run build
 
 # Publish to npm, PyPi and pkg.go.dev.
-npx nx publish:all
+npm run publish
 ```
 
 ## Try it out

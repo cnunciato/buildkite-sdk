@@ -1,7 +1,6 @@
 steps:
-    - label: ":rocket: Install, test, and build"
+    - label: ":hammer_and_wrench: Install, test, and build"
       commands:
           - npm install
-          - npx nx test:all
-          - npx nx build:all
-          # - npx nx publish:all
+          - npm test
+          - npx run build

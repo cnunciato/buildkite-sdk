@@ -64,5 +64,6 @@
     },
     "release": {
         "projects": ["sdk-typescript", "sdk-python", "sdk-go"]
-    }
+    },
+    "neverConnectToCloud": true
 }
