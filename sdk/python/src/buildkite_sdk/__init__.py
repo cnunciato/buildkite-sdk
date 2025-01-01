@@ -1,1 +1,1 @@
-from .sdk import Pipeline
+import sdk as buildkite_sdk

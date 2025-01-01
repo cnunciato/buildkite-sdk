@@ -7,4 +7,17 @@ py_binary(
     ],
     main = "src/buildkite_sdk/__init__.py",
     visibility = ["//visibility:public"],
+    deps = [
+        "@py_deps//:pyyaml",
+    ],
+)
+
+py_library(
+    name = "lib_sdk_python",
+    srcs = [
+        "src/buildkite_sdk/__init__.py",
+        "src/buildkite_sdk/schema.py",
+        "src/buildkite_sdk/sdk.py",
+    ],
+    visibility = ["//visibility:public"],
 )

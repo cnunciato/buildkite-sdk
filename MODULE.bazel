@@ -7,8 +7,6 @@ module(
 bazel_dep(name = "rules_nodejs", version = "6.3.2")
 bazel_dep(name = "aspect_rules_js", version = "2.1.2")
 bazel_dep(name = "aspect_rules_ts", version = "3.3.2")
-bazel_dep(name = "rules_uv", version = "0.48.0")
-bazel_dep(name = "rules_python", version = "1.0.0")
 
 http_file = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 http_file(
@@ -41,6 +39,3 @@ use_repo(npm, "npm")
 rules_ts_ext = use_extension("@aspect_rules_ts//ts:extensions.bzl", "ext", dev_dependency = True)
 rules_ts_ext.deps()
 use_repo(rules_ts_ext, "npm_typescript")
-
-pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
-use_repo(pip, "pip")

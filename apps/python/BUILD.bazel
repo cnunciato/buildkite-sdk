@@ -1,0 +1,10 @@
+py_binary(
+    name = "app_python",
+    srcs = [
+        "src/main.py",
+    ],
+    main = "src/main.py",
+    deps = [
+        "//sdk/python:lib_sdk_python",
+    ],
+)
