@@ -6,7 +6,7 @@
         "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK",
         "test": "nx test:all",
         "build": "nx build:all",
-        "run": "nx run:all",
+        "start": "nx start:all",
         "publish": "nx publish:all"
     },
     "private": true,

@@ -21,8 +21,12 @@
                 "sdk-go:build"
             ]
         },
-        "run:all": {
-            "dependsOn": ["app-typescript:run", "app-python:run", "app-go:run"]
+        "start:all": {
+            "dependsOn": [
+                "app-typescript:start",
+                "app-python:start",
+                "app-go:start"
+            ]
         },
         "publish:all": {
             "dependsOn": [

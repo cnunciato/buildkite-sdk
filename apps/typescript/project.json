@@ -37,7 +37,7 @@
                 }
             }
         },
-        "run": {
+        "start": {
             "executor": "@nx/js:node",
             "defaultConfiguration": "development",
             "dependsOn": ["build"],

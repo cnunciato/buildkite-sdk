@@ -17,7 +17,7 @@ npm test
 npm run build
 
 # Run apps (e.g., to use the SDKs to generate pipelines).
-npm run build
+npm start
 
 # Publish to npm, PyPi and pkg.go.dev.
 npm run publish
