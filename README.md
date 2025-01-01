@@ -23,7 +23,7 @@ npm run build
 npm run publish
 ```
 
-## Try it out
+## Usage
 
 ### Node.js
 
@@ -90,3 +90,12 @@ func main() {
 	fmt.Println(pipeline.ToYAML())
 }
 ```
+
+## Publishing new versions
+
+This is still done manually. For example, to upgrade from `0.0.24` to `0.0.25`:
+
+-   Bump the version numbers in `sdk/go/project.json`, `sdk/python/pyproject.toml`, and `sdk/typescript/package.json` to `0.0.25`.
+-   Commit those changes with a message like `Release v0.0.25`.
+-   Tag thusly: `git tag sdk/go/v0.0.25`.
+-   Push the commit and the tag to `main`: `git push origin main`.
