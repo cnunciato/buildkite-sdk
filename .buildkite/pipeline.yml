@@ -1,7 +1,5 @@
 steps:
     - label: ":hammer_and_wrench: Install, test, and build"
       commands:
-          - asdf install
-          - npm install
           - npm test
           - npm run build
