@@ -93,7 +93,7 @@ func main() {
 
 ### Ruby
 
-This one's not yet publishing to RubyGems.
+Still working on this one, so it's not yet publishing to RubyGems.
 
 ```ruby
 require "buildkite"
@@ -110,14 +110,14 @@ puts pipeline.to_yaml
 
 ## Publishing new versions
 
-All SDKs version on the same cadence, and the version is still done manually. To upgrade, for example, from `0.0.24` to `0.0.25`:
+All SDKs version on the same cadence, and versioning is still done manually. To upgrade from `0.0.1` to `0.0.2`, for example:
 
--   Bump the version numbers in these files to `0.0.25`:
+-   Bump the version numbers in these files to `0.0.2`:
     -   `sdk/go/project.json`
     -   `sdk/python/pyproject.toml`
     -   `sdk/typescript/package.json`
     -   `sdk/ruby/lib/buildkite/version.rb`
--   Commit those changes with a message like `Release v0.0.25`.
--   Tag thusly (this is important): `git tag sdk/go/v0.0.25`.
+-   Commit those changes with a message like `Release v0.0.2`.
+-   Tag thusly (this is important): `git tag sdk/go/v0.0.2`.
 -   Push the commit and the tag to `main`: `git push origin main`.
 -   Run `npm run publish`.
