@@ -93,6 +93,8 @@ func main() {
 
 ### Ruby
 
+This one's still in progress; not yet publishing to RubyGems.
+
 ```ruby
 require "buildkite"
 
