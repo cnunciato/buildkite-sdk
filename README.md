@@ -19,7 +19,7 @@ npm run build
 # Run apps (e.g., to use the SDKs to generate pipelines).
 npm start
 
-# Publish to npm, PyPi and pkg.go.dev.
+# Publish to npm, PyPi pkg.go.dev, and RubyGems.
 npm run publish
 ```
 
@@ -93,7 +93,7 @@ func main() {
 
 ### Ruby
 
-This one's still in progress; not yet publishing to RubyGems.
+This one's not yet publishing to RubyGems.
 
 ```ruby
 require "buildkite"
