@@ -2,4 +2,5 @@ steps:
     - label: ":hammer_and_wrench: Install, test, and build"
       commands:
           - npm install
-          - npx run build
+          - npm test
+          - npm run build
