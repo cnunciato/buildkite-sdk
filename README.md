@@ -110,7 +110,7 @@ puts pipeline.to_yaml
 
 ## Publishing new versions
 
-All SDKs version on the same cadence, and the versioning is still done manually. To upgrade all SDKs from `0.0.1` to `0.0.2`, for example, follow these steps:
+All SDKs version on the same cadence, and the versioning and publishing are still done manually. To upgrade all SDKs from `0.0.1` to `0.0.2`, for example, follow these steps:
 
 -   Bump the version numbers in these files to `0.0.2`:
     -   `sdk/go/project.json`
