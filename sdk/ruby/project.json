@@ -1,0 +1,17 @@
+{
+    "name": "sdk-ruby",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "sdk/ruby",
+    "projectType": "library",
+    "tags": [],
+    "targets": {
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["bundle exec rspec spec"],
+                "cwd": "sdk/ruby"
+            },
+            "cache": false
+        }
+    }
+}

@@ -9,6 +9,7 @@
                 "sdk-typescript:test",
                 "sdk-python:test",
                 "sdk-go:test",
+                "sdk-ruby:test",
                 "app-typescript:test",
                 "app-python:test",
                 "app-go:test"
