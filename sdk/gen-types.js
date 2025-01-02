@@ -7,6 +7,7 @@ const {
     TypeScriptTargetLanguage,
     PythonTargetLanguage,
     GoTargetLanguage,
+    RubyTargetLanguage,
 } = require("quicktype-core");
 
 async function main() {
@@ -35,6 +36,7 @@ async function main() {
     );
     const python = new PythonTargetLanguage("Python", ["python"], "py");
     const go = new GoTargetLanguage("Go", ["go"], "go");
+    const ruby = new RubyTargetLanguage("Ruby", ["ruby"], "rb");
 
     const opts = {
         typescript: {
@@ -47,11 +49,15 @@ async function main() {
         },
         go: {
             path: "./sdk/go/sdk/buildkite/schema.go",
-            options: { package: "buildkite", srcLang: "poop" },
+            options: { package: "buildkite" },
+        },
+        ruby: {
+            path: "./sdk/ruby/lib/schema.rb",
+            options: undefined,
         },
     };
 
-    for await (lang of [typescript, python, go]) {
+    for await (lang of [typescript, python, go, ruby]) {
         const langOpts = opts[lang.name];
         let { lines } = await quicktype({
             lang,
