@@ -19,14 +19,16 @@
             "dependsOn": [
                 "sdk-typescript:build",
                 "sdk-python:build",
-                "sdk-go:build"
+                "sdk-go:build",
+                "sdk-ruby:build"
             ]
         },
         "start:all": {
             "dependsOn": [
                 "app-typescript:start",
                 "app-python:start",
-                "app-go:start"
+                "app-go:start",
+                "app-ruby:start"
             ]
         },
         "publish:all": {

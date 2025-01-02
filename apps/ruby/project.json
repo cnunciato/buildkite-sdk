@@ -1,0 +1,17 @@
+{
+    "name": "app-ruby",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/ruby",
+    "projectType": "library",
+    "tags": [],
+    "targets": {
+        "start": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["bundle install", "bundle exec ruby main.rb"],
+                "cwd": "apps/ruby"
+            },
+            "cache": false
+        }
+    }
+}
