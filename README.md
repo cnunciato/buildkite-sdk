@@ -119,5 +119,5 @@ All SDKs version on the same cadence, and the versioning is still done manually.
     -   `sdk/ruby/lib/buildkite/version.rb`
 -   Commit those changes with a message like `Release v0.0.2`
 -   Tag thusly: `git tag v0.0.2 && git tag sdk/go/v0.0.2`
--   Push the commit and the tag to `main`: `git push origin main`
+-   Push the commit and the tags to `main`: `git push origin main --tags`
 -   Run `npm run publish`
