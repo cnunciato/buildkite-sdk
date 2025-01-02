@@ -109,7 +109,11 @@ puts pipeline.to_yaml
 
 This is still done manually. For example, to upgrade from `0.0.24` to `0.0.25`:
 
--   Bump the version numbers in `sdk/go/project.json`, `sdk/python/pyproject.toml`, and `sdk/typescript/package.json` to `0.0.25`.
+-   Bump the version numbers in these files to `0.0.25`:
+    -   `sdk/go/project.json`
+    -   `sdk/python/pyproject.toml`
+    -   `sdk/typescript/package.json`
+    -   `sdk/ruby/lib/buildkite/version.rb`
 -   Commit those changes with a message like `Release v0.0.25`.
 -   Tag thusly: `git tag sdk/go/v0.0.25`.
 -   Push the commit and the tag to `main`: `git push origin main`.
