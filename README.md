@@ -21,6 +21,8 @@ asdf install
 
 .. to get all you need. (If you don't, please file an issue!)
 
+### Useful commands
+
 ```bash
 # Install dependencies.
 npm install
@@ -44,7 +46,7 @@ npm start
 npm run publish
 ```
 
-## Usage
+## Installing and using the SDKs
 
 ### Node.js
 
