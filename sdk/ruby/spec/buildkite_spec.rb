@@ -11,6 +11,6 @@ RSpec.describe Buildkite do
       label: "some-label",
       command: "echo 'Hello, World!'"
     )
-    expect(pipeline.to_json).to eq("{\"steps\":[{\"label\":\"some-label\",\"command\":\"echo 'Hello, World!'\"}]}")
+    expect(pipeline.to_json).to eq(JSON.pretty_generate({ steps: [{ label: "some-label", "command": "echo 'Hello, World!'"}] }, indent: "    "))
   end
 end
