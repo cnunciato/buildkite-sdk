@@ -14,6 +14,7 @@ func (p *Pipeline) AddCommandStep(step CommandStep) {
 	p.Steps = append(p.Steps, step)
 }
 
+// TODO: Steps doesn't look right here.
 func (p *Pipeline) ToJSON() (string, error) {
 	data, err := json.MarshalIndent(p, "", "    ")
 	if err != nil {

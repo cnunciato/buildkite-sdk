@@ -50,12 +50,12 @@
                 "sdk-ruby:docs:build"
             ]
         },
-        "start:all": {
+        "run:all": {
             "dependsOn": [
-                "app-typescript:start",
-                "app-python:start",
-                "app-go:start",
-                "app-ruby:start"
+                "app-typescript:run",
+                "app-python:run",
+                "app-go:run",
+                "app-ruby:run"
             ]
         },
         "publish:all": {

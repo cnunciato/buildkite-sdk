@@ -5,7 +5,7 @@
     "projectType": "library",
     "tags": [],
     "targets": {
-        "start": {
+        "run": {
             "executor": "nx:run-commands",
             "options": {
                 "commands": ["bundle install", "bundle exec ruby main.rb"],
