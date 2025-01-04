@@ -22,7 +22,7 @@
             "executor": "@nx/web:file-server",
             "options": {
                 "port": 8080,
-                "buildTarget": "docs:python",
+                "buildTarget": "build:python",
                 "staticFilePath": "dist/docs/python"
             }
         },
@@ -30,7 +30,7 @@
             "executor": "@nx/web:file-server",
             "options": {
                 "port": 8081,
-                "buildTarget": "docs:typescript",
+                "buildTarget": "build:typescript",
                 "staticFilePath": "dist/docs/python"
             }
         }
