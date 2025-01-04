@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"os"
 
 	"github.com/cnunciato/buildkite-sdk/sdk/go/sdk/buildkite"
 )
@@ -19,6 +20,19 @@ func main() {
 		},
 	})
 
-	fmt.Println(pipeline.ToJSON())
-	fmt.Println(pipeline.ToYAML())
+	file, err := os.Create("../../out/apps/go/pipeline.json")
+	if err != nil {
+		log.Fatalf("Failed to create file: %v", err)
+	}
+	defer file.Close()
+
+	json, err := pipeline.ToJSON()
+	if err != nil {
+		log.Fatalf("Failed to serialize JSON: %v", err)
+	}
+
+	_, err = file.WriteString(json)
+	if err != nil {
+		log.Fatalf("Failed to write to file: %v", err)
+	}
 }
