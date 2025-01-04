@@ -37,7 +37,7 @@
             "executor": "@nx/web:file-server",
             "options": {
                 "port": 8081,
-                "buildTarget": "build:typescript",
+                "buildTarget": "build:python",
                 "staticFilePath": "dist/docs/python"
             }
         },
@@ -45,7 +45,7 @@
             "executor": "@nx/web:file-server",
             "options": {
                 "port": 8082,
-                "buildTarget": "build:typescript",
+                "buildTarget": "build:ruby",
                 "staticFilePath": "dist/docs/ruby"
             }
         }
