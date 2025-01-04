@@ -11,12 +11,12 @@ type PipelineStep =
     | schema.BlockStep
     | schema.GroupStepClass;
 
-export class Environment {
-    static get(key: env.Environment) {
-        env.Environment.BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT;
-        return env.Environment[key];
-    }
-}
+// export class Environment {
+//     static get(key: env.Environment) {
+//         env.Environment.BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT;
+//         return env.Environment[key];
+//     }
+// }
 
 export class Pipeline {
     private steps: PipelineStep[] = [];

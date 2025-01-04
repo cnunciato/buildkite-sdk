@@ -114,8 +114,6 @@ async function genEnvVars() {
         },
     };
 
-    console.log({ variables });
-
     // Make the appropriate tweaks.
     variables = variables.map((v) => {
         // Trim trailing newlines.
@@ -131,37 +129,12 @@ async function genEnvVars() {
         return v;
     });
 
-    // Go.
-    let sdkPath = "./sdk/go";
-
+    // TypeScript.
+    let sdkPath = "./sdk/typescript";
     let template = fs
         .readFileSync(`${sdkPath}/env.mustache`, "utf-8")
         .toString();
-
     let rendered = mustache.render(template, {
-        package: "buildkite",
-        variables: variables.map((v) => {
-            return {
-                ...v,
-                comment: [
-                    ...v.desc.split("\n").map((line) => `// ${line}`),
-                ].join("\n"),
-            };
-        }),
-    });
-
-    fs.writeFileSync(
-        `${sdkPath}/sdk/buildkite/environment.go`,
-        rendered,
-        "utf-8"
-    );
-
-    // TypeScript.
-    sdkPath = "./sdk/typescript";
-
-    template = fs.readFileSync(`${sdkPath}/env.mustache`, "utf-8").toString();
-
-    rendered = mustache.render(template, {
         variables: variables.map((v) => {
             return {
                 ...v,
@@ -175,17 +148,56 @@ async function genEnvVars() {
     });
     fs.writeFileSync(`${sdkPath}/src/environment.ts`, rendered, "utf-8");
 
-    // Ruby.
-    sdkPath = "./sdk/ruby";
-
+    // Python.
+    sdkPath = "./sdk/python";
     template = fs.readFileSync(`${sdkPath}/env.mustache`, "utf-8").toString();
-
     rendered = mustache.render(template, {
         variables: variables.map((v) => {
             return {
                 ...v,
                 comment: [
                     ...v.desc.split("\n").map((line) => `# ${line}`),
+                ].join("\n"),
+            };
+        }),
+    });
+    fs.writeFileSync(
+        `${sdkPath}/src/buildkite_sdk/environment.py`,
+        rendered,
+        "utf-8"
+    );
+
+    // Go.
+    sdkPath = "./sdk/go";
+    template = fs.readFileSync(`${sdkPath}/env.mustache`, "utf-8").toString();
+    rendered = mustache.render(template, {
+        package: "buildkite",
+        variables: variables.map((v) => {
+            return {
+                ...v,
+                comment: [
+                    ...v.desc.split("\n").map((line) => `// ${line}`),
+                ].join("\n"),
+            };
+        }),
+    });
+    fs.writeFileSync(
+        `${sdkPath}/sdk/buildkite/environment.go`,
+        rendered,
+        "utf-8"
+    );
+
+    // Ruby.
+    sdkPath = "./sdk/ruby";
+    template = fs.readFileSync(`${sdkPath}/env.mustache`, "utf-8").toString();
+    rendered = mustache.render(template, {
+        variables: variables.map((v) => {
+            return {
+                ...v,
+                comment: [
+                    ...v.desc
+                        .split("\n")
+                        .map((line, i) => `${i === 0 ? "#" : "  #"} ${line}`),
                 ].join("\n"),
             };
         }),

@@ -1,4 +1,5 @@
 from buildkite_sdk.schema import CommandStep
+from buildkite_sdk.environment import Environment
 import json
 import yaml
 
