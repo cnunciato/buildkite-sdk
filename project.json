@@ -1,5 +1,17 @@
 {
     "targets": {
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "rm -rf dist",
+                    "rm -rf out",
+                    "rm -rf tmp",
+                    "rm -rf coverage",
+                    "rm -rf reports"
+                ]
+            }
+        },
         "gen:types": {
             "executor": "nx:run-commands",
             "options": {
