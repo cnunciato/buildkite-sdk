@@ -9,7 +9,7 @@
             "executor": "@nx/js:tsc",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/sdk/typescript",
+                "outputPath": "dist/sdks/typescript",
                 "main": "sdk/typescript/src/index.ts",
                 "tsConfig": "sdk/typescript/tsconfig.lib.json",
                 "assets": ["sdk/typescript/*.md"],
@@ -39,7 +39,7 @@
                     "npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN",
                     "npm publish"
                 ],
-                "cwd": "dist/sdk/typescript"
+                "cwd": "dist/sdks/typescript"
             }
         }
     }

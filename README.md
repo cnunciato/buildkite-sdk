@@ -30,7 +30,7 @@ npm install
 # Test all SDKs and apps.
 npm test
 
-# Build  (to dist/sdk).
+# Build  (to dist/sdks).
 npm run build
 
 # Build the docs (to dist/docs).

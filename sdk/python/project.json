@@ -27,7 +27,7 @@
             "executor": "@nxlv/python:build",
             "outputs": ["{projectRoot}/dist"],
             "options": {
-                "outputPath": "dist/sdk/python",
+                "outputPath": "dist/sdks/python",
                 "publish": false,
                 "lockedVersions": true,
                 "bundleLocalDependencies": true
@@ -82,7 +82,7 @@
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "uvx twine upload dist/sdk/python/* --repository testpypi --username __token__ --password $TEST_PYPI_TOKEN"
+                "command": "uvx twine upload dist/sdks/python/* --repository testpypi --username __token__ --password $TEST_PYPI_TOKEN"
             }
         }
     },

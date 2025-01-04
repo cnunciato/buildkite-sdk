@@ -9,10 +9,11 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "rm -rf dist/sdk/go/*",
-                    "mkdir -p dist/sdk/go",
-                    "cp -R sdk/go/* dist/sdk/go/"
-                ]
+                    "rm -rf dist/sdks/go",
+                    "mkdir -p dist/sdks/go",
+                    "cp -R sdk/go/* dist/sdks/go/"
+                ],
+                "parallel": false
             },
             "cache": false
         },
