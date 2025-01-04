@@ -32,7 +32,11 @@
             ]
         },
         "docs:all": {
-            "dependsOn": ["docs:build:typescript", "docs:build:python"]
+            "dependsOn": [
+                "docs:build:typescript",
+                "docs:build:python",
+                "docs:build:ruby"
+            ]
         },
         "start:all": {
             "dependsOn": [

@@ -18,6 +18,13 @@
                 "cwd": "sdk/python"
             }
         },
+        "build:ruby": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bundle exec rdoc --output ../../dist/docs/ruby",
+                "cwd": "sdk/ruby"
+            }
+        },
         "serve:typescript": {
             "executor": "@nx/web:file-server",
             "options": {
@@ -32,6 +39,14 @@
                 "port": 8081,
                 "buildTarget": "build:typescript",
                 "staticFilePath": "dist/docs/python"
+            }
+        },
+        "serve:ruby": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "port": 8082,
+                "buildTarget": "build:typescript",
+                "staticFilePath": "dist/docs/ruby"
             }
         }
     }
