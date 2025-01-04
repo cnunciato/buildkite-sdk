@@ -6,6 +6,21 @@ A multi-language SDK for [Buildkite](https://buildkite.com) managed with [Nx](ht
 
 Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-schema) and generates packages for TypeScript, Python, Go, and Ruby!
 
+## Prerequisites
+
+-   Node.js, Python, Ruby, Go
+-   For Python: [uv](https://docs.astral.sh/uv/), [Black](https://black.readthedocs.io/en/stable/)
+-   For Ruby: [Bundler](https://bundler.io/)
+
+See `.tool-versions` for the versions currently in use. If you're on a Mac and use [Homebrew](https://brew.sh/), you can run:
+
+```bash
+brew bundle
+asdf install
+```
+
+.. to get all you need. (If you don't, please file an issue!)
+
 ```bash
 # Install dependencies.
 npm install
