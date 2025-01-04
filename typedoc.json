@@ -1,0 +1,10 @@
+{
+    "name": "Packages Example",
+    "entryPoints": ["sdk/typescript"],
+    "entryPointStrategy": "packages",
+    "includeVersion": false,
+    "out": "./docs/sdk/typescript"
+
+    // Potentially useful for debugging
+    // "logLevel": "Verbose"
+}

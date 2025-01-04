@@ -42,7 +42,7 @@ async function genTypes() {
 
     const opts = {
         typescript: {
-            path: "./sdk/typescript/src/schema.d.ts",
+            path: "./sdk/typescript/src/schema.ts",
             options: undefined,
         },
         python: {

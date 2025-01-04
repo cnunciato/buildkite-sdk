@@ -7,6 +7,7 @@
         "types": "nx gen:types",
         "test": "nx test:all",
         "build": "nx build:all",
+        "docs": "nx gen:docs",
         "start": "nx start:all",
         "publish": "nx publish:all"
     },
@@ -40,6 +41,7 @@
         "ts-jest": "^29.1.0",
         "ts-node": "10.9.1",
         "tslib": "^2.3.0",
+        "typedoc": "^0.27.6",
         "typescript": "~5.6.2",
         "typescript-eslint": "^8.13.0",
         "yaml": "^2.7.0"

@@ -12,6 +12,12 @@
                 "parallel": false
             }
         },
+        "gen:docs": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["npx typedoc"]
+            }
+        },
         "test:all": {
             "dependsOn": [
                 "sdk-typescript:test",
