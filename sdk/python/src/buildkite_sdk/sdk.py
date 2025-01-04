@@ -12,7 +12,7 @@ class Pipeline:
         self.steps.append(props)
 
     def to_json(self):
-        return json.dumps(self.__dict__)
+        return json.dumps(self.__dict__, indent=4)
 
     def to_yaml(self):
         return yaml.dump(self.__dict__)

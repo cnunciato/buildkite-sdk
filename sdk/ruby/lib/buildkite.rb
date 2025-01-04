@@ -21,7 +21,7 @@ module Buildkite
     end
 
     def to_json
-      JSON.generate({ steps: @steps })
+      JSON.pretty_generate({ steps: @steps }, indent: "    ")
     end
 
     def to_yaml

@@ -15,7 +15,7 @@ func (p *Pipeline) AddCommandStep(step CommandStep) {
 }
 
 func (p *Pipeline) ToJSON() (string, error) {
-	data, err := json.MarshalIndent(p.Steps, "", "    ")
+	data, err := json.MarshalIndent(p, "", "    ")
 	if err != nil {
 		return "", err
 	}

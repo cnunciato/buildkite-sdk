@@ -20,6 +20,11 @@ func main() {
 		},
 	})
 
+	err := os.MkdirAll("../../out/apps/go", 0755) // 0755 sets permissions (read, write, execute for owner; read and execute for others)
+	if err != nil {
+		log.Fatalf("Failed to create directory: %v", err)
+	}
+
 	file, err := os.Create("../../out/apps/go/pipeline.json")
 	if err != nil {
 		log.Fatalf("Failed to create file: %v", err)
