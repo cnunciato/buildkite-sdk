@@ -8,18 +8,20 @@ Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-s
 
 ## Prerequisites
 
--   Node.js, Python, Ruby, Go
+For development, you'll need current versions of the following tools:
+
+-   Node.js, Python, Go, Ruby
 -   For Python: [uv](https://docs.astral.sh/uv/), [Black](https://black.readthedocs.io/en/stable/)
 -   For Ruby: [Bundler](https://bundler.io/)
 
-See `.tool-versions` for the versions currently in use. If you're on a Mac and use [Homebrew](https://brew.sh/), you can run:
+See `.tool-versions` for the versions currently in use. If you're on a Mac, and you use [Homebrew](https://brew.sh/), you can run `brew bundle` and `asdf install` to get all you need:
 
 ```bash
 brew bundle
 asdf install
 ```
 
-.. to get all you need. (If you don't, please file an issue!)
+If you hit any rough edges during development, please file an issue. Thanks!
 
 ### Useful commands
 
