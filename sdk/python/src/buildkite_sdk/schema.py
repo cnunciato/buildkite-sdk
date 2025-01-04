@@ -1268,15 +1268,13 @@ class TriggerStep:
     label: Optional[str]
     name: Optional[str]
     skip: Optional[Union[bool, str]]
-    soft_fail: Optional[Union[bool, AllowDependencyFailureEnum]]
-    """The conditions for marking the step as a soft-fail."""
-
+    soft_fail: Optional[Union[bool, List[SoftFailElement], AllowDependencyFailureEnum]]
     trigger: str
     """The slug of the pipeline to create a build"""
 
     type: Optional[TriggerType]
 
-    def __init__(self, allow_dependency_failure: Optional[Union[bool, AllowDependencyFailureEnum]], trigger_step_async: Optional[Union[bool, AllowDependencyFailureEnum]], branches: Optional[Union[List[str], str]], build: Optional[Build], depends_on: Optional[Union[List[Union[DependsOnClass, str]], str]], id: Optional[str], identifier: Optional[str], trigger_step_if: Optional[str], key: Optional[str], label: Optional[str], name: Optional[str], skip: Optional[Union[bool, str]], soft_fail: Optional[Union[bool, AllowDependencyFailureEnum]], trigger: str, type: Optional[TriggerType]) -> None:
+    def __init__(self, allow_dependency_failure: Optional[Union[bool, AllowDependencyFailureEnum]], trigger_step_async: Optional[Union[bool, AllowDependencyFailureEnum]], branches: Optional[Union[List[str], str]], build: Optional[Build], depends_on: Optional[Union[List[Union[DependsOnClass, str]], str]], id: Optional[str], identifier: Optional[str], trigger_step_if: Optional[str], key: Optional[str], label: Optional[str], name: Optional[str], skip: Optional[Union[bool, str]], soft_fail: Optional[Union[bool, List[SoftFailElement], AllowDependencyFailureEnum]], trigger: str, type: Optional[TriggerType]) -> None:
         self.allow_dependency_failure = allow_dependency_failure
         self.trigger_step_async = trigger_step_async
         self.branches = branches
@@ -1308,7 +1306,7 @@ class TriggerStep:
         label = from_union([from_str, from_none], obj.get("label"))
         name = from_union([from_str, from_none], obj.get("name"))
         skip = from_union([from_bool, from_str, from_none], obj.get("skip"))
-        soft_fail = from_union([from_bool, AllowDependencyFailureEnum, from_none], obj.get("soft_fail"))
+        soft_fail = from_union([from_bool, lambda x: from_list(SoftFailElement.from_dict, x), AllowDependencyFailureEnum, from_none], obj.get("soft_fail"))
         trigger = from_str(obj.get("trigger"))
         type = from_union([TriggerType, from_none], obj.get("type"))
         return TriggerStep(allow_dependency_failure, trigger_step_async, branches, build, depends_on, id, identifier, trigger_step_if, key, label, name, skip, soft_fail, trigger, type)
@@ -1340,7 +1338,7 @@ class TriggerStep:
         if self.skip is not None:
             result["skip"] = from_union([from_bool, from_str, from_none], self.skip)
         if self.soft_fail is not None:
-            result["soft_fail"] = from_union([from_bool, lambda x: to_enum(AllowDependencyFailureEnum, x), from_none], self.soft_fail)
+            result["soft_fail"] = from_union([from_bool, lambda x: from_list(lambda x: to_class(SoftFailElement, x), x), lambda x: to_enum(AllowDependencyFailureEnum, x), from_none], self.soft_fail)
         result["trigger"] = from_str(self.trigger)
         if self.type is not None:
             result["type"] = from_union([lambda x: to_enum(TriggerType, x), from_none], self.type)
@@ -1516,8 +1514,6 @@ class PurpleStep:
 
     skip: Optional[Union[bool, str]]
     soft_fail: Optional[Union[bool, List[SoftFailElement], AllowDependencyFailureEnum]]
-    """The conditions for marking the step as a soft-fail."""
-
     timeout_in_minutes: Optional[int]
     """The number of minutes to time out a job"""
 
@@ -1797,8 +1793,6 @@ class GroupStepClass:
 
     skip: Optional[Union[bool, str]]
     soft_fail: Optional[Union[bool, List[SoftFailElement], AllowDependencyFailureEnum]]
-    """The conditions for marking the step as a soft-fail."""
-
     timeout_in_minutes: Optional[int]
     """The number of minutes to time out a job"""
 

@@ -9,7 +9,7 @@
 
 export interface Schema {
     agents?: string[] | { [key: string]: any };
-    env?:    { [key: string]: any };
+    env?: { [key: string]: any };
     notify?: Array<PurpleBuildNotify | NotifyEnum>;
     /**
      * A list of steps
@@ -19,14 +19,14 @@ export interface Schema {
 }
 
 export interface PurpleBuildNotify {
-    email?:                  string;
-    if?:                     string;
-    basecamp_campfire?:      string;
-    slack?:                  PurpleSlack | string;
-    webhook?:                string;
+    email?: string;
+    if?: string;
+    basecamp_campfire?: string;
+    slack?: PurpleSlack | string;
+    webhook?: string;
     pagerduty_change_event?: string;
-    github_commit_status?:   PurpleGithubCommitStatus;
-    github_check?:           PurpleGithubCheck;
+    github_commit_status?: PurpleGithubCommitStatus;
+    github_check?: PurpleGithubCheck;
 }
 
 export interface PurpleGithubCheck {
@@ -46,7 +46,7 @@ export interface PurpleGithubCommitStatus {
 
 export interface PurpleSlack {
     channels?: string[];
-    message?:  string;
+    message?: string;
     [property: string]: any;
 }
 
@@ -68,27 +68,27 @@ export interface GroupStepClass {
      * The state that the build is set to when the build is blocked by this block step
      */
     blocked_state?: BlockedState;
-    branches?:      string[] | string;
-    depends_on?:    Array<DependsOnClass | string> | null | string;
-    fields?:        Field[];
-    id?:            string;
-    identifier?:    string;
-    if?:            string;
-    key?:           string;
-    label?:         null | string;
-    name?:          null | string;
-    prompt?:        string;
-    type?:          BlockStepType;
+    branches?: string[] | string;
+    depends_on?: Array<DependsOnClass | string> | null | string;
+    fields?: Field[];
+    id?: string;
+    identifier?: string;
+    if?: string;
+    key?: string;
+    label?: null | string;
+    name?: null | string;
+    prompt?: string;
+    type?: BlockStepType;
     /**
      * The label of the input step
      */
-    input?:  InputStep | string;
+    input?: InputStep | string;
     agents?: string[] | { [key: string]: any };
     /**
      * The glob path/s of artifacts to upload once this step has finished running
      */
-    artifact_paths?:          string[] | string;
-    cache?:                   string[] | CacheObject | string;
+    artifact_paths?: string[] | string;
+    cache?: string[] | CacheObject | string;
     cancel_on_build_failing?: boolean | AllowDependencyFailureEnum;
     /**
      * The commands to run on the agent
@@ -113,8 +113,8 @@ export interface GroupStepClass {
      * this attribute, you must also define concurrency_group and concurrency.
      */
     concurrency_method?: ConcurrencyMethod;
-    env?:                { [key: string]: any };
-    matrix?:             Array<boolean | number | string> | MatrixObject;
+    env?: { [key: string]: any };
+    matrix?: Array<boolean | number | string> | MatrixObject;
     /**
      * Array of notification options for this step
      */
@@ -123,7 +123,7 @@ export interface GroupStepClass {
      * The number of parallel jobs that will be created based on this step
      */
     parallelism?: number;
-    plugins?:     Array<{ [key: string]: any } | string> | { [key: string]: any };
+    plugins?: Array<{ [key: string]: any } | string> | { [key: string]: any };
     /**
      * Priority of the job, higher priorities are assigned to agents
      */
@@ -136,16 +136,13 @@ export interface GroupStepClass {
      * The signature of the command step, generally injected by agents at pipeline upload
      */
     signature?: Signature;
-    skip?:      boolean | string;
-    /**
-     * The conditions for marking the step as a soft-fail.
-     */
+    skip?: boolean | string;
     soft_fail?: SoftFailElement[] | boolean | AllowDependencyFailureEnum;
     /**
      * The number of minutes to time out a job
      */
     timeout_in_minutes?: number;
-    script?:             CommandStep;
+    script?: CommandStep;
     /**
      * Continue to the next steps, even if the previous group of steps fail
      */
@@ -153,7 +150,7 @@ export interface GroupStepClass {
     /**
      * Waits for previous steps to pass before continuing
      */
-    wait?:   WaitStep | null | string;
+    wait?: WaitStep | null | string;
     waiter?: WaitStep | null | string;
     /**
      * Whether to continue the build without waiting for the triggered step to complete
@@ -192,17 +189,17 @@ export interface BlockStep {
      * The state that the build is set to when the build is blocked by this block step
      */
     blocked_state?: BlockedState;
-    branches?:      string[] | string;
-    depends_on?:    Array<DependsOnClass | string> | null | string;
-    fields?:        Field[];
-    id?:            string;
-    identifier?:    string;
-    if?:            string;
-    key?:           string;
-    label?:         string;
-    name?:          string;
-    prompt?:        string;
-    type?:          BlockType;
+    branches?: string[] | string;
+    depends_on?: Array<DependsOnClass | string> | null | string;
+    fields?: Field[];
+    id?: string;
+    identifier?: string;
+    if?: string;
+    key?: string;
+    label?: string;
+    name?: string;
+    prompt?: string;
+    type?: BlockType;
 }
 
 /**
@@ -216,7 +213,7 @@ export enum BlockedState {
 
 export interface DependsOnClass {
     allow_failure?: boolean | AllowDependencyFailureEnum;
-    step?:          string;
+    step?: string;
 }
 
 /**
@@ -254,7 +251,7 @@ export interface Field {
      * Whether more than one option may be selected
      */
     multiple?: boolean | AllowDependencyFailureEnum;
-    options?:  Option[];
+    options?: Option[];
     /**
      * The text input name
      */
@@ -296,7 +293,7 @@ export interface Build {
      * The commit hash for the build
      */
     commit?: string;
-    env?:    { [key: string]: any };
+    env?: { [key: string]: any };
     /**
      * The message for the build (supports emoji)
      */
@@ -315,14 +312,14 @@ export interface CacheObject {
 }
 
 export interface CommandStep {
-    agents?:                   string[] | { [key: string]: any };
+    agents?: string[] | { [key: string]: any };
     allow_dependency_failure?: boolean | AllowDependencyFailureEnum;
     /**
      * The glob path/s of artifacts to upload once this step has finished running
      */
-    artifact_paths?:          string[] | string;
-    branches?:                string[] | string;
-    cache?:                   string[] | CacheObject | string;
+    artifact_paths?: string[] | string;
+    branches?: string[] | string;
+    cache?: string[] | CacheObject | string;
     cancel_on_build_failing?: boolean | AllowDependencyFailureEnum;
     /**
      * The commands to run on the agent
@@ -347,15 +344,15 @@ export interface CommandStep {
      * this attribute, you must also define concurrency_group and concurrency.
      */
     concurrency_method?: ConcurrencyMethod;
-    depends_on?:         Array<DependsOnClass | string> | null | string;
-    env?:                { [key: string]: any };
-    id?:                 string;
-    identifier?:         string;
-    if?:                 string;
-    key?:                string;
-    label?:              string;
-    matrix?:             Array<boolean | number | string> | MatrixObject;
-    name?:               string;
+    depends_on?: Array<DependsOnClass | string> | null | string;
+    env?: { [key: string]: any };
+    id?: string;
+    identifier?: string;
+    if?: string;
+    key?: string;
+    label?: string;
+    matrix?: Array<boolean | number | string> | MatrixObject;
+    name?: string;
     /**
      * Array of notification options for this step
      */
@@ -364,7 +361,7 @@ export interface CommandStep {
      * The number of parallel jobs that will be created based on this step
      */
     parallelism?: number;
-    plugins?:     Array<{ [key: string]: any } | string> | { [key: string]: any };
+    plugins?: Array<{ [key: string]: any } | string> | { [key: string]: any };
     /**
      * Priority of the job, higher priorities are assigned to agents
      */
@@ -377,13 +374,13 @@ export interface CommandStep {
      * The signature of the command step, generally injected by agents at pipeline upload
      */
     signature?: Signature;
-    skip?:      boolean | string;
+    skip?: boolean | string;
     soft_fail?: SoftFailElement[] | boolean | AllowDependencyFailureEnum;
     /**
      * The number of minutes to time out a job
      */
     timeout_in_minutes?: number;
-    type?:               ScriptType;
+    type?: ScriptType;
 }
 
 /**
@@ -403,7 +400,9 @@ export interface MatrixObject {
      * List of Build Matrix adjustments
      */
     adjustments?: Adjustment[];
-    setup:        Array<boolean | number | string> | { [key: string]: Array<boolean | number | string> };
+    setup:
+        | Array<boolean | number | string>
+        | { [key: string]: Array<boolean | number | string> };
     [property: string]: any;
 }
 
@@ -411,9 +410,9 @@ export interface MatrixObject {
  * An adjustment to a Build Matrix
  */
 export interface Adjustment {
-    skip?:      boolean | string;
+    skip?: boolean | string;
     soft_fail?: SoftFailElement[] | boolean | AllowDependencyFailureEnum;
-    with:       Array<boolean | number | string> | { [key: string]: string };
+    with: Array<boolean | number | string> | { [key: string]: string };
     [property: string]: any;
 }
 
@@ -430,11 +429,11 @@ export enum ExitStatusEnum {
 }
 
 export interface NotifyClass {
-    basecamp_campfire?:    string;
-    if?:                   string;
-    slack?:                SlackClass | string;
+    basecamp_campfire?: string;
+    if?: string;
+    slack?: SlackClass | string;
     github_commit_status?: FluffyGithubCommitStatus;
-    github_check?:         FluffyGithubCheck;
+    github_check?: FluffyGithubCheck;
 }
 
 export interface FluffyGithubCheck {
@@ -454,7 +453,7 @@ export interface FluffyGithubCommitStatus {
 
 export interface SlackClass {
     channels?: string[];
-    message?:  string;
+    message?: string;
 }
 
 /**
@@ -465,7 +464,11 @@ export interface Retry {
      * Whether to allow a job to retry automatically. If set to true, the retry conditions are
      * set to the default value.
      */
-    automatic?: AutomaticRetry[] | boolean | AutomaticRetry | AllowDependencyFailureEnum;
+    automatic?:
+        | AutomaticRetry[]
+        | boolean
+        | AutomaticRetry
+        | AllowDependencyFailureEnum;
     /**
      * Whether to allow a job to be retried manually
      */
@@ -547,21 +550,21 @@ export enum ScriptType {
 
 export interface InputStep {
     allow_dependency_failure?: boolean | AllowDependencyFailureEnum;
-    branches?:                 string[] | string;
-    depends_on?:               Array<DependsOnClass | string> | null | string;
-    fields?:                   Field[];
-    id?:                       string;
-    identifier?:               string;
-    if?:                       string;
+    branches?: string[] | string;
+    depends_on?: Array<DependsOnClass | string> | null | string;
+    fields?: Field[];
+    id?: string;
+    identifier?: string;
+    if?: string;
     /**
      * The label of the input step
      */
-    input?:  string;
-    key?:    string;
-    label?:  string;
-    name?:   string;
+    input?: string;
+    key?: string;
+    label?: string;
+    name?: string;
     prompt?: string;
-    type?:   InputType;
+    type?: InputType;
 }
 
 export enum InputType {
@@ -569,13 +572,13 @@ export enum InputType {
 }
 
 export interface FluffyBuildNotify {
-    basecamp_campfire?:      string;
-    if?:                     string;
-    slack?:                  FluffySlack | string;
-    github_commit_status?:   TentacledGithubCommitStatus;
-    github_check?:           TentacledGithubCheck;
-    email?:                  string;
-    webhook?:                string;
+    basecamp_campfire?: string;
+    if?: string;
+    slack?: FluffySlack | string;
+    github_commit_status?: TentacledGithubCommitStatus;
+    github_check?: TentacledGithubCheck;
+    email?: string;
+    webhook?: string;
     pagerduty_change_event?: string;
 }
 
@@ -596,7 +599,7 @@ export interface TentacledGithubCommitStatus {
 
 export interface FluffySlack {
     channels?: string[];
-    message?:  string;
+    message?: string;
     [property: string]: any;
 }
 
@@ -613,27 +616,27 @@ export interface PurpleStep {
      * The state that the build is set to when the build is blocked by this block step
      */
     blocked_state?: BlockedState;
-    branches?:      string[] | string;
-    depends_on?:    Array<DependsOnClass | string> | null | string;
-    fields?:        Field[];
-    id?:            string;
-    identifier?:    string;
-    if?:            string;
-    key?:           string;
-    label?:         null | string;
-    name?:          null | string;
-    prompt?:        string;
-    type?:          BlockStepType;
+    branches?: string[] | string;
+    depends_on?: Array<DependsOnClass | string> | null | string;
+    fields?: Field[];
+    id?: string;
+    identifier?: string;
+    if?: string;
+    key?: string;
+    label?: null | string;
+    name?: null | string;
+    prompt?: string;
+    type?: BlockStepType;
     /**
      * The label of the input step
      */
-    input?:  InputStep | string;
+    input?: InputStep | string;
     agents?: string[] | { [key: string]: any };
     /**
      * The glob path/s of artifacts to upload once this step has finished running
      */
-    artifact_paths?:          string[] | string;
-    cache?:                   string[] | CacheObject | string;
+    artifact_paths?: string[] | string;
+    cache?: string[] | CacheObject | string;
     cancel_on_build_failing?: boolean | AllowDependencyFailureEnum;
     /**
      * The commands to run on the agent
@@ -658,8 +661,8 @@ export interface PurpleStep {
      * this attribute, you must also define concurrency_group and concurrency.
      */
     concurrency_method?: ConcurrencyMethod;
-    env?:                { [key: string]: any };
-    matrix?:             Array<boolean | number | string> | MatrixObject;
+    env?: { [key: string]: any };
+    matrix?: Array<boolean | number | string> | MatrixObject;
     /**
      * Array of notification options for this step
      */
@@ -668,7 +671,7 @@ export interface PurpleStep {
      * The number of parallel jobs that will be created based on this step
      */
     parallelism?: number;
-    plugins?:     Array<{ [key: string]: any } | string> | { [key: string]: any };
+    plugins?: Array<{ [key: string]: any } | string> | { [key: string]: any };
     /**
      * Priority of the job, higher priorities are assigned to agents
      */
@@ -681,16 +684,13 @@ export interface PurpleStep {
      * The signature of the command step, generally injected by agents at pipeline upload
      */
     signature?: Signature;
-    skip?:      boolean | string;
-    /**
-     * The conditions for marking the step as a soft-fail.
-     */
+    skip?: boolean | string;
     soft_fail?: SoftFailElement[] | boolean | AllowDependencyFailureEnum;
     /**
      * The number of minutes to time out a job
      */
     timeout_in_minutes?: number;
-    script?:             CommandStep;
+    script?: CommandStep;
     /**
      * Continue to the next steps, even if the previous group of steps fail
      */
@@ -698,7 +698,7 @@ export interface PurpleStep {
     /**
      * Waits for previous steps to pass before continuing
      */
-    wait?:   WaitStep | null | string;
+    wait?: WaitStep | null | string;
     waiter?: WaitStep | null | string;
     /**
      * Whether to continue the build without waiting for the triggered step to complete
@@ -719,29 +719,26 @@ export interface TriggerStep {
     /**
      * Whether to continue the build without waiting for the triggered step to complete
      */
-    async?:    boolean | AllowDependencyFailureEnum;
+    async?: boolean | AllowDependencyFailureEnum;
     branches?: string[] | string;
     /**
      * Properties of the build that will be created when the step is triggered
      */
-    build?:      Build;
+    build?: Build;
     depends_on?: Array<DependsOnClass | string> | null | string;
-    id?:         string;
+    id?: string;
     identifier?: string;
-    if?:         string;
-    key?:        string;
-    label?:      string;
-    name?:       string;
-    skip?:       boolean | string;
-    /**
-     * The conditions for marking the step as a soft-fail.
-     */
-    soft_fail?: boolean | AllowDependencyFailureEnum;
+    if?: string;
+    key?: string;
+    label?: string;
+    name?: string;
+    skip?: boolean | string;
+    soft_fail?: SoftFailElement[] | boolean | AllowDependencyFailureEnum;
     /**
      * The slug of the pipeline to create a build
      */
     trigger: string;
-    type?:   TriggerType;
+    type?: TriggerType;
 }
 
 export enum TriggerType {
@@ -764,23 +761,23 @@ export enum BlockStepType {
  */
 export interface WaitStep {
     allow_dependency_failure?: boolean | AllowDependencyFailureEnum;
-    branches?:                 string[] | string;
+    branches?: string[] | string;
     /**
      * Continue to the next steps, even if the previous group of steps fail
      */
     continue_on_failure?: boolean | AllowDependencyFailureEnum;
-    depends_on?:          Array<DependsOnClass | string> | null | string;
-    id?:                  string;
-    identifier?:          string;
-    if?:                  string;
-    key?:                 string;
-    label?:               null | string;
-    name?:                null | string;
-    type?:                WaitType;
+    depends_on?: Array<DependsOnClass | string> | null | string;
+    id?: string;
+    identifier?: string;
+    if?: string;
+    key?: string;
+    label?: null | string;
+    name?: null | string;
+    type?: WaitType;
     /**
      * Waits for previous steps to pass before continuing
      */
-    wait?:   null | string;
+    wait?: null | string;
     waiter?: null | string;
 }
 
@@ -813,11 +810,15 @@ export class Convert {
     }
 }
 
-function invalidValue(typ: any, val: any, key: any, parent: any = ''): never {
+function invalidValue(typ: any, val: any, key: any, parent: any = ""): never {
     const prettyTyp = prettyTypeName(typ);
-    const parentText = parent ? ` on ${parent}` : '';
-    const keyText = key ? ` for key "${key}"` : '';
-    throw Error(`Invalid value${keyText}${parentText}. Expected ${prettyTyp} but got ${JSON.stringify(val)}`);
+    const parentText = parent ? ` on ${parent}` : "";
+    const keyText = key ? ` for key "${key}"` : "";
+    throw Error(
+        `Invalid value${keyText}${parentText}. Expected ${prettyTyp} but got ${JSON.stringify(
+            val
+        )}`
+    );
 }
 
 function prettyTypeName(typ: any): string {
@@ -825,7 +826,11 @@ function prettyTypeName(typ: any): string {
         if (typ.length === 2 && typ[0] === undefined) {
             return `an optional ${prettyTypeName(typ[1])}`;
         } else {
-            return `one of [${typ.map(a => { return prettyTypeName(a); }).join(", ")}]`;
+            return `one of [${typ
+                .map((a) => {
+                    return prettyTypeName(a);
+                })
+                .join(", ")}]`;
         }
     } else if (typeof typ === "object" && typ.literal !== undefined) {
         return typ.literal;
@@ -837,7 +842,9 @@ function prettyTypeName(typ: any): string {
 function jsonToJSProps(typ: any): any {
     if (typ.jsonToJS === undefined) {
         const map: any = {};
-        typ.props.forEach((p: any) => map[p.json] = { key: p.js, typ: p.typ });
+        typ.props.forEach(
+            (p: any) => (map[p.json] = { key: p.js, typ: p.typ })
+        );
         typ.jsonToJS = map;
     }
     return typ.jsonToJS;
@@ -846,13 +853,21 @@ function jsonToJSProps(typ: any): any {
 function jsToJSONProps(typ: any): any {
     if (typ.jsToJSON === undefined) {
         const map: any = {};
-        typ.props.forEach((p: any) => map[p.js] = { key: p.json, typ: p.typ });
+        typ.props.forEach(
+            (p: any) => (map[p.js] = { key: p.json, typ: p.typ })
+        );
         typ.jsToJSON = map;
     }
     return typ.jsToJSON;
 }
 
-function transform(val: any, typ: any, getProps: any, key: any = '', parent: any = ''): any {
+function transform(
+    val: any,
+    typ: any,
+    getProps: any,
+    key: any = "",
+    parent: any = ""
+): any {
     function transformPrimitive(typ: string, val: any): any {
         if (typeof typ === typeof val) return val;
         return invalidValue(typ, val, key, parent);
@@ -872,13 +887,21 @@ function transform(val: any, typ: any, getProps: any, key: any = '', parent: any
 
     function transformEnum(cases: string[], val: any): any {
         if (cases.indexOf(val) !== -1) return val;
-        return invalidValue(cases.map(a => { return l(a); }), val, key, parent);
+        return invalidValue(
+            cases.map((a) => {
+                return l(a);
+            }),
+            val,
+            key,
+            parent
+        );
     }
 
     function transformArray(typ: any, val: any): any {
         // val must be an array with no invalid elements
-        if (!Array.isArray(val)) return invalidValue(l("array"), val, key, parent);
-        return val.map(el => transform(el, typ, getProps));
+        if (!Array.isArray(val))
+            return invalidValue(l("array"), val, key, parent);
+        return val.map((el) => transform(el, typ, getProps));
     }
 
     function transformDate(val: any): any {
@@ -892,19 +915,31 @@ function transform(val: any, typ: any, getProps: any, key: any = '', parent: any
         return d;
     }
 
-    function transformObject(props: { [k: string]: any }, additional: any, val: any): any {
+    function transformObject(
+        props: { [k: string]: any },
+        additional: any,
+        val: any
+    ): any {
         if (val === null || typeof val !== "object" || Array.isArray(val)) {
             return invalidValue(l(ref || "object"), val, key, parent);
         }
         const result: any = {};
-        Object.getOwnPropertyNames(props).forEach(key => {
+        Object.getOwnPropertyNames(props).forEach((key) => {
             const prop = props[key];
-            const v = Object.prototype.hasOwnProperty.call(val, key) ? val[key] : undefined;
+            const v = Object.prototype.hasOwnProperty.call(val, key)
+                ? val[key]
+                : undefined;
             result[prop.key] = transform(v, prop.typ, getProps, key, ref);
         });
-        Object.getOwnPropertyNames(val).forEach(key => {
+        Object.getOwnPropertyNames(val).forEach((key) => {
             if (!Object.prototype.hasOwnProperty.call(props, key)) {
-                result[key] = transform(val[key], additional, getProps, key, ref);
+                result[key] = transform(
+                    val[key],
+                    additional,
+                    getProps,
+                    key,
+                    ref
+                );
             }
         });
         return result;
@@ -923,9 +958,12 @@ function transform(val: any, typ: any, getProps: any, key: any = '', parent: any
     }
     if (Array.isArray(typ)) return transformEnum(typ, val);
     if (typeof typ === "object") {
-        return typ.hasOwnProperty("unionMembers") ? transformUnion(typ.unionMembers, val)
-            : typ.hasOwnProperty("arrayItems")    ? transformArray(typ.arrayItems, val)
-            : typ.hasOwnProperty("props")         ? transformObject(getProps(typ), typ.additional, val)
+        return typ.hasOwnProperty("unionMembers")
+            ? transformUnion(typ.unionMembers, val)
+            : typ.hasOwnProperty("arrayItems")
+            ? transformArray(typ.arrayItems, val)
+            : typ.hasOwnProperty("props")
+            ? transformObject(getProps(typ), typ.additional, val)
             : invalidValue(typ, val, key, parent);
     }
     // Numbers can be parsed by Date but shouldn't be.
@@ -966,343 +1004,934 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Schema": o([
-        { json: "agents", js: "agents", typ: u(undefined, u(a(""), m("any"))) },
-        { json: "env", js: "env", typ: u(undefined, m("any")) },
-        { json: "notify", js: "notify", typ: u(undefined, a(u(r("PurpleBuildNotify"), r("NotifyEnum")))) },
-        { json: "steps", js: "steps", typ: a(u(r("GroupStepClass"), r("StringStep"))) },
-    ], "any"),
-    "PurpleBuildNotify": o([
-        { json: "email", js: "email", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "basecamp_campfire", js: "basecamp_campfire", typ: u(undefined, "") },
-        { json: "slack", js: "slack", typ: u(undefined, u(r("PurpleSlack"), "")) },
-        { json: "webhook", js: "webhook", typ: u(undefined, "") },
-        { json: "pagerduty_change_event", js: "pagerduty_change_event", typ: u(undefined, "") },
-        { json: "github_commit_status", js: "github_commit_status", typ: u(undefined, r("PurpleGithubCommitStatus")) },
-        { json: "github_check", js: "github_check", typ: u(undefined, r("PurpleGithubCheck")) },
-    ], false),
-    "PurpleGithubCheck": o([
-        { json: "context", js: "context", typ: u(undefined, "") },
-    ], "any"),
-    "PurpleGithubCommitStatus": o([
-        { json: "context", js: "context", typ: u(undefined, "") },
-    ], false),
-    "PurpleSlack": o([
-        { json: "channels", js: "channels", typ: u(undefined, a("")) },
-        { json: "message", js: "message", typ: u(undefined, "") },
-    ], "any"),
-    "GroupStepClass": o([
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "block", js: "block", typ: u(undefined, u(r("BlockStep"), "")) },
-        { json: "blocked_state", js: "blocked_state", typ: u(undefined, r("BlockedState")) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, u(null, "")) },
-        { json: "name", js: "name", typ: u(undefined, u(null, "")) },
-        { json: "prompt", js: "prompt", typ: u(undefined, "") },
-        { json: "type", js: "type", typ: u(undefined, r("BlockStepType")) },
-        { json: "input", js: "input", typ: u(undefined, u(r("InputStep"), "")) },
-        { json: "agents", js: "agents", typ: u(undefined, u(a(""), m("any"))) },
-        { json: "artifact_paths", js: "artifact_paths", typ: u(undefined, u(a(""), "")) },
-        { json: "cache", js: "cache", typ: u(undefined, u(a(""), r("CacheObject"), "")) },
-        { json: "cancel_on_build_failing", js: "cancel_on_build_failing", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "command", js: "command", typ: u(undefined, u(a(""), r("CommandStep"), "")) },
-        { json: "commands", js: "commands", typ: u(undefined, u(a(""), r("CommandStep"), "")) },
-        { json: "concurrency", js: "concurrency", typ: u(undefined, 0) },
-        { json: "concurrency_group", js: "concurrency_group", typ: u(undefined, "") },
-        { json: "concurrency_method", js: "concurrency_method", typ: u(undefined, r("ConcurrencyMethod")) },
-        { json: "env", js: "env", typ: u(undefined, m("any")) },
-        { json: "matrix", js: "matrix", typ: u(undefined, u(a(u(true, 0, "")), r("MatrixObject"))) },
-        { json: "notify", js: "notify", typ: u(undefined, a(u(r("FluffyBuildNotify"), r("NotifyEnum")))) },
-        { json: "parallelism", js: "parallelism", typ: u(undefined, 0) },
-        { json: "plugins", js: "plugins", typ: u(undefined, u(a(u(m("any"), "")), m("any"))) },
-        { json: "priority", js: "priority", typ: u(undefined, 0) },
-        { json: "retry", js: "retry", typ: u(undefined, r("Retry")) },
-        { json: "signature", js: "signature", typ: u(undefined, r("Signature")) },
-        { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
-        { json: "soft_fail", js: "soft_fail", typ: u(undefined, u(a(r("SoftFailElement")), true, r("AllowDependencyFailureEnum"))) },
-        { json: "timeout_in_minutes", js: "timeout_in_minutes", typ: u(undefined, 0) },
-        { json: "script", js: "script", typ: u(undefined, r("CommandStep")) },
-        { json: "continue_on_failure", js: "continue_on_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "wait", js: "wait", typ: u(undefined, u(r("WaitStep"), null, "")) },
-        { json: "waiter", js: "waiter", typ: u(undefined, u(r("WaitStep"), null, "")) },
-        { json: "async", js: "async", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "build", js: "build", typ: u(undefined, r("Build")) },
-        { json: "trigger", js: "trigger", typ: u(undefined, u(r("TriggerStep"), "")) },
-        { json: "group", js: "group", typ: u(undefined, u(null, "")) },
-        { json: "steps", js: "steps", typ: u(undefined, a(u(r("PurpleStep"), r("StringStep")))) },
-    ], false),
-    "BlockStep": o([
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "block", js: "block", typ: u(undefined, "") },
-        { json: "blocked_state", js: "blocked_state", typ: u(undefined, r("BlockedState")) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, "") },
-        { json: "name", js: "name", typ: u(undefined, "") },
-        { json: "prompt", js: "prompt", typ: u(undefined, "") },
-        { json: "type", js: "type", typ: u(undefined, r("BlockType")) },
-    ], false),
-    "DependsOnClass": o([
-        { json: "allow_failure", js: "allow_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "step", js: "step", typ: u(undefined, "") },
-    ], false),
-    "Field": o([
-        { json: "default", js: "default", typ: u(undefined, u(a(""), "")) },
-        { json: "format", js: "format", typ: u(undefined, "") },
-        { json: "hint", js: "hint", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: "" },
-        { json: "required", js: "required", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "text", js: "text", typ: u(undefined, "") },
-        { json: "multiple", js: "multiple", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "options", js: "options", typ: u(undefined, a(r("Option"))) },
-        { json: "select", js: "select", typ: u(undefined, "") },
-    ], false),
-    "Option": o([
-        { json: "hint", js: "hint", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: "" },
-        { json: "required", js: "required", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "value", js: "value", typ: "" },
-    ], false),
-    "Build": o([
-        { json: "branch", js: "branch", typ: u(undefined, "") },
-        { json: "commit", js: "commit", typ: u(undefined, "") },
-        { json: "env", js: "env", typ: u(undefined, m("any")) },
-        { json: "message", js: "message", typ: u(undefined, "") },
-        { json: "meta_data", js: "meta_data", typ: u(undefined, m("any")) },
-    ], false),
-    "CacheObject": o([
-        { json: "name", js: "name", typ: u(undefined, "") },
-        { json: "paths", js: "paths", typ: a("") },
-        { json: "size", js: "size", typ: u(undefined, "") },
-    ], "any"),
-    "CommandStep": o([
-        { json: "agents", js: "agents", typ: u(undefined, u(a(""), m("any"))) },
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "artifact_paths", js: "artifact_paths", typ: u(undefined, u(a(""), "")) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "cache", js: "cache", typ: u(undefined, u(a(""), r("CacheObject"), "")) },
-        { json: "cancel_on_build_failing", js: "cancel_on_build_failing", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "command", js: "command", typ: u(undefined, u(a(""), "")) },
-        { json: "commands", js: "commands", typ: u(undefined, u(a(""), "")) },
-        { json: "concurrency", js: "concurrency", typ: u(undefined, 0) },
-        { json: "concurrency_group", js: "concurrency_group", typ: u(undefined, "") },
-        { json: "concurrency_method", js: "concurrency_method", typ: u(undefined, r("ConcurrencyMethod")) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "env", js: "env", typ: u(undefined, m("any")) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, "") },
-        { json: "matrix", js: "matrix", typ: u(undefined, u(a(u(true, 0, "")), r("MatrixObject"))) },
-        { json: "name", js: "name", typ: u(undefined, "") },
-        { json: "notify", js: "notify", typ: u(undefined, a(u(r("NotifyClass"), r("NotifyEnum")))) },
-        { json: "parallelism", js: "parallelism", typ: u(undefined, 0) },
-        { json: "plugins", js: "plugins", typ: u(undefined, u(a(u(m("any"), "")), m("any"))) },
-        { json: "priority", js: "priority", typ: u(undefined, 0) },
-        { json: "retry", js: "retry", typ: u(undefined, r("Retry")) },
-        { json: "signature", js: "signature", typ: u(undefined, r("Signature")) },
-        { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
-        { json: "soft_fail", js: "soft_fail", typ: u(undefined, u(a(r("SoftFailElement")), true, r("AllowDependencyFailureEnum"))) },
-        { json: "timeout_in_minutes", js: "timeout_in_minutes", typ: u(undefined, 0) },
-        { json: "type", js: "type", typ: u(undefined, r("ScriptType")) },
-    ], false),
-    "MatrixObject": o([
-        { json: "adjustments", js: "adjustments", typ: u(undefined, a(r("Adjustment"))) },
-        { json: "setup", js: "setup", typ: u(a(u(true, 0, "")), m(a(u(true, 0, "")))) },
-    ], "any"),
-    "Adjustment": o([
-        { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
-        { json: "soft_fail", js: "soft_fail", typ: u(undefined, u(a(r("SoftFailElement")), true, r("AllowDependencyFailureEnum"))) },
-        { json: "with", js: "with", typ: u(a(u(true, 0, "")), m("")) },
-    ], "any"),
-    "SoftFailElement": o([
-        { json: "exit_status", js: "exit_status", typ: u(undefined, u(r("ExitStatusEnum"), 0)) },
-    ], "any"),
-    "NotifyClass": o([
-        { json: "basecamp_campfire", js: "basecamp_campfire", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "slack", js: "slack", typ: u(undefined, u(r("SlackClass"), "")) },
-        { json: "github_commit_status", js: "github_commit_status", typ: u(undefined, r("FluffyGithubCommitStatus")) },
-        { json: "github_check", js: "github_check", typ: u(undefined, r("FluffyGithubCheck")) },
-    ], false),
-    "FluffyGithubCheck": o([
-        { json: "context", js: "context", typ: u(undefined, "") },
-    ], "any"),
-    "FluffyGithubCommitStatus": o([
-        { json: "context", js: "context", typ: u(undefined, "") },
-    ], false),
-    "SlackClass": o([
-        { json: "channels", js: "channels", typ: u(undefined, a("")) },
-        { json: "message", js: "message", typ: u(undefined, "") },
-    ], false),
-    "Retry": o([
-        { json: "automatic", js: "automatic", typ: u(undefined, u(a(r("AutomaticRetry")), true, r("AutomaticRetry"), r("AllowDependencyFailureEnum"))) },
-        { json: "manual", js: "manual", typ: u(undefined, u(true, r("ManualClass"), r("AllowDependencyFailureEnum"))) },
-    ], false),
-    "AutomaticRetry": o([
-        { json: "exit_status", js: "exit_status", typ: u(undefined, u(a(0), r("ExitStatusEnum"), 0)) },
-        { json: "limit", js: "limit", typ: u(undefined, 0) },
-        { json: "signal", js: "signal", typ: u(undefined, "") },
-        { json: "signal_reason", js: "signal_reason", typ: u(undefined, r("SignalReason")) },
-    ], false),
-    "ManualClass": o([
-        { json: "allowed", js: "allowed", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "permit_on_passed", js: "permit_on_passed", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "reason", js: "reason", typ: u(undefined, "") },
-    ], false),
-    "Signature": o([
-        { json: "algorithm", js: "algorithm", typ: u(undefined, "") },
-        { json: "signed_fields", js: "signed_fields", typ: u(undefined, a("")) },
-        { json: "value", js: "value", typ: u(undefined, "") },
-    ], "any"),
-    "InputStep": o([
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "input", js: "input", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, "") },
-        { json: "name", js: "name", typ: u(undefined, "") },
-        { json: "prompt", js: "prompt", typ: u(undefined, "") },
-        { json: "type", js: "type", typ: u(undefined, r("InputType")) },
-    ], false),
-    "FluffyBuildNotify": o([
-        { json: "basecamp_campfire", js: "basecamp_campfire", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "slack", js: "slack", typ: u(undefined, u(r("FluffySlack"), "")) },
-        { json: "github_commit_status", js: "github_commit_status", typ: u(undefined, r("TentacledGithubCommitStatus")) },
-        { json: "github_check", js: "github_check", typ: u(undefined, r("TentacledGithubCheck")) },
-        { json: "email", js: "email", typ: u(undefined, "") },
-        { json: "webhook", js: "webhook", typ: u(undefined, "") },
-        { json: "pagerduty_change_event", js: "pagerduty_change_event", typ: u(undefined, "") },
-    ], false),
-    "TentacledGithubCheck": o([
-        { json: "context", js: "context", typ: u(undefined, "") },
-    ], "any"),
-    "TentacledGithubCommitStatus": o([
-        { json: "context", js: "context", typ: u(undefined, "") },
-    ], false),
-    "FluffySlack": o([
-        { json: "channels", js: "channels", typ: u(undefined, a("")) },
-        { json: "message", js: "message", typ: u(undefined, "") },
-    ], "any"),
-    "PurpleStep": o([
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "block", js: "block", typ: u(undefined, u(r("BlockStep"), "")) },
-        { json: "blocked_state", js: "blocked_state", typ: u(undefined, r("BlockedState")) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, u(null, "")) },
-        { json: "name", js: "name", typ: u(undefined, u(null, "")) },
-        { json: "prompt", js: "prompt", typ: u(undefined, "") },
-        { json: "type", js: "type", typ: u(undefined, r("BlockStepType")) },
-        { json: "input", js: "input", typ: u(undefined, u(r("InputStep"), "")) },
-        { json: "agents", js: "agents", typ: u(undefined, u(a(""), m("any"))) },
-        { json: "artifact_paths", js: "artifact_paths", typ: u(undefined, u(a(""), "")) },
-        { json: "cache", js: "cache", typ: u(undefined, u(a(""), r("CacheObject"), "")) },
-        { json: "cancel_on_build_failing", js: "cancel_on_build_failing", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "command", js: "command", typ: u(undefined, u(a(""), r("CommandStep"), "")) },
-        { json: "commands", js: "commands", typ: u(undefined, u(a(""), r("CommandStep"), "")) },
-        { json: "concurrency", js: "concurrency", typ: u(undefined, 0) },
-        { json: "concurrency_group", js: "concurrency_group", typ: u(undefined, "") },
-        { json: "concurrency_method", js: "concurrency_method", typ: u(undefined, r("ConcurrencyMethod")) },
-        { json: "env", js: "env", typ: u(undefined, m("any")) },
-        { json: "matrix", js: "matrix", typ: u(undefined, u(a(u(true, 0, "")), r("MatrixObject"))) },
-        { json: "notify", js: "notify", typ: u(undefined, a(u(r("NotifyClass"), r("NotifyEnum")))) },
-        { json: "parallelism", js: "parallelism", typ: u(undefined, 0) },
-        { json: "plugins", js: "plugins", typ: u(undefined, u(a(u(m("any"), "")), m("any"))) },
-        { json: "priority", js: "priority", typ: u(undefined, 0) },
-        { json: "retry", js: "retry", typ: u(undefined, r("Retry")) },
-        { json: "signature", js: "signature", typ: u(undefined, r("Signature")) },
-        { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
-        { json: "soft_fail", js: "soft_fail", typ: u(undefined, u(a(r("SoftFailElement")), true, r("AllowDependencyFailureEnum"))) },
-        { json: "timeout_in_minutes", js: "timeout_in_minutes", typ: u(undefined, 0) },
-        { json: "script", js: "script", typ: u(undefined, r("CommandStep")) },
-        { json: "continue_on_failure", js: "continue_on_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "wait", js: "wait", typ: u(undefined, u(r("WaitStep"), null, "")) },
-        { json: "waiter", js: "waiter", typ: u(undefined, u(r("WaitStep"), null, "")) },
-        { json: "async", js: "async", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "build", js: "build", typ: u(undefined, r("Build")) },
-        { json: "trigger", js: "trigger", typ: u(undefined, u(r("TriggerStep"), "")) },
-    ], false),
-    "TriggerStep": o([
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "async", js: "async", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "build", js: "build", typ: u(undefined, r("Build")) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, "") },
-        { json: "name", js: "name", typ: u(undefined, "") },
-        { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
-        { json: "soft_fail", js: "soft_fail", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "trigger", js: "trigger", typ: "" },
-        { json: "type", js: "type", typ: u(undefined, r("TriggerType")) },
-    ], false),
-    "WaitStep": o([
-        { json: "allow_dependency_failure", js: "allow_dependency_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "branches", js: "branches", typ: u(undefined, u(a(""), "")) },
-        { json: "continue_on_failure", js: "continue_on_failure", typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))) },
-        { json: "depends_on", js: "depends_on", typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")) },
-        { json: "id", js: "id", typ: u(undefined, "") },
-        { json: "identifier", js: "identifier", typ: u(undefined, "") },
-        { json: "if", js: "if", typ: u(undefined, "") },
-        { json: "key", js: "key", typ: u(undefined, "") },
-        { json: "label", js: "label", typ: u(undefined, u(null, "")) },
-        { json: "name", js: "name", typ: u(undefined, u(null, "")) },
-        { json: "type", js: "type", typ: u(undefined, r("WaitType")) },
-        { json: "wait", js: "wait", typ: u(undefined, u(null, "")) },
-        { json: "waiter", js: "waiter", typ: u(undefined, u(null, "")) },
-    ], false),
-    "NotifyEnum": [
-        "github_check",
-        "github_commit_status",
-    ],
-    "AllowDependencyFailureEnum": [
-        "false",
-        "true",
-    ],
-    "BlockedState": [
-        "failed",
-        "passed",
-        "running",
-    ],
-    "BlockType": [
-        "block",
-    ],
-    "ConcurrencyMethod": [
-        "eager",
-        "ordered",
-    ],
-    "ExitStatusEnum": [
-        "*",
-    ],
-    "SignalReason": [
+    Schema: o(
+        [
+            {
+                json: "agents",
+                js: "agents",
+                typ: u(undefined, u(a(""), m("any"))),
+            },
+            { json: "env", js: "env", typ: u(undefined, m("any")) },
+            {
+                json: "notify",
+                js: "notify",
+                typ: u(
+                    undefined,
+                    a(u(r("PurpleBuildNotify"), r("NotifyEnum")))
+                ),
+            },
+            {
+                json: "steps",
+                js: "steps",
+                typ: a(u(r("GroupStepClass"), r("StringStep"))),
+            },
+        ],
+        "any"
+    ),
+    PurpleBuildNotify: o(
+        [
+            { json: "email", js: "email", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            {
+                json: "basecamp_campfire",
+                js: "basecamp_campfire",
+                typ: u(undefined, ""),
+            },
+            {
+                json: "slack",
+                js: "slack",
+                typ: u(undefined, u(r("PurpleSlack"), "")),
+            },
+            { json: "webhook", js: "webhook", typ: u(undefined, "") },
+            {
+                json: "pagerduty_change_event",
+                js: "pagerduty_change_event",
+                typ: u(undefined, ""),
+            },
+            {
+                json: "github_commit_status",
+                js: "github_commit_status",
+                typ: u(undefined, r("PurpleGithubCommitStatus")),
+            },
+            {
+                json: "github_check",
+                js: "github_check",
+                typ: u(undefined, r("PurpleGithubCheck")),
+            },
+        ],
+        false
+    ),
+    PurpleGithubCheck: o(
+        [{ json: "context", js: "context", typ: u(undefined, "") }],
+        "any"
+    ),
+    PurpleGithubCommitStatus: o(
+        [{ json: "context", js: "context", typ: u(undefined, "") }],
+        false
+    ),
+    PurpleSlack: o(
+        [
+            { json: "channels", js: "channels", typ: u(undefined, a("")) },
+            { json: "message", js: "message", typ: u(undefined, "") },
+        ],
+        "any"
+    ),
+    GroupStepClass: o(
+        [
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "block",
+                js: "block",
+                typ: u(undefined, u(r("BlockStep"), "")),
+            },
+            {
+                json: "blocked_state",
+                js: "blocked_state",
+                typ: u(undefined, r("BlockedState")),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, u(null, "")) },
+            { json: "name", js: "name", typ: u(undefined, u(null, "")) },
+            { json: "prompt", js: "prompt", typ: u(undefined, "") },
+            { json: "type", js: "type", typ: u(undefined, r("BlockStepType")) },
+            {
+                json: "input",
+                js: "input",
+                typ: u(undefined, u(r("InputStep"), "")),
+            },
+            {
+                json: "agents",
+                js: "agents",
+                typ: u(undefined, u(a(""), m("any"))),
+            },
+            {
+                json: "artifact_paths",
+                js: "artifact_paths",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "cache",
+                js: "cache",
+                typ: u(undefined, u(a(""), r("CacheObject"), "")),
+            },
+            {
+                json: "cancel_on_build_failing",
+                js: "cancel_on_build_failing",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "command",
+                js: "command",
+                typ: u(undefined, u(a(""), r("CommandStep"), "")),
+            },
+            {
+                json: "commands",
+                js: "commands",
+                typ: u(undefined, u(a(""), r("CommandStep"), "")),
+            },
+            { json: "concurrency", js: "concurrency", typ: u(undefined, 0) },
+            {
+                json: "concurrency_group",
+                js: "concurrency_group",
+                typ: u(undefined, ""),
+            },
+            {
+                json: "concurrency_method",
+                js: "concurrency_method",
+                typ: u(undefined, r("ConcurrencyMethod")),
+            },
+            { json: "env", js: "env", typ: u(undefined, m("any")) },
+            {
+                json: "matrix",
+                js: "matrix",
+                typ: u(undefined, u(a(u(true, 0, "")), r("MatrixObject"))),
+            },
+            {
+                json: "notify",
+                js: "notify",
+                typ: u(
+                    undefined,
+                    a(u(r("FluffyBuildNotify"), r("NotifyEnum")))
+                ),
+            },
+            { json: "parallelism", js: "parallelism", typ: u(undefined, 0) },
+            {
+                json: "plugins",
+                js: "plugins",
+                typ: u(undefined, u(a(u(m("any"), "")), m("any"))),
+            },
+            { json: "priority", js: "priority", typ: u(undefined, 0) },
+            { json: "retry", js: "retry", typ: u(undefined, r("Retry")) },
+            {
+                json: "signature",
+                js: "signature",
+                typ: u(undefined, r("Signature")),
+            },
+            { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
+            {
+                json: "soft_fail",
+                js: "soft_fail",
+                typ: u(
+                    undefined,
+                    u(
+                        a(r("SoftFailElement")),
+                        true,
+                        r("AllowDependencyFailureEnum")
+                    )
+                ),
+            },
+            {
+                json: "timeout_in_minutes",
+                js: "timeout_in_minutes",
+                typ: u(undefined, 0),
+            },
+            {
+                json: "script",
+                js: "script",
+                typ: u(undefined, r("CommandStep")),
+            },
+            {
+                json: "continue_on_failure",
+                js: "continue_on_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "wait",
+                js: "wait",
+                typ: u(undefined, u(r("WaitStep"), null, "")),
+            },
+            {
+                json: "waiter",
+                js: "waiter",
+                typ: u(undefined, u(r("WaitStep"), null, "")),
+            },
+            {
+                json: "async",
+                js: "async",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "build", js: "build", typ: u(undefined, r("Build")) },
+            {
+                json: "trigger",
+                js: "trigger",
+                typ: u(undefined, u(r("TriggerStep"), "")),
+            },
+            { json: "group", js: "group", typ: u(undefined, u(null, "")) },
+            {
+                json: "steps",
+                js: "steps",
+                typ: u(undefined, a(u(r("PurpleStep"), r("StringStep")))),
+            },
+        ],
+        false
+    ),
+    BlockStep: o(
+        [
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "block", js: "block", typ: u(undefined, "") },
+            {
+                json: "blocked_state",
+                js: "blocked_state",
+                typ: u(undefined, r("BlockedState")),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, "") },
+            { json: "name", js: "name", typ: u(undefined, "") },
+            { json: "prompt", js: "prompt", typ: u(undefined, "") },
+            { json: "type", js: "type", typ: u(undefined, r("BlockType")) },
+        ],
+        false
+    ),
+    DependsOnClass: o(
+        [
+            {
+                json: "allow_failure",
+                js: "allow_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "step", js: "step", typ: u(undefined, "") },
+        ],
+        false
+    ),
+    Field: o(
+        [
+            { json: "default", js: "default", typ: u(undefined, u(a(""), "")) },
+            { json: "format", js: "format", typ: u(undefined, "") },
+            { json: "hint", js: "hint", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: "" },
+            {
+                json: "required",
+                js: "required",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "text", js: "text", typ: u(undefined, "") },
+            {
+                json: "multiple",
+                js: "multiple",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "options",
+                js: "options",
+                typ: u(undefined, a(r("Option"))),
+            },
+            { json: "select", js: "select", typ: u(undefined, "") },
+        ],
+        false
+    ),
+    Option: o(
+        [
+            { json: "hint", js: "hint", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: "" },
+            {
+                json: "required",
+                js: "required",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "value", js: "value", typ: "" },
+        ],
+        false
+    ),
+    Build: o(
+        [
+            { json: "branch", js: "branch", typ: u(undefined, "") },
+            { json: "commit", js: "commit", typ: u(undefined, "") },
+            { json: "env", js: "env", typ: u(undefined, m("any")) },
+            { json: "message", js: "message", typ: u(undefined, "") },
+            { json: "meta_data", js: "meta_data", typ: u(undefined, m("any")) },
+        ],
+        false
+    ),
+    CacheObject: o(
+        [
+            { json: "name", js: "name", typ: u(undefined, "") },
+            { json: "paths", js: "paths", typ: a("") },
+            { json: "size", js: "size", typ: u(undefined, "") },
+        ],
+        "any"
+    ),
+    CommandStep: o(
+        [
+            {
+                json: "agents",
+                js: "agents",
+                typ: u(undefined, u(a(""), m("any"))),
+            },
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "artifact_paths",
+                js: "artifact_paths",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "cache",
+                js: "cache",
+                typ: u(undefined, u(a(""), r("CacheObject"), "")),
+            },
+            {
+                json: "cancel_on_build_failing",
+                js: "cancel_on_build_failing",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "command", js: "command", typ: u(undefined, u(a(""), "")) },
+            {
+                json: "commands",
+                js: "commands",
+                typ: u(undefined, u(a(""), "")),
+            },
+            { json: "concurrency", js: "concurrency", typ: u(undefined, 0) },
+            {
+                json: "concurrency_group",
+                js: "concurrency_group",
+                typ: u(undefined, ""),
+            },
+            {
+                json: "concurrency_method",
+                js: "concurrency_method",
+                typ: u(undefined, r("ConcurrencyMethod")),
+            },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "env", js: "env", typ: u(undefined, m("any")) },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, "") },
+            {
+                json: "matrix",
+                js: "matrix",
+                typ: u(undefined, u(a(u(true, 0, "")), r("MatrixObject"))),
+            },
+            { json: "name", js: "name", typ: u(undefined, "") },
+            {
+                json: "notify",
+                js: "notify",
+                typ: u(undefined, a(u(r("NotifyClass"), r("NotifyEnum")))),
+            },
+            { json: "parallelism", js: "parallelism", typ: u(undefined, 0) },
+            {
+                json: "plugins",
+                js: "plugins",
+                typ: u(undefined, u(a(u(m("any"), "")), m("any"))),
+            },
+            { json: "priority", js: "priority", typ: u(undefined, 0) },
+            { json: "retry", js: "retry", typ: u(undefined, r("Retry")) },
+            {
+                json: "signature",
+                js: "signature",
+                typ: u(undefined, r("Signature")),
+            },
+            { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
+            {
+                json: "soft_fail",
+                js: "soft_fail",
+                typ: u(
+                    undefined,
+                    u(
+                        a(r("SoftFailElement")),
+                        true,
+                        r("AllowDependencyFailureEnum")
+                    )
+                ),
+            },
+            {
+                json: "timeout_in_minutes",
+                js: "timeout_in_minutes",
+                typ: u(undefined, 0),
+            },
+            { json: "type", js: "type", typ: u(undefined, r("ScriptType")) },
+        ],
+        false
+    ),
+    MatrixObject: o(
+        [
+            {
+                json: "adjustments",
+                js: "adjustments",
+                typ: u(undefined, a(r("Adjustment"))),
+            },
+            {
+                json: "setup",
+                js: "setup",
+                typ: u(a(u(true, 0, "")), m(a(u(true, 0, "")))),
+            },
+        ],
+        "any"
+    ),
+    Adjustment: o(
+        [
+            { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
+            {
+                json: "soft_fail",
+                js: "soft_fail",
+                typ: u(
+                    undefined,
+                    u(
+                        a(r("SoftFailElement")),
+                        true,
+                        r("AllowDependencyFailureEnum")
+                    )
+                ),
+            },
+            { json: "with", js: "with", typ: u(a(u(true, 0, "")), m("")) },
+        ],
+        "any"
+    ),
+    SoftFailElement: o(
+        [
+            {
+                json: "exit_status",
+                js: "exit_status",
+                typ: u(undefined, u(r("ExitStatusEnum"), 0)),
+            },
+        ],
+        "any"
+    ),
+    NotifyClass: o(
+        [
+            {
+                json: "basecamp_campfire",
+                js: "basecamp_campfire",
+                typ: u(undefined, ""),
+            },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            {
+                json: "slack",
+                js: "slack",
+                typ: u(undefined, u(r("SlackClass"), "")),
+            },
+            {
+                json: "github_commit_status",
+                js: "github_commit_status",
+                typ: u(undefined, r("FluffyGithubCommitStatus")),
+            },
+            {
+                json: "github_check",
+                js: "github_check",
+                typ: u(undefined, r("FluffyGithubCheck")),
+            },
+        ],
+        false
+    ),
+    FluffyGithubCheck: o(
+        [{ json: "context", js: "context", typ: u(undefined, "") }],
+        "any"
+    ),
+    FluffyGithubCommitStatus: o(
+        [{ json: "context", js: "context", typ: u(undefined, "") }],
+        false
+    ),
+    SlackClass: o(
+        [
+            { json: "channels", js: "channels", typ: u(undefined, a("")) },
+            { json: "message", js: "message", typ: u(undefined, "") },
+        ],
+        false
+    ),
+    Retry: o(
+        [
+            {
+                json: "automatic",
+                js: "automatic",
+                typ: u(
+                    undefined,
+                    u(
+                        a(r("AutomaticRetry")),
+                        true,
+                        r("AutomaticRetry"),
+                        r("AllowDependencyFailureEnum")
+                    )
+                ),
+            },
+            {
+                json: "manual",
+                js: "manual",
+                typ: u(
+                    undefined,
+                    u(true, r("ManualClass"), r("AllowDependencyFailureEnum"))
+                ),
+            },
+        ],
+        false
+    ),
+    AutomaticRetry: o(
+        [
+            {
+                json: "exit_status",
+                js: "exit_status",
+                typ: u(undefined, u(a(0), r("ExitStatusEnum"), 0)),
+            },
+            { json: "limit", js: "limit", typ: u(undefined, 0) },
+            { json: "signal", js: "signal", typ: u(undefined, "") },
+            {
+                json: "signal_reason",
+                js: "signal_reason",
+                typ: u(undefined, r("SignalReason")),
+            },
+        ],
+        false
+    ),
+    ManualClass: o(
+        [
+            {
+                json: "allowed",
+                js: "allowed",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "permit_on_passed",
+                js: "permit_on_passed",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "reason", js: "reason", typ: u(undefined, "") },
+        ],
+        false
+    ),
+    Signature: o(
+        [
+            { json: "algorithm", js: "algorithm", typ: u(undefined, "") },
+            {
+                json: "signed_fields",
+                js: "signed_fields",
+                typ: u(undefined, a("")),
+            },
+            { json: "value", js: "value", typ: u(undefined, "") },
+        ],
+        "any"
+    ),
+    InputStep: o(
+        [
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "input", js: "input", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, "") },
+            { json: "name", js: "name", typ: u(undefined, "") },
+            { json: "prompt", js: "prompt", typ: u(undefined, "") },
+            { json: "type", js: "type", typ: u(undefined, r("InputType")) },
+        ],
+        false
+    ),
+    FluffyBuildNotify: o(
+        [
+            {
+                json: "basecamp_campfire",
+                js: "basecamp_campfire",
+                typ: u(undefined, ""),
+            },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            {
+                json: "slack",
+                js: "slack",
+                typ: u(undefined, u(r("FluffySlack"), "")),
+            },
+            {
+                json: "github_commit_status",
+                js: "github_commit_status",
+                typ: u(undefined, r("TentacledGithubCommitStatus")),
+            },
+            {
+                json: "github_check",
+                js: "github_check",
+                typ: u(undefined, r("TentacledGithubCheck")),
+            },
+            { json: "email", js: "email", typ: u(undefined, "") },
+            { json: "webhook", js: "webhook", typ: u(undefined, "") },
+            {
+                json: "pagerduty_change_event",
+                js: "pagerduty_change_event",
+                typ: u(undefined, ""),
+            },
+        ],
+        false
+    ),
+    TentacledGithubCheck: o(
+        [{ json: "context", js: "context", typ: u(undefined, "") }],
+        "any"
+    ),
+    TentacledGithubCommitStatus: o(
+        [{ json: "context", js: "context", typ: u(undefined, "") }],
+        false
+    ),
+    FluffySlack: o(
+        [
+            { json: "channels", js: "channels", typ: u(undefined, a("")) },
+            { json: "message", js: "message", typ: u(undefined, "") },
+        ],
+        "any"
+    ),
+    PurpleStep: o(
+        [
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "block",
+                js: "block",
+                typ: u(undefined, u(r("BlockStep"), "")),
+            },
+            {
+                json: "blocked_state",
+                js: "blocked_state",
+                typ: u(undefined, r("BlockedState")),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "fields", js: "fields", typ: u(undefined, a(r("Field"))) },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, u(null, "")) },
+            { json: "name", js: "name", typ: u(undefined, u(null, "")) },
+            { json: "prompt", js: "prompt", typ: u(undefined, "") },
+            { json: "type", js: "type", typ: u(undefined, r("BlockStepType")) },
+            {
+                json: "input",
+                js: "input",
+                typ: u(undefined, u(r("InputStep"), "")),
+            },
+            {
+                json: "agents",
+                js: "agents",
+                typ: u(undefined, u(a(""), m("any"))),
+            },
+            {
+                json: "artifact_paths",
+                js: "artifact_paths",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "cache",
+                js: "cache",
+                typ: u(undefined, u(a(""), r("CacheObject"), "")),
+            },
+            {
+                json: "cancel_on_build_failing",
+                js: "cancel_on_build_failing",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "command",
+                js: "command",
+                typ: u(undefined, u(a(""), r("CommandStep"), "")),
+            },
+            {
+                json: "commands",
+                js: "commands",
+                typ: u(undefined, u(a(""), r("CommandStep"), "")),
+            },
+            { json: "concurrency", js: "concurrency", typ: u(undefined, 0) },
+            {
+                json: "concurrency_group",
+                js: "concurrency_group",
+                typ: u(undefined, ""),
+            },
+            {
+                json: "concurrency_method",
+                js: "concurrency_method",
+                typ: u(undefined, r("ConcurrencyMethod")),
+            },
+            { json: "env", js: "env", typ: u(undefined, m("any")) },
+            {
+                json: "matrix",
+                js: "matrix",
+                typ: u(undefined, u(a(u(true, 0, "")), r("MatrixObject"))),
+            },
+            {
+                json: "notify",
+                js: "notify",
+                typ: u(undefined, a(u(r("NotifyClass"), r("NotifyEnum")))),
+            },
+            { json: "parallelism", js: "parallelism", typ: u(undefined, 0) },
+            {
+                json: "plugins",
+                js: "plugins",
+                typ: u(undefined, u(a(u(m("any"), "")), m("any"))),
+            },
+            { json: "priority", js: "priority", typ: u(undefined, 0) },
+            { json: "retry", js: "retry", typ: u(undefined, r("Retry")) },
+            {
+                json: "signature",
+                js: "signature",
+                typ: u(undefined, r("Signature")),
+            },
+            { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
+            {
+                json: "soft_fail",
+                js: "soft_fail",
+                typ: u(
+                    undefined,
+                    u(
+                        a(r("SoftFailElement")),
+                        true,
+                        r("AllowDependencyFailureEnum")
+                    )
+                ),
+            },
+            {
+                json: "timeout_in_minutes",
+                js: "timeout_in_minutes",
+                typ: u(undefined, 0),
+            },
+            {
+                json: "script",
+                js: "script",
+                typ: u(undefined, r("CommandStep")),
+            },
+            {
+                json: "continue_on_failure",
+                js: "continue_on_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "wait",
+                js: "wait",
+                typ: u(undefined, u(r("WaitStep"), null, "")),
+            },
+            {
+                json: "waiter",
+                js: "waiter",
+                typ: u(undefined, u(r("WaitStep"), null, "")),
+            },
+            {
+                json: "async",
+                js: "async",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            { json: "build", js: "build", typ: u(undefined, r("Build")) },
+            {
+                json: "trigger",
+                js: "trigger",
+                typ: u(undefined, u(r("TriggerStep"), "")),
+            },
+        ],
+        false
+    ),
+    TriggerStep: o(
+        [
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "async",
+                js: "async",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            { json: "build", js: "build", typ: u(undefined, r("Build")) },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, "") },
+            { json: "name", js: "name", typ: u(undefined, "") },
+            { json: "skip", js: "skip", typ: u(undefined, u(true, "")) },
+            {
+                json: "soft_fail",
+                js: "soft_fail",
+                typ: u(
+                    undefined,
+                    u(
+                        a(r("SoftFailElement")),
+                        true,
+                        r("AllowDependencyFailureEnum")
+                    )
+                ),
+            },
+            { json: "trigger", js: "trigger", typ: "" },
+            { json: "type", js: "type", typ: u(undefined, r("TriggerType")) },
+        ],
+        false
+    ),
+    WaitStep: o(
+        [
+            {
+                json: "allow_dependency_failure",
+                js: "allow_dependency_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "branches",
+                js: "branches",
+                typ: u(undefined, u(a(""), "")),
+            },
+            {
+                json: "continue_on_failure",
+                js: "continue_on_failure",
+                typ: u(undefined, u(true, r("AllowDependencyFailureEnum"))),
+            },
+            {
+                json: "depends_on",
+                js: "depends_on",
+                typ: u(undefined, u(a(u(r("DependsOnClass"), "")), null, "")),
+            },
+            { json: "id", js: "id", typ: u(undefined, "") },
+            { json: "identifier", js: "identifier", typ: u(undefined, "") },
+            { json: "if", js: "if", typ: u(undefined, "") },
+            { json: "key", js: "key", typ: u(undefined, "") },
+            { json: "label", js: "label", typ: u(undefined, u(null, "")) },
+            { json: "name", js: "name", typ: u(undefined, u(null, "")) },
+            { json: "type", js: "type", typ: u(undefined, r("WaitType")) },
+            { json: "wait", js: "wait", typ: u(undefined, u(null, "")) },
+            { json: "waiter", js: "waiter", typ: u(undefined, u(null, "")) },
+        ],
+        false
+    ),
+    NotifyEnum: ["github_check", "github_commit_status"],
+    AllowDependencyFailureEnum: ["false", "true"],
+    BlockedState: ["failed", "passed", "running"],
+    BlockType: ["block"],
+    ConcurrencyMethod: ["eager", "ordered"],
+    ExitStatusEnum: ["*"],
+    SignalReason: [
         "agent_refused",
         "agent_stop",
         "cancel",
@@ -1311,18 +1940,10 @@ const typeMap: any = {
         "process_run_error",
         "signature_rejected",
     ],
-    "ScriptType": [
-        "command",
-        "commands",
-        "script",
-    ],
-    "InputType": [
-        "input",
-    ],
-    "TriggerType": [
-        "trigger",
-    ],
-    "BlockStepType": [
+    ScriptType: ["command", "commands", "script"],
+    InputType: ["input"],
+    TriggerType: ["trigger"],
+    BlockStepType: [
         "block",
         "command",
         "commands",
@@ -1332,14 +1953,6 @@ const typeMap: any = {
         "wait",
         "waiter",
     ],
-    "WaitType": [
-        "wait",
-        "waiter",
-    ],
-    "StringStep": [
-        "block",
-        "input",
-        "wait",
-        "waiter",
-    ],
+    WaitType: ["wait", "waiter"],
+    StringStep: ["block", "input", "wait", "waiter"],
 };

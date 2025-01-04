@@ -1,11 +1,22 @@
 import * as yaml from "yaml";
 import * as schema from "./schema";
+import * as env from "./environment";
+export * as environmentVariables from "./environment";
 
 type PipelineStep =
     | schema.CommandStep
     | schema.WaitStep
     | schema.InputStep
-    | schema.TriggerStep;
+    | schema.TriggerStep
+    | schema.BlockStep
+    | schema.GroupStepClass;
+
+export class Environment {
+    static get(key: env.Environment) {
+        env.Environment.BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT;
+        return env.Environment[key];
+    }
+}
 
 export class Pipeline {
     private steps: PipelineStep[] = [];

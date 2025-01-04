@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK",
-        "gentypes": "nx gen:types",
+        "types": "nx gen:types",
         "test": "nx test:all",
         "build": "nx build:all",
         "start": "nx start:all",
@@ -32,6 +32,7 @@
         "jest": "^29.7.0",
         "jest-environment-node": "^29.7.0",
         "json-schema-to-typescript": "^15.0.3",
+        "mustache": "^4.2.0",
         "nx": "20.3.0",
         "prettier": "^2.6.2",
         "quicktype": "^23.0.170",
@@ -40,7 +41,8 @@
         "ts-node": "10.9.1",
         "tslib": "^2.3.0",
         "typescript": "~5.6.2",
-        "typescript-eslint": "^8.13.0"
+        "typescript-eslint": "^8.13.0",
+        "yaml": "^2.7.0"
     },
     "workspaces": [
         "libs/**",

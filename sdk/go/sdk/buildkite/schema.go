@@ -22,11 +22,11 @@ func (r *Schema) Marshal() ([]byte, error) {
 }
 
 type Schema struct {
-	Agents            *Agents                `json:"agents"`
-	Env               map[string]interface{} `json:"env,omitempty"`
-	Notify            []SchemaNotify         `json:"notify,omitempty"`
-	// A list of steps                       
-	Steps             []SchemaStep           `json:"steps"`
+	Agents *Agents                `json:"agents"`
+	Env    map[string]interface{} `json:"env,omitempty"`
+	Notify []SchemaNotify         `json:"notify,omitempty"`
+	// A list of steps
+	Steps []SchemaStep `json:"steps"`
 }
 
 type PurpleBuildNotify struct {
@@ -41,13 +41,13 @@ type PurpleBuildNotify struct {
 }
 
 type PurpleGithubCheck struct {
-	// GitHub commit status name        
-	Context                     *string `json:"context,omitempty"`
+	// GitHub commit status name
+	Context *string `json:"context,omitempty"`
 }
 
 type PurpleGithubCommitStatus struct {
-	// GitHub commit status name        
-	Context                     *string `json:"context,omitempty"`
+	// GitHub commit status name
+	Context *string `json:"context,omitempty"`
 }
 
 type PurpleSlack struct {
@@ -57,95 +57,94 @@ type PurpleSlack struct {
 
 // Waits for previous steps to pass before continuing
 type GroupStepClass struct {
-	AllowDependencyFailure                                                                   *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	// The label of the block step                                                                                        
-	Block                                                                                    *Block                       `json:"block"`
-	// The state that the build is set to when the build is blocked by this block step                                    
-	BlockedState                                                                             *BlockedState                `json:"blocked_state,omitempty"`
-	Branches                                                                                 *Branches                    `json:"branches"`
-	DependsOn                                                                                *DependsOn                   `json:"depends_on"`
-	Fields                                                                                   []Field                      `json:"fields,omitempty"`
-	ID                                                                                       *string                      `json:"id,omitempty"`
-	Identifier                                                                               *string                      `json:"identifier,omitempty"`
-	If                                                                                       *string                      `json:"if,omitempty"`
-	Key                                                                                      *string                      `json:"key,omitempty"`
-	Label                                                                                    *string                      `json:"label"`
-	Name                                                                                     *string                      `json:"name"`
-	Prompt                                                                                   *string                      `json:"prompt,omitempty"`
-	Type                                                                                     *BlockStepType               `json:"type,omitempty"`
-	// The label of the input step                                                                                        
-	Input                                                                                    *Input                       `json:"input"`
-	Agents                                                                                   *Agents                      `json:"agents"`
-	// The glob path/s of artifacts to upload once this step has finished running                                         
-	ArtifactPaths                                                                            []string                     `json:"artifact_paths"`
-	Cache                                                                                    *Cache                       `json:"cache"`
-	CancelOnBuildFailing                                                                     *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
-	// The commands to run on the agent                                                                                   
-	Command                                                                                  *CommandUnion                `json:"command"`
-	// The commands to run on the agent                                                                                   
-	Commands                                                                                 *CommandUnion                `json:"commands"`
-	// The maximum number of jobs created from this step that are allowed to run at the same                              
-	// time. If you use this attribute, you must also define concurrency_group.                                           
-	Concurrency                                                                              *int64                       `json:"concurrency,omitempty"`
-	// A unique name for the concurrency group that you are creating with the concurrency                                 
-	// attribute                                                                                                          
-	ConcurrencyGroup                                                                         *string                      `json:"concurrency_group,omitempty"`
-	// Control command order, allowed values are 'ordered' (default) and 'eager'.  If you use                             
-	// this attribute, you must also define concurrency_group and concurrency.                                            
-	ConcurrencyMethod                                                                        *ConcurrencyMethod           `json:"concurrency_method,omitempty"`
-	Env                                                                                      map[string]interface{}       `json:"env,omitempty"`
-	Matrix                                                                                   *MatrixUnion                 `json:"matrix"`
-	// Array of notification options for this step                                                                        
-	Notify                                                                                   []BlockStepNotify            `json:"notify,omitempty"`
-	// The number of parallel jobs that will be created based on this step                                                
-	Parallelism                                                                              *int64                       `json:"parallelism,omitempty"`
-	Plugins                                                                                  *Plugins                     `json:"plugins"`
-	// Priority of the job, higher priorities are assigned to agents                                                      
-	Priority                                                                                 *int64                       `json:"priority,omitempty"`
-	// The conditions for retrying this step.                                                                             
-	Retry                                                                                    *Retry                       `json:"retry,omitempty"`
-	// The signature of the command step, generally injected by agents at pipeline upload                                 
-	Signature                                                                                *Signature                   `json:"signature,omitempty"`
-	Skip                                                                                     *Skip                        `json:"skip"`
-	// The conditions for marking the step as a soft-fail.                                                                
-	SoftFail                                                                                 *SoftFailUnion               `json:"soft_fail"`
-	// The number of minutes to time out a job                                                                            
-	TimeoutInMinutes                                                                         *int64                       `json:"timeout_in_minutes,omitempty"`
-	Script                                                                                   *CommandStep                 `json:"script,omitempty"`
-	// Continue to the next steps, even if the previous group of steps fail                                               
-	ContinueOnFailure                                                                        *AllowDependencyFailureUnion `json:"continue_on_failure"`
-	// Waits for previous steps to pass before continuing                                                                 
-	Wait                                                                                     *Label                       `json:"wait"`
-	Waiter                                                                                   *Label                       `json:"waiter"`
-	// Whether to continue the build without waiting for the triggered step to complete                                   
-	Async                                                                                    *AllowDependencyFailureUnion `json:"async"`
-	// Properties of the build that will be created when the step is triggered                                            
-	Build                                                                                    *Build                       `json:"build,omitempty"`
-	// The slug of the pipeline to create a build                                                                         
-	Trigger                                                                                  *Trigger                     `json:"trigger"`
-	// The name to give to this group of steps                                                                            
-	Group                                                                                    *string                      `json:"group"`
-	// A list of steps                                                                                                    
-	Steps                                                                                    []BlockStepStep              `json:"steps,omitempty"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	// The label of the block step
+	Block *Block `json:"block"`
+	// The state that the build is set to when the build is blocked by this block step
+	BlockedState *BlockedState  `json:"blocked_state,omitempty"`
+	Branches     *Branches      `json:"branches"`
+	DependsOn    *DependsOn     `json:"depends_on"`
+	Fields       []Field        `json:"fields,omitempty"`
+	ID           *string        `json:"id,omitempty"`
+	Identifier   *string        `json:"identifier,omitempty"`
+	If           *string        `json:"if,omitempty"`
+	Key          *string        `json:"key,omitempty"`
+	Label        *string        `json:"label"`
+	Name         *string        `json:"name"`
+	Prompt       *string        `json:"prompt,omitempty"`
+	Type         *BlockStepType `json:"type,omitempty"`
+	// The label of the input step
+	Input  *Input  `json:"input"`
+	Agents *Agents `json:"agents"`
+	// The glob path/s of artifacts to upload once this step has finished running
+	ArtifactPaths        []string                     `json:"artifact_paths"`
+	Cache                *Cache                       `json:"cache"`
+	CancelOnBuildFailing *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
+	// The commands to run on the agent
+	Command *CommandUnion `json:"command"`
+	// The commands to run on the agent
+	Commands *CommandUnion `json:"commands"`
+	// The maximum number of jobs created from this step that are allowed to run at the same
+	// time. If you use this attribute, you must also define concurrency_group.
+	Concurrency *int64 `json:"concurrency,omitempty"`
+	// A unique name for the concurrency group that you are creating with the concurrency
+	// attribute
+	ConcurrencyGroup *string `json:"concurrency_group,omitempty"`
+	// Control command order, allowed values are 'ordered' (default) and 'eager'.  If you use
+	// this attribute, you must also define concurrency_group and concurrency.
+	ConcurrencyMethod *ConcurrencyMethod     `json:"concurrency_method,omitempty"`
+	Env               map[string]interface{} `json:"env,omitempty"`
+	Matrix            *MatrixUnion           `json:"matrix"`
+	// Array of notification options for this step
+	Notify []BlockStepNotify `json:"notify,omitempty"`
+	// The number of parallel jobs that will be created based on this step
+	Parallelism *int64   `json:"parallelism,omitempty"`
+	Plugins     *Plugins `json:"plugins"`
+	// Priority of the job, higher priorities are assigned to agents
+	Priority *int64 `json:"priority,omitempty"`
+	// The conditions for retrying this step.
+	Retry *Retry `json:"retry,omitempty"`
+	// The signature of the command step, generally injected by agents at pipeline upload
+	Signature *Signature `json:"signature,omitempty"`
+	Skip      *Skip      `json:"skip"`
+	SoftFail  *SoftFail  `json:"soft_fail"`
+	// The number of minutes to time out a job
+	TimeoutInMinutes *int64       `json:"timeout_in_minutes,omitempty"`
+	Script           *CommandStep `json:"script,omitempty"`
+	// Continue to the next steps, even if the previous group of steps fail
+	ContinueOnFailure *AllowDependencyFailureUnion `json:"continue_on_failure"`
+	// Waits for previous steps to pass before continuing
+	Wait   *Label `json:"wait"`
+	Waiter *Label `json:"waiter"`
+	// Whether to continue the build without waiting for the triggered step to complete
+	Async *AllowDependencyFailureUnion `json:"async"`
+	// Properties of the build that will be created when the step is triggered
+	Build *Build `json:"build,omitempty"`
+	// The slug of the pipeline to create a build
+	Trigger *Trigger `json:"trigger"`
+	// The name to give to this group of steps
+	Group *string `json:"group"`
+	// A list of steps
+	Steps []BlockStepStep `json:"steps,omitempty"`
 }
 
 type BlockStep struct {
-	AllowDependencyFailure                                                            *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	// The label of the block step                                                                                 
-	Block                                                                             *string                      `json:"block,omitempty"`
-	// The state that the build is set to when the build is blocked by this block step                             
-	BlockedState                                                                      *BlockedState                `json:"blocked_state,omitempty"`
-	Branches                                                                          *Branches                    `json:"branches"`
-	DependsOn                                                                         *DependsOn                   `json:"depends_on"`
-	Fields                                                                            []Field                      `json:"fields,omitempty"`
-	ID                                                                                *string                      `json:"id,omitempty"`
-	Identifier                                                                        *string                      `json:"identifier,omitempty"`
-	If                                                                                *string                      `json:"if,omitempty"`
-	Key                                                                               *string                      `json:"key,omitempty"`
-	Label                                                                             *string                      `json:"label,omitempty"`
-	Name                                                                              *string                      `json:"name,omitempty"`
-	Prompt                                                                            *string                      `json:"prompt,omitempty"`
-	Type                                                                              *BlockType                   `json:"type,omitempty"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	// The label of the block step
+	Block *string `json:"block,omitempty"`
+	// The state that the build is set to when the build is blocked by this block step
+	BlockedState *BlockedState `json:"blocked_state,omitempty"`
+	Branches     *Branches     `json:"branches"`
+	DependsOn    *DependsOn    `json:"depends_on"`
+	Fields       []Field       `json:"fields,omitempty"`
+	ID           *string       `json:"id,omitempty"`
+	Identifier   *string       `json:"identifier,omitempty"`
+	If           *string       `json:"if,omitempty"`
+	Key          *string       `json:"key,omitempty"`
+	Label        *string       `json:"label,omitempty"`
+	Name         *string       `json:"name,omitempty"`
+	Prompt       *string       `json:"prompt,omitempty"`
+	Type         *BlockType    `json:"type,omitempty"`
 }
 
 type DependsOnClass struct {
@@ -155,50 +154,50 @@ type DependsOnClass struct {
 
 // A list of input fields required to be filled out before unblocking the step
 type Field struct {
-	// The value that is pre-filled in the text field                                                                      
-	//                                                                                                                     
-	// The value of the option(s) that will be pre-selected in the dropdown                                                
-	Default                                                                                   *Branches                    `json:"default"`
-	// The format must be a regular expression implicitly anchored to the beginning and end of                             
-	// the input and is functionally equivalent to the HTML5 pattern attribute.                                            
-	Format                                                                                    *string                      `json:"format,omitempty"`
-	// The explanatory text that is shown after the label                                                                  
-	Hint                                                                                      *string                      `json:"hint,omitempty"`
-	// The meta-data key that stores the field's input                                                                     
-	Key                                                                                       string                       `json:"key"`
-	// Whether the field is required for form submission                                                                   
-	Required                                                                                  *AllowDependencyFailureUnion `json:"required"`
-	// The text input name                                                                                                 
-	Text                                                                                      *string                      `json:"text,omitempty"`
-	// Whether more than one option may be selected                                                                        
-	Multiple                                                                                  *AllowDependencyFailureUnion `json:"multiple"`
-	Options                                                                                   []Option                     `json:"options,omitempty"`
-	// The text input name                                                                                                 
-	Select                                                                                    *string                      `json:"select,omitempty"`
+	// The value that is pre-filled in the text field
+	//
+	// The value of the option(s) that will be pre-selected in the dropdown
+	Default *Branches `json:"default"`
+	// The format must be a regular expression implicitly anchored to the beginning and end of
+	// the input and is functionally equivalent to the HTML5 pattern attribute.
+	Format *string `json:"format,omitempty"`
+	// The explanatory text that is shown after the label
+	Hint *string `json:"hint,omitempty"`
+	// The meta-data key that stores the field's input
+	Key string `json:"key"`
+	// Whether the field is required for form submission
+	Required *AllowDependencyFailureUnion `json:"required"`
+	// The text input name
+	Text *string `json:"text,omitempty"`
+	// Whether more than one option may be selected
+	Multiple *AllowDependencyFailureUnion `json:"multiple"`
+	Options  []Option                     `json:"options,omitempty"`
+	// The text input name
+	Select *string `json:"select,omitempty"`
 }
 
 type Option struct {
-	// The text displayed directly under the select field’s label                             
-	Hint                                                         *string                      `json:"hint,omitempty"`
-	// The text displayed on the select list item                                             
-	Label                                                        string                       `json:"label"`
-	// Whether the field is required for form submission                                      
-	Required                                                     *AllowDependencyFailureUnion `json:"required"`
-	// The value to be stored as meta-data                                                    
-	Value                                                        string                       `json:"value"`
+	// The text displayed directly under the select field’s label
+	Hint *string `json:"hint,omitempty"`
+	// The text displayed on the select list item
+	Label string `json:"label"`
+	// Whether the field is required for form submission
+	Required *AllowDependencyFailureUnion `json:"required"`
+	// The value to be stored as meta-data
+	Value string `json:"value"`
 }
 
 // Properties of the build that will be created when the step is triggered
 type Build struct {
-	// The branch for the build                                         
-	Branch                                       *string                `json:"branch,omitempty"`
-	// The commit hash for the build                                    
-	Commit                                       *string                `json:"commit,omitempty"`
-	Env                                          map[string]interface{} `json:"env,omitempty"`
-	// The message for the build (supports emoji)                       
-	Message                                      *string                `json:"message,omitempty"`
-	// Meta-data for the build                                          
-	MetaData                                     map[string]interface{} `json:"meta_data,omitempty"`
+	// The branch for the build
+	Branch *string `json:"branch,omitempty"`
+	// The commit hash for the build
+	Commit *string                `json:"commit,omitempty"`
+	Env    map[string]interface{} `json:"env,omitempty"`
+	// The message for the build (supports emoji)
+	Message *string `json:"message,omitempty"`
+	// Meta-data for the build
+	MetaData map[string]interface{} `json:"meta_data,omitempty"`
 }
 
 type CacheClass struct {
@@ -208,70 +207,70 @@ type CacheClass struct {
 }
 
 type CommandStep struct {
-	Agents                                                                                   *Agents                      `json:"agents"`
-	AllowDependencyFailure                                                                   *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	// The glob path/s of artifacts to upload once this step has finished running                                         
-	ArtifactPaths                                                                            []string                     `json:"artifact_paths"`
-	Branches                                                                                 *Branches                    `json:"branches"`
-	Cache                                                                                    *Cache                       `json:"cache"`
-	CancelOnBuildFailing                                                                     *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
-	// The commands to run on the agent                                                                                   
-	Command                                                                                  *CommandUnion                `json:"command"`
-	// The commands to run on the agent                                                                                   
-	Commands                                                                                 *CommandUnion                `json:"commands"`
-	// The maximum number of jobs created from this step that are allowed to run at the same                              
-	// time. If you use this attribute, you must also define concurrency_group.                                           
-	Concurrency                                                                              *int64                       `json:"concurrency,omitempty"`
-	// A unique name for the concurrency group that you are creating with the concurrency                                 
-	// attribute                                                                                                          
-	ConcurrencyGroup                                                                         *string                      `json:"concurrency_group,omitempty"`
-	// Control command order, allowed values are 'ordered' (default) and 'eager'.  If you use                             
-	// this attribute, you must also define concurrency_group and concurrency.                                            
-	ConcurrencyMethod                                                                        *ConcurrencyMethod           `json:"concurrency_method,omitempty"`
-	DependsOn                                                                                *DependsOn                   `json:"depends_on"`
-	Env                                                                                      map[string]interface{}       `json:"env,omitempty"`
-	ID                                                                                       *string                      `json:"id,omitempty"`
-	Identifier                                                                               *string                      `json:"identifier,omitempty"`
-	If                                                                                       *string                      `json:"if,omitempty"`
-	Key                                                                                      *string                      `json:"key,omitempty"`
-	Label                                                                                    *string                      `json:"label,omitempty"`
-	Matrix                                                                                   *MatrixUnion                 `json:"matrix"`
-	Name                                                                                     *string                      `json:"name,omitempty"`
-	// Array of notification options for this step                                                                        
-	Notify                                                                                   []NotifyElement              `json:"notify,omitempty"`
-	// The number of parallel jobs that will be created based on this step                                                
-	Parallelism                                                                              *int64                       `json:"parallelism,omitempty"`
-	Plugins                                                                                  *Plugins                     `json:"plugins"`
-	// Priority of the job, higher priorities are assigned to agents                                                      
-	Priority                                                                                 *int64                       `json:"priority,omitempty"`
-	// The conditions for retrying this step.                                                                             
-	Retry                                                                                    *Retry                       `json:"retry,omitempty"`
-	// The signature of the command step, generally injected by agents at pipeline upload                                 
-	Signature                                                                                *Signature                   `json:"signature,omitempty"`
-	Skip                                                                                     *Skip                        `json:"skip"`
-	SoftFail                                                                                 *SoftFailUnion               `json:"soft_fail"`
-	// The number of minutes to time out a job                                                                            
-	TimeoutInMinutes                                                                         *int64                       `json:"timeout_in_minutes,omitempty"`
-	Type                                                                                     *ScriptType                  `json:"type,omitempty"`
+	Agents                 *Agents                      `json:"agents"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	// The glob path/s of artifacts to upload once this step has finished running
+	ArtifactPaths        []string                     `json:"artifact_paths"`
+	Branches             *Branches                    `json:"branches"`
+	Cache                *Cache                       `json:"cache"`
+	CancelOnBuildFailing *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
+	// The commands to run on the agent
+	Command *CommandUnion `json:"command"`
+	// The commands to run on the agent
+	Commands *CommandUnion `json:"commands"`
+	// The maximum number of jobs created from this step that are allowed to run at the same
+	// time. If you use this attribute, you must also define concurrency_group.
+	Concurrency *int64 `json:"concurrency,omitempty"`
+	// A unique name for the concurrency group that you are creating with the concurrency
+	// attribute
+	ConcurrencyGroup *string `json:"concurrency_group,omitempty"`
+	// Control command order, allowed values are 'ordered' (default) and 'eager'.  If you use
+	// this attribute, you must also define concurrency_group and concurrency.
+	ConcurrencyMethod *ConcurrencyMethod     `json:"concurrency_method,omitempty"`
+	DependsOn         *DependsOn             `json:"depends_on"`
+	Env               map[string]interface{} `json:"env,omitempty"`
+	ID                *string                `json:"id,omitempty"`
+	Identifier        *string                `json:"identifier,omitempty"`
+	If                *string                `json:"if,omitempty"`
+	Key               *string                `json:"key,omitempty"`
+	Label             *string                `json:"label,omitempty"`
+	Matrix            *MatrixUnion           `json:"matrix"`
+	Name              *string                `json:"name,omitempty"`
+	// Array of notification options for this step
+	Notify []NotifyElement `json:"notify,omitempty"`
+	// The number of parallel jobs that will be created based on this step
+	Parallelism *int64   `json:"parallelism,omitempty"`
+	Plugins     *Plugins `json:"plugins"`
+	// Priority of the job, higher priorities are assigned to agents
+	Priority *int64 `json:"priority,omitempty"`
+	// The conditions for retrying this step.
+	Retry *Retry `json:"retry,omitempty"`
+	// The signature of the command step, generally injected by agents at pipeline upload
+	Signature *Signature `json:"signature,omitempty"`
+	Skip      *Skip      `json:"skip"`
+	SoftFail  *SoftFail  `json:"soft_fail"`
+	// The number of minutes to time out a job
+	TimeoutInMinutes *int64      `json:"timeout_in_minutes,omitempty"`
+	Type             *ScriptType `json:"type,omitempty"`
 }
 
 // Configuration for multi-dimension Build Matrix
 type MatrixClass struct {
-	// List of Build Matrix adjustments             
-	Adjustments                        []Adjustment `json:"adjustments,omitempty"`
-	Setup                              *Setup       `json:"setup"`
+	// List of Build Matrix adjustments
+	Adjustments []Adjustment `json:"adjustments,omitempty"`
+	Setup       *Setup       `json:"setup"`
 }
 
 // An adjustment to a Build Matrix
 type Adjustment struct {
-	Skip     *Skip          `json:"skip"`
-	SoftFail *SoftFailUnion `json:"soft_fail"`
-	With     *With          `json:"with"`
+	Skip     *Skip     `json:"skip"`
+	SoftFail *SoftFail `json:"soft_fail"`
+	With     *With     `json:"with"`
 }
 
 type SoftFailElement struct {
-	// The exit status number that will cause this job to soft-fail                    
-	ExitStatus                                                     *SoftFailExitStatus `json:"exit_status"`
+	// The exit status number that will cause this job to soft-fail
+	ExitStatus *SoftFailExitStatus `json:"exit_status"`
 }
 
 type NotifyClass struct {
@@ -283,13 +282,13 @@ type NotifyClass struct {
 }
 
 type FluffyGithubCheck struct {
-	// GitHub commit status name        
-	Context                     *string `json:"context,omitempty"`
+	// GitHub commit status name
+	Context *string `json:"context,omitempty"`
 }
 
 type FluffyGithubCommitStatus struct {
-	// GitHub commit status name        
-	Context                     *string `json:"context,omitempty"`
+	// GitHub commit status name
+	Context *string `json:"context,omitempty"`
 }
 
 type FluffySlack struct {
@@ -299,59 +298,59 @@ type FluffySlack struct {
 
 // The conditions for retrying this step.
 type Retry struct {
-	// Whether to allow a job to retry automatically. If set to true, the retry conditions are             
-	// set to the default value.                                                                           
-	Automatic                                                                                 *Automatic   `json:"automatic"`
-	// Whether to allow a job to be retried manually                                                       
-	Manual                                                                                    *ManualUnion `json:"manual"`
+	// Whether to allow a job to retry automatically. If set to true, the retry conditions are
+	// set to the default value.
+	Automatic *Automatic `json:"automatic"`
+	// Whether to allow a job to be retried manually
+	Manual *ManualUnion `json:"manual"`
 }
 
 type AutomaticRetry struct {
-	// The exit status number that will cause this job to retry                          
-	ExitStatus                                                 *AutomaticRetryExitStatus `json:"exit_status"`
-	// The number of times this job can be retried                                       
-	Limit                                                      *int64                    `json:"limit,omitempty"`
-	// The exit signal, if any, that may be retried                                      
-	Signal                                                     *string                   `json:"signal,omitempty"`
-	// The exit signal reason, if any, that may be retried                               
-	SignalReason                                               *SignalReasonEnum         `json:"signal_reason,omitempty"`
+	// The exit status number that will cause this job to retry
+	ExitStatus *AutomaticRetryExitStatus `json:"exit_status"`
+	// The number of times this job can be retried
+	Limit *int64 `json:"limit,omitempty"`
+	// The exit signal, if any, that may be retried
+	Signal *string `json:"signal,omitempty"`
+	// The exit signal reason, if any, that may be retried
+	SignalReason *SignalReasonEnum `json:"signal_reason,omitempty"`
 }
 
 type ManualClass struct {
-	// Whether or not this job can be retried manually                                                                      
-	Allowed                                                                                    *AllowDependencyFailureUnion `json:"allowed"`
-	// Whether or not this job can be retried after it has passed                                                           
-	PermitOnPassed                                                                             *AllowDependencyFailureUnion `json:"permit_on_passed"`
-	// A string that will be displayed in a tooltip on the Retry button in Buildkite. This will                             
-	// only be displayed if the allowed attribute is set to false.                                                          
-	Reason                                                                                     *string                      `json:"reason,omitempty"`
+	// Whether or not this job can be retried manually
+	Allowed *AllowDependencyFailureUnion `json:"allowed"`
+	// Whether or not this job can be retried after it has passed
+	PermitOnPassed *AllowDependencyFailureUnion `json:"permit_on_passed"`
+	// A string that will be displayed in a tooltip on the Retry button in Buildkite. This will
+	// only be displayed if the allowed attribute is set to false.
+	Reason *string `json:"reason,omitempty"`
 }
 
 // The signature of the command step, generally injected by agents at pipeline upload
 type Signature struct {
-	// The algorithm used to generate the signature                              
-	Algorithm                                                           *string  `json:"algorithm,omitempty"`
-	// The fields that were signed to form the signature value                   
-	SignedFields                                                        []string `json:"signed_fields,omitempty"`
-	// The signature value, a JWS compact signature with a detached body         
-	Value                                                               *string  `json:"value,omitempty"`
+	// The algorithm used to generate the signature
+	Algorithm *string `json:"algorithm,omitempty"`
+	// The fields that were signed to form the signature value
+	SignedFields []string `json:"signed_fields,omitempty"`
+	// The signature value, a JWS compact signature with a detached body
+	Value *string `json:"value,omitempty"`
 }
 
 type InputStep struct {
-	AllowDependencyFailure        *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	Branches                      *Branches                    `json:"branches"`
-	DependsOn                     *DependsOn                   `json:"depends_on"`
-	Fields                        []Field                      `json:"fields,omitempty"`
-	ID                            *string                      `json:"id,omitempty"`
-	Identifier                    *string                      `json:"identifier,omitempty"`
-	If                            *string                      `json:"if,omitempty"`
-	// The label of the input step                             
-	Input                         *string                      `json:"input,omitempty"`
-	Key                           *string                      `json:"key,omitempty"`
-	Label                         *string                      `json:"label,omitempty"`
-	Name                          *string                      `json:"name,omitempty"`
-	Prompt                        *string                      `json:"prompt,omitempty"`
-	Type                          *InputType                   `json:"type,omitempty"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	Branches               *Branches                    `json:"branches"`
+	DependsOn              *DependsOn                   `json:"depends_on"`
+	Fields                 []Field                      `json:"fields,omitempty"`
+	ID                     *string                      `json:"id,omitempty"`
+	Identifier             *string                      `json:"identifier,omitempty"`
+	If                     *string                      `json:"if,omitempty"`
+	// The label of the input step
+	Input  *string    `json:"input,omitempty"`
+	Key    *string    `json:"key,omitempty"`
+	Label  *string    `json:"label,omitempty"`
+	Name   *string    `json:"name,omitempty"`
+	Prompt *string    `json:"prompt,omitempty"`
+	Type   *InputType `json:"type,omitempty"`
 }
 
 type FluffyBuildNotify struct {
@@ -366,13 +365,13 @@ type FluffyBuildNotify struct {
 }
 
 type TentacledGithubCheck struct {
-	// GitHub commit status name        
-	Context                     *string `json:"context,omitempty"`
+	// GitHub commit status name
+	Context *string `json:"context,omitempty"`
 }
 
 type TentacledGithubCommitStatus struct {
-	// GitHub commit status name        
-	Context                     *string `json:"context,omitempty"`
+	// GitHub commit status name
+	Context *string `json:"context,omitempty"`
 }
 
 type TentacledSlack struct {
@@ -382,113 +381,111 @@ type TentacledSlack struct {
 
 // Waits for previous steps to pass before continuing
 type PurpleStep struct {
-	AllowDependencyFailure                                                                   *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	// The label of the block step                                                                                        
-	Block                                                                                    *Block                       `json:"block"`
-	// The state that the build is set to when the build is blocked by this block step                                    
-	BlockedState                                                                             *BlockedState                `json:"blocked_state,omitempty"`
-	Branches                                                                                 *Branches                    `json:"branches"`
-	DependsOn                                                                                *DependsOn                   `json:"depends_on"`
-	Fields                                                                                   []Field                      `json:"fields,omitempty"`
-	ID                                                                                       *string                      `json:"id,omitempty"`
-	Identifier                                                                               *string                      `json:"identifier,omitempty"`
-	If                                                                                       *string                      `json:"if,omitempty"`
-	Key                                                                                      *string                      `json:"key,omitempty"`
-	Label                                                                                    *string                      `json:"label"`
-	Name                                                                                     *string                      `json:"name"`
-	Prompt                                                                                   *string                      `json:"prompt,omitempty"`
-	Type                                                                                     *BlockStepType               `json:"type,omitempty"`
-	// The label of the input step                                                                                        
-	Input                                                                                    *Input                       `json:"input"`
-	Agents                                                                                   *Agents                      `json:"agents"`
-	// The glob path/s of artifacts to upload once this step has finished running                                         
-	ArtifactPaths                                                                            []string                     `json:"artifact_paths"`
-	Cache                                                                                    *Cache                       `json:"cache"`
-	CancelOnBuildFailing                                                                     *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
-	// The commands to run on the agent                                                                                   
-	Command                                                                                  *CommandUnion                `json:"command"`
-	// The commands to run on the agent                                                                                   
-	Commands                                                                                 *CommandUnion                `json:"commands"`
-	// The maximum number of jobs created from this step that are allowed to run at the same                              
-	// time. If you use this attribute, you must also define concurrency_group.                                           
-	Concurrency                                                                              *int64                       `json:"concurrency,omitempty"`
-	// A unique name for the concurrency group that you are creating with the concurrency                                 
-	// attribute                                                                                                          
-	ConcurrencyGroup                                                                         *string                      `json:"concurrency_group,omitempty"`
-	// Control command order, allowed values are 'ordered' (default) and 'eager'.  If you use                             
-	// this attribute, you must also define concurrency_group and concurrency.                                            
-	ConcurrencyMethod                                                                        *ConcurrencyMethod           `json:"concurrency_method,omitempty"`
-	Env                                                                                      map[string]interface{}       `json:"env,omitempty"`
-	Matrix                                                                                   *MatrixUnion                 `json:"matrix"`
-	// Array of notification options for this step                                                                        
-	Notify                                                                                   []NotifyElement              `json:"notify,omitempty"`
-	// The number of parallel jobs that will be created based on this step                                                
-	Parallelism                                                                              *int64                       `json:"parallelism,omitempty"`
-	Plugins                                                                                  *Plugins                     `json:"plugins"`
-	// Priority of the job, higher priorities are assigned to agents                                                      
-	Priority                                                                                 *int64                       `json:"priority,omitempty"`
-	// The conditions for retrying this step.                                                                             
-	Retry                                                                                    *Retry                       `json:"retry,omitempty"`
-	// The signature of the command step, generally injected by agents at pipeline upload                                 
-	Signature                                                                                *Signature                   `json:"signature,omitempty"`
-	Skip                                                                                     *Skip                        `json:"skip"`
-	// The conditions for marking the step as a soft-fail.                                                                
-	SoftFail                                                                                 *SoftFailUnion               `json:"soft_fail"`
-	// The number of minutes to time out a job                                                                            
-	TimeoutInMinutes                                                                         *int64                       `json:"timeout_in_minutes,omitempty"`
-	Script                                                                                   *CommandStep                 `json:"script,omitempty"`
-	// Continue to the next steps, even if the previous group of steps fail                                               
-	ContinueOnFailure                                                                        *AllowDependencyFailureUnion `json:"continue_on_failure"`
-	// Waits for previous steps to pass before continuing                                                                 
-	Wait                                                                                     *Label                       `json:"wait"`
-	Waiter                                                                                   *Label                       `json:"waiter"`
-	// Whether to continue the build without waiting for the triggered step to complete                                   
-	Async                                                                                    *AllowDependencyFailureUnion `json:"async"`
-	// Properties of the build that will be created when the step is triggered                                            
-	Build                                                                                    *Build                       `json:"build,omitempty"`
-	// The slug of the pipeline to create a build                                                                         
-	Trigger                                                                                  *Trigger                     `json:"trigger"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	// The label of the block step
+	Block *Block `json:"block"`
+	// The state that the build is set to when the build is blocked by this block step
+	BlockedState *BlockedState  `json:"blocked_state,omitempty"`
+	Branches     *Branches      `json:"branches"`
+	DependsOn    *DependsOn     `json:"depends_on"`
+	Fields       []Field        `json:"fields,omitempty"`
+	ID           *string        `json:"id,omitempty"`
+	Identifier   *string        `json:"identifier,omitempty"`
+	If           *string        `json:"if,omitempty"`
+	Key          *string        `json:"key,omitempty"`
+	Label        *string        `json:"label"`
+	Name         *string        `json:"name"`
+	Prompt       *string        `json:"prompt,omitempty"`
+	Type         *BlockStepType `json:"type,omitempty"`
+	// The label of the input step
+	Input  *Input  `json:"input"`
+	Agents *Agents `json:"agents"`
+	// The glob path/s of artifacts to upload once this step has finished running
+	ArtifactPaths        []string                     `json:"artifact_paths"`
+	Cache                *Cache                       `json:"cache"`
+	CancelOnBuildFailing *AllowDependencyFailureUnion `json:"cancel_on_build_failing"`
+	// The commands to run on the agent
+	Command *CommandUnion `json:"command"`
+	// The commands to run on the agent
+	Commands *CommandUnion `json:"commands"`
+	// The maximum number of jobs created from this step that are allowed to run at the same
+	// time. If you use this attribute, you must also define concurrency_group.
+	Concurrency *int64 `json:"concurrency,omitempty"`
+	// A unique name for the concurrency group that you are creating with the concurrency
+	// attribute
+	ConcurrencyGroup *string `json:"concurrency_group,omitempty"`
+	// Control command order, allowed values are 'ordered' (default) and 'eager'.  If you use
+	// this attribute, you must also define concurrency_group and concurrency.
+	ConcurrencyMethod *ConcurrencyMethod     `json:"concurrency_method,omitempty"`
+	Env               map[string]interface{} `json:"env,omitempty"`
+	Matrix            *MatrixUnion           `json:"matrix"`
+	// Array of notification options for this step
+	Notify []NotifyElement `json:"notify,omitempty"`
+	// The number of parallel jobs that will be created based on this step
+	Parallelism *int64   `json:"parallelism,omitempty"`
+	Plugins     *Plugins `json:"plugins"`
+	// Priority of the job, higher priorities are assigned to agents
+	Priority *int64 `json:"priority,omitempty"`
+	// The conditions for retrying this step.
+	Retry *Retry `json:"retry,omitempty"`
+	// The signature of the command step, generally injected by agents at pipeline upload
+	Signature *Signature `json:"signature,omitempty"`
+	Skip      *Skip      `json:"skip"`
+	SoftFail  *SoftFail  `json:"soft_fail"`
+	// The number of minutes to time out a job
+	TimeoutInMinutes *int64       `json:"timeout_in_minutes,omitempty"`
+	Script           *CommandStep `json:"script,omitempty"`
+	// Continue to the next steps, even if the previous group of steps fail
+	ContinueOnFailure *AllowDependencyFailureUnion `json:"continue_on_failure"`
+	// Waits for previous steps to pass before continuing
+	Wait   *Label `json:"wait"`
+	Waiter *Label `json:"waiter"`
+	// Whether to continue the build without waiting for the triggered step to complete
+	Async *AllowDependencyFailureUnion `json:"async"`
+	// Properties of the build that will be created when the step is triggered
+	Build *Build `json:"build,omitempty"`
+	// The slug of the pipeline to create a build
+	Trigger *Trigger `json:"trigger"`
 }
 
 type TriggerStep struct {
-	AllowDependencyFailure                                                             *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	// Whether to continue the build without waiting for the triggered step to complete                             
-	Async                                                                              *AllowDependencyFailureUnion `json:"async"`
-	Branches                                                                           *Branches                    `json:"branches"`
-	// Properties of the build that will be created when the step is triggered                                      
-	Build                                                                              *Build                       `json:"build,omitempty"`
-	DependsOn                                                                          *DependsOn                   `json:"depends_on"`
-	ID                                                                                 *string                      `json:"id,omitempty"`
-	Identifier                                                                         *string                      `json:"identifier,omitempty"`
-	If                                                                                 *string                      `json:"if,omitempty"`
-	Key                                                                                *string                      `json:"key,omitempty"`
-	Label                                                                              *string                      `json:"label,omitempty"`
-	Name                                                                               *string                      `json:"name,omitempty"`
-	Skip                                                                               *Skip                        `json:"skip"`
-	// The conditions for marking the step as a soft-fail.                                                          
-	SoftFail                                                                           *AllowDependencyFailureUnion `json:"soft_fail"`
-	// The slug of the pipeline to create a build                                                                   
-	Trigger                                                                            string                       `json:"trigger"`
-	Type                                                                               *TriggerType                 `json:"type,omitempty"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	// Whether to continue the build without waiting for the triggered step to complete
+	Async    *AllowDependencyFailureUnion `json:"async"`
+	Branches *Branches                    `json:"branches"`
+	// Properties of the build that will be created when the step is triggered
+	Build      *Build     `json:"build,omitempty"`
+	DependsOn  *DependsOn `json:"depends_on"`
+	ID         *string    `json:"id,omitempty"`
+	Identifier *string    `json:"identifier,omitempty"`
+	If         *string    `json:"if,omitempty"`
+	Key        *string    `json:"key,omitempty"`
+	Label      *string    `json:"label,omitempty"`
+	Name       *string    `json:"name,omitempty"`
+	Skip       *Skip      `json:"skip"`
+	SoftFail   *SoftFail  `json:"soft_fail"`
+	// The slug of the pipeline to create a build
+	Trigger string       `json:"trigger"`
+	Type    *TriggerType `json:"type,omitempty"`
 }
 
 // Waits for previous steps to pass before continuing
 type WaitStep struct {
-	AllowDependencyFailure                                                 *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
-	Branches                                                               *Branches                    `json:"branches"`
-	// Continue to the next steps, even if the previous group of steps fail                             
-	ContinueOnFailure                                                      *AllowDependencyFailureUnion `json:"continue_on_failure"`
-	DependsOn                                                              *DependsOn                   `json:"depends_on"`
-	ID                                                                     *string                      `json:"id,omitempty"`
-	Identifier                                                             *string                      `json:"identifier,omitempty"`
-	If                                                                     *string                      `json:"if,omitempty"`
-	Key                                                                    *string                      `json:"key,omitempty"`
-	Label                                                                  *string                      `json:"label"`
-	Name                                                                   *string                      `json:"name"`
-	Type                                                                   *WaitType                    `json:"type,omitempty"`
-	// Waits for previous steps to pass before continuing                                               
-	Wait                                                                   *string                      `json:"wait"`
-	Waiter                                                                 *string                      `json:"waiter"`
+	AllowDependencyFailure *AllowDependencyFailureUnion `json:"allow_dependency_failure"`
+	Branches               *Branches                    `json:"branches"`
+	// Continue to the next steps, even if the previous group of steps fail
+	ContinueOnFailure *AllowDependencyFailureUnion `json:"continue_on_failure"`
+	DependsOn         *DependsOn                   `json:"depends_on"`
+	ID                *string                      `json:"id,omitempty"`
+	Identifier        *string                      `json:"identifier,omitempty"`
+	If                *string                      `json:"if,omitempty"`
+	Key               *string                      `json:"key,omitempty"`
+	Label             *string                      `json:"label"`
+	Name              *string                      `json:"name"`
+	Type              *WaitType                    `json:"type,omitempty"`
+	// Waits for previous steps to pass before continuing
+	Wait   *string `json:"wait"`
+	Waiter *string `json:"waiter"`
 }
 
 type NotifyEnum string
@@ -712,7 +709,7 @@ func (x *AllowDependencyFailureUnion) MarshalJSON() ([]byte, error) {
 
 // Which branches will include this step in their builds
 //
-// The value of the option(s) that will be pre-selected in the dropdown
+// # The value of the option(s) that will be pre-selected in the dropdown
 //
 // The glob path/s of artifacts to upload once this step has finished running
 //
@@ -876,9 +873,9 @@ func (x *MatrixUnion) MarshalJSON() ([]byte, error) {
 
 // List of elements for simple single-dimension Build Matrix
 //
-// List of existing or new elements for single-dimension Build Matrix
+// # List of existing or new elements for single-dimension Build Matrix
 //
-// List of elements for single-dimension Build Matrix
+// # List of elements for single-dimension Build Matrix
 //
 // List of elements for this Build Matrix dimension
 type MatrixElement struct {
@@ -922,13 +919,14 @@ func (x *Skip) MarshalJSON() ([]byte, error) {
 	return marshalUnion(nil, nil, x.Bool, x.String, false, nil, false, nil, false, nil, false, nil, false)
 }
 
-type SoftFailUnion struct {
+// The conditions for marking the step as a soft-fail.
+type SoftFail struct {
 	Bool                 *bool
 	Enum                 *AllowDependencyFailureEnum
 	SoftFailElementArray []SoftFailElement
 }
 
-func (x *SoftFailUnion) UnmarshalJSON(data []byte) error {
+func (x *SoftFail) UnmarshalJSON(data []byte) error {
 	x.SoftFailElementArray = nil
 	x.Enum = nil
 	object, err := unmarshalUnion(data, nil, nil, &x.Bool, nil, true, &x.SoftFailElementArray, false, nil, false, nil, true, &x.Enum, false)
@@ -940,7 +938,7 @@ func (x *SoftFailUnion) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (x *SoftFailUnion) MarshalJSON() ([]byte, error) {
+func (x *SoftFail) MarshalJSON() ([]byte, error) {
 	return marshalUnion(nil, nil, x.Bool, nil, x.SoftFailElementArray != nil, x.SoftFailElementArray, false, nil, false, nil, x.Enum != nil, x.Enum, false)
 }
 
@@ -1306,82 +1304,82 @@ func (x *Label) MarshalJSON() ([]byte, error) {
 
 func unmarshalUnion(data []byte, pi **int64, pf **float64, pb **bool, ps **string, haveArray bool, pa interface{}, haveObject bool, pc interface{}, haveMap bool, pm interface{}, haveEnum bool, pe interface{}, nullable bool) (bool, error) {
 	if pi != nil {
-			*pi = nil
+		*pi = nil
 	}
 	if pf != nil {
-			*pf = nil
+		*pf = nil
 	}
 	if pb != nil {
-			*pb = nil
+		*pb = nil
 	}
 	if ps != nil {
-			*ps = nil
+		*ps = nil
 	}
 
 	dec := json.NewDecoder(bytes.NewReader(data))
 	dec.UseNumber()
 	tok, err := dec.Token()
 	if err != nil {
-			return false, err
+		return false, err
 	}
 
 	switch v := tok.(type) {
 	case json.Number:
-			if pi != nil {
-					i, err := v.Int64()
-					if err == nil {
-							*pi = &i
-							return false, nil
-					}
+		if pi != nil {
+			i, err := v.Int64()
+			if err == nil {
+				*pi = &i
+				return false, nil
 			}
-			if pf != nil {
-					f, err := v.Float64()
-					if err == nil {
-							*pf = &f
-							return false, nil
-					}
-					return false, errors.New("Unparsable number")
+		}
+		if pf != nil {
+			f, err := v.Float64()
+			if err == nil {
+				*pf = &f
+				return false, nil
 			}
-			return false, errors.New("Union does not contain number")
+			return false, errors.New("Unparsable number")
+		}
+		return false, errors.New("Union does not contain number")
 	case float64:
-			return false, errors.New("Decoder should not return float64")
+		return false, errors.New("Decoder should not return float64")
 	case bool:
-			if pb != nil {
-					*pb = &v
-					return false, nil
-			}
-			return false, errors.New("Union does not contain bool")
+		if pb != nil {
+			*pb = &v
+			return false, nil
+		}
+		return false, errors.New("Union does not contain bool")
 	case string:
-			if haveEnum {
-					return false, json.Unmarshal(data, pe)
-			}
-			if ps != nil {
-					*ps = &v
-					return false, nil
-			}
-			return false, errors.New("Union does not contain string")
+		if haveEnum {
+			return false, json.Unmarshal(data, pe)
+		}
+		if ps != nil {
+			*ps = &v
+			return false, nil
+		}
+		return false, errors.New("Union does not contain string")
 	case nil:
-			if nullable {
-					return false, nil
-			}
-			return false, errors.New("Union does not contain null")
+		if nullable {
+			return false, nil
+		}
+		return false, errors.New("Union does not contain null")
 	case json.Delim:
-			if v == '{' {
-					if haveObject {
-							return true, json.Unmarshal(data, pc)
-					}
-					if haveMap {
-							return false, json.Unmarshal(data, pm)
-					}
-					return false, errors.New("Union does not contain object")
+		if v == '{' {
+			if haveObject {
+				return true, json.Unmarshal(data, pc)
 			}
-			if v == '[' {
-					if haveArray {
-							return false, json.Unmarshal(data, pa)
-					}
-					return false, errors.New("Union does not contain array")
+			if haveMap {
+				return false, json.Unmarshal(data, pm)
 			}
-			return false, errors.New("Cannot handle delimiter")
+			return false, errors.New("Union does not contain object")
+		}
+		if v == '[' {
+			if haveArray {
+				return false, json.Unmarshal(data, pa)
+			}
+			return false, errors.New("Union does not contain array")
+		}
+		return false, errors.New("Cannot handle delimiter")
 	}
 	return false, errors.New("Cannot unmarshal union")
 
@@ -1389,31 +1387,31 @@ func unmarshalUnion(data []byte, pi **int64, pf **float64, pb **bool, ps **strin
 
 func marshalUnion(pi *int64, pf *float64, pb *bool, ps *string, haveArray bool, pa interface{}, haveObject bool, pc interface{}, haveMap bool, pm interface{}, haveEnum bool, pe interface{}, nullable bool) ([]byte, error) {
 	if pi != nil {
-			return json.Marshal(*pi)
+		return json.Marshal(*pi)
 	}
 	if pf != nil {
-			return json.Marshal(*pf)
+		return json.Marshal(*pf)
 	}
 	if pb != nil {
-			return json.Marshal(*pb)
+		return json.Marshal(*pb)
 	}
 	if ps != nil {
-			return json.Marshal(*ps)
+		return json.Marshal(*ps)
 	}
 	if haveArray {
-			return json.Marshal(pa)
+		return json.Marshal(pa)
 	}
 	if haveObject {
-			return json.Marshal(pc)
+		return json.Marshal(pc)
 	}
 	if haveMap {
-			return json.Marshal(pm)
+		return json.Marshal(pm)
 	}
 	if haveEnum {
-			return json.Marshal(pe)
+		return json.Marshal(pe)
 	}
 	if nullable {
-			return json.Marshal(nil)
+		return json.Marshal(nil)
 	}
 	return nil, errors.New("Union must not be null")
 }

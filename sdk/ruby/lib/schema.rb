@@ -1250,7 +1250,8 @@ class SoftFailElement < Dry::Struct
   end
 end
 
-class SoftFailUnion < Dry::Struct
+# The conditions for marking the step as a soft-fail.
+class SoftFail < Dry::Struct
   attribute :bool,                    Types::Bool.optional
   attribute :enum,                    Types::AllowDependencyFailureEnum.optional
   attribute :soft_fail_element_array, Types.Array(SoftFailElement).optional
@@ -1294,14 +1295,14 @@ end
 # An adjustment to a Build Matrix
 class Adjustment < Dry::Struct
   attribute :skip,            Types.Instance(Skip).optional
-  attribute :soft_fail,       Types.Instance(SoftFailUnion).optional
+  attribute :soft_fail,       Types.Instance(SoftFail).optional
   attribute :adjustment_with, Types.Instance(With)
 
   def self.from_dynamic!(d)
     d = Types::Hash[d]
     new(
       skip:            d["skip"] ? Skip.from_dynamic!(d["skip"]) : nil,
-      soft_fail:       d["soft_fail"] ? SoftFailUnion.from_dynamic!(d["soft_fail"]) : nil,
+      soft_fail:       d["soft_fail"] ? SoftFail.from_dynamic!(d["soft_fail"]) : nil,
       adjustment_with: With.from_dynamic!(d.fetch("with")),
     )
   end
@@ -1792,7 +1793,7 @@ class CommandStep < Dry::Struct
   attribute :signature, Signature.optional
 
   attribute :skip,      Types.Instance(Skip).optional
-  attribute :soft_fail, Types.Instance(SoftFailUnion).optional
+  attribute :soft_fail, Types.Instance(SoftFail).optional
 
   # The number of minutes to time out a job
   attribute :timeout_in_minutes, Types::Integer.optional
@@ -1829,7 +1830,7 @@ class CommandStep < Dry::Struct
       command_step_retry:       d["retry"] ? Retry.from_dynamic!(d["retry"]) : nil,
       signature:                d["signature"] ? Signature.from_dynamic!(d["signature"]) : nil,
       skip:                     d["skip"] ? Skip.from_dynamic!(d["skip"]) : nil,
-      soft_fail:                d["soft_fail"] ? SoftFailUnion.from_dynamic!(d["soft_fail"]) : nil,
+      soft_fail:                d["soft_fail"] ? SoftFail.from_dynamic!(d["soft_fail"]) : nil,
       timeout_in_minutes:       d["timeout_in_minutes"],
       command_step_type:        d["type"],
     )
@@ -2255,9 +2256,7 @@ class TriggerStep < Dry::Struct
   attribute :label,             Types::String.optional
   attribute :trigger_step_name, Types::String.optional
   attribute :skip,              Types.Instance(Skip).optional
-
-  # The conditions for marking the step as a soft-fail.
-  attribute :soft_fail, Types.Instance(AllowDependencyFailureUnion).optional
+  attribute :soft_fail,         Types.Instance(SoftFail).optional
 
   # The slug of the pipeline to create a build
   attribute :trigger, Types::String
@@ -2279,7 +2278,7 @@ class TriggerStep < Dry::Struct
       label:                    d["label"],
       trigger_step_name:        d["name"],
       skip:                     d["skip"] ? Skip.from_dynamic!(d["skip"]) : nil,
-      soft_fail:                d["soft_fail"] ? AllowDependencyFailureUnion.from_dynamic!(d["soft_fail"]) : nil,
+      soft_fail:                d["soft_fail"] ? SoftFail.from_dynamic!(d["soft_fail"]) : nil,
       trigger:                  d.fetch("trigger"),
       trigger_step_type:        d["type"],
     )
@@ -2534,10 +2533,8 @@ class Step1 < Dry::Struct
   # The signature of the command step, generally injected by agents at pipeline upload
   attribute :signature, Signature.optional
 
-  attribute :skip, Types.Instance(Skip).optional
-
-  # The conditions for marking the step as a soft-fail.
-  attribute :soft_fail, Types.Instance(SoftFailUnion).optional
+  attribute :skip,      Types.Instance(Skip).optional
+  attribute :soft_fail, Types.Instance(SoftFail).optional
 
   # The number of minutes to time out a job
   attribute :timeout_in_minutes, Types::Integer.optional
@@ -2597,7 +2594,7 @@ class Step1 < Dry::Struct
       step_retry:               d["retry"] ? Retry.from_dynamic!(d["retry"]) : nil,
       signature:                d["signature"] ? Signature.from_dynamic!(d["signature"]) : nil,
       skip:                     d["skip"] ? Skip.from_dynamic!(d["skip"]) : nil,
-      soft_fail:                d["soft_fail"] ? SoftFailUnion.from_dynamic!(d["soft_fail"]) : nil,
+      soft_fail:                d["soft_fail"] ? SoftFail.from_dynamic!(d["soft_fail"]) : nil,
       timeout_in_minutes:       d["timeout_in_minutes"],
       script:                   d["script"] ? CommandStep.from_dynamic!(d["script"]) : nil,
       continue_on_failure:      d["continue_on_failure"] ? AllowDependencyFailureUnion.from_dynamic!(d["continue_on_failure"]) : nil,
@@ -2781,10 +2778,8 @@ class GroupStepClass < Dry::Struct
   # The signature of the command step, generally injected by agents at pipeline upload
   attribute :signature, Signature.optional
 
-  attribute :skip, Types.Instance(Skip).optional
-
-  # The conditions for marking the step as a soft-fail.
-  attribute :soft_fail, Types.Instance(SoftFailUnion).optional
+  attribute :skip,      Types.Instance(Skip).optional
+  attribute :soft_fail, Types.Instance(SoftFail).optional
 
   # The number of minutes to time out a job
   attribute :timeout_in_minutes, Types::Integer.optional
@@ -2850,7 +2845,7 @@ class GroupStepClass < Dry::Struct
       step_retry:               d["retry"] ? Retry.from_dynamic!(d["retry"]) : nil,
       signature:                d["signature"] ? Signature.from_dynamic!(d["signature"]) : nil,
       skip:                     d["skip"] ? Skip.from_dynamic!(d["skip"]) : nil,
-      soft_fail:                d["soft_fail"] ? SoftFailUnion.from_dynamic!(d["soft_fail"]) : nil,
+      soft_fail:                d["soft_fail"] ? SoftFail.from_dynamic!(d["soft_fail"]) : nil,
       timeout_in_minutes:       d["timeout_in_minutes"],
       script:                   d["script"] ? CommandStep.from_dynamic!(d["script"]) : nil,
       continue_on_failure:      d["continue_on_failure"] ? AllowDependencyFailureUnion.from_dynamic!(d["continue_on_failure"]) : nil,

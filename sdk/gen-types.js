@@ -1,4 +1,6 @@
 const fs = require("fs");
+const yaml = require("yaml");
+const mustache = require("mustache");
 
 const {
     quicktype,
@@ -10,7 +12,7 @@ const {
     RubyTargetLanguage,
 } = require("quicktype-core");
 
-async function main() {
+async function genTypes() {
     const inputData = new InputData();
 
     const result = await fetch(
@@ -84,4 +86,103 @@ async function main() {
     }
 }
 
-main();
+async function genEnvVars() {
+    const result = await fetch(
+        "https://raw.githubusercontent.com/buildkite/docs/a26485aba7049a7dedea8ad2988667a6b9245bf8/data/content/environment_variables.yaml"
+    );
+
+    const text = await result.text();
+    let { variables } = yaml.parse(text);
+    const langs = ["typescript", "python", "go", "ruby"];
+
+    const opts = {
+        typescript: {
+            path: "./sdk/typescript/src/environment.ts",
+            options: undefined,
+        },
+        python: {
+            path: "./sdk/python/src/buildkite_sdk/environment.py",
+            options: undefined,
+        },
+        go: {
+            path: "./sdk/go/sdk/buildkite/environment.go",
+            options: { package: "buildkite" },
+        },
+        ruby: {
+            path: "./sdk/ruby/lib/environment.rb",
+            options: undefined,
+        },
+    };
+
+    console.log({ variables });
+
+    // Make the appropriate tweaks.
+    variables = variables.map((v) => {
+        // Trim trailing newlines.
+        v.desc = v.desc.trim();
+
+        // Not valid, so provide the prefix, as it's still useful for interpolation.
+        if (v.name === "BUILDKITE_AGENT_META_DATA_*") {
+            return {
+                ...v,
+                name: "BUILDKITE_AGENT_META_DATA_",
+            };
+        }
+        return v;
+    });
+
+    // Go.
+    let sdkPath = "./sdk/go";
+
+    let template = fs
+        .readFileSync(`${sdkPath}/env.mustache`, "utf-8")
+        .toString();
+
+    let rendered = mustache.render(template, {
+        package: "buildkite",
+        variables: variables.map((v) => {
+            return {
+                ...v,
+                comment: [
+                    ...v.desc.split("\n").map((line) => `// ${line}`),
+                ].join("\n"),
+            };
+        }),
+    });
+
+    fs.writeFileSync(
+        `${sdkPath}/sdk/buildkite/environment.go`,
+        rendered,
+        "utf-8"
+    );
+
+    // TypeScript.
+    sdkPath = "./sdk/typescript";
+
+    template = fs.readFileSync(`${sdkPath}/env.mustache`, "utf-8").toString();
+
+    rendered = mustache.render(template, {
+        variables: variables.map((v) => {
+            return {
+                ...v,
+                comment: [
+                    "/**",
+                    ...v.desc.split("\n").map((line) => `* ${line}`),
+                    " */",
+                ].join("\n"),
+            };
+        }),
+    });
+    fs.writeFileSync(`${sdkPath}/src/environment.ts`, rendered, "utf-8");
+
+    // langs.forEach((lang) => {
+    //     variables.forEach((variable) => {
+    //         console.log(variable);
+    //     });
+    // });
+}
+
+(async () => {
+    await genTypes();
+    await genEnvVars();
+})();

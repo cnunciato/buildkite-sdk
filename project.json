@@ -1,8 +1,15 @@
 {
     "targets": {
         "gen:types": {
-            "command": "node sdk/gen-types.js",
-            "dependsOn": ["fetch"]
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "node ./sdk/gen-types.js",
+                    "npx prettier --write ./sdk/typescript",
+                    "go fmt ./sdk/go/sdk/buildkite/*"
+                ],
+                "parallel": false
+            }
         },
         "test:all": {
             "dependsOn": [
