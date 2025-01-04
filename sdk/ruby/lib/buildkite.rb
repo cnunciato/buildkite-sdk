@@ -2,6 +2,7 @@
 
 require_relative "buildkite/version"
 require_relative "schema"
+require_relative "environment"
 require "json"
 require "yaml"
 

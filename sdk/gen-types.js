@@ -175,11 +175,22 @@ async function genEnvVars() {
     });
     fs.writeFileSync(`${sdkPath}/src/environment.ts`, rendered, "utf-8");
 
-    // langs.forEach((lang) => {
-    //     variables.forEach((variable) => {
-    //         console.log(variable);
-    //     });
-    // });
+    // Ruby.
+    sdkPath = "./sdk/ruby";
+
+    template = fs.readFileSync(`${sdkPath}/env.mustache`, "utf-8").toString();
+
+    rendered = mustache.render(template, {
+        variables: variables.map((v) => {
+            return {
+                ...v,
+                comment: [
+                    ...v.desc.split("\n").map((line) => `# ${line}`),
+                ].join("\n"),
+            };
+        }),
+    });
+    fs.writeFileSync(`${sdkPath}/lib/environment.rb`, rendered, "utf-8");
 }
 
 (async () => {
