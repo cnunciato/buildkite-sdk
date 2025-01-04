@@ -6,6 +6,7 @@
                 "commands": [
                     "node ./sdk/gen-types.js",
                     "npx prettier --write ./sdk/typescript",
+                    "black ./sdk/python/src",
                     "go fmt ./sdk/go/sdk/buildkite/*"
                 ],
                 "parallel": false

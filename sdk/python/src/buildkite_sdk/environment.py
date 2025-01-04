@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Environment(Enum):
     # Always &#x60;true&#x60;
     BUILDKITE = "BUILDKITE"
@@ -10,7 +11,9 @@ class Environment(Enum):
     # The value of the &#x60;disconnect-after-job&#x60; [agent configuration option](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;configuration).
     BUILDKITE_AGENT_DISCONNECT_AFTER_JOB = "BUILDKITE_AGENT_DISCONNECT_AFTER_JOB"
     # The value of the &#x60;disconnect-after-idle-timeout&#x60; [agent configuration option](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;configuration).
-    BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT = "BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT"
+    BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT = (
+        "BUILDKITE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT"
+    )
     # The value of the &#x60;endpoint&#x60; [agent configuration option](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;configuration). This is set as an environment variable by the bootstrap and then read by most of the &#x60;buildkite-agent&#x60; commands.
     BUILDKITE_AGENT_ENDPOINT = "BUILDKITE_AGENT_ENDPOINT"
     # A list of the [experimental agent features](&#x2F;docs&#x2F;agent&#x2F;v3#experimental-features) that are currently enabled. The value can be set using the &#x60;--experiment&#x60; flag on the [&#x60;buildkite-agent start&#x60; command](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;cli-start#starting-an-agent) or in your [agent configuration file](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;configuration).
@@ -40,22 +43,22 @@ class Environment(Enum):
     # The notification email of the user who authored the commit being built. May be **[unverified](#unverified-commits)**. This value can be blank in some situations, including builds manually triggered using API or Buildkite web interface.
     BUILDKITE_BUILD_AUTHOR_EMAIL = "BUILDKITE_BUILD_AUTHOR_EMAIL"
     # The name of the user who created the build. The value differs depending on how the build was created:
-# 
-# - **Buildkite dashboard:** Set based on who manually created the build.
-# - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
-# - **Webhook:** Set based on which user is attached to the API Key used.
+    #
+    # - **Buildkite dashboard:** Set based on who manually created the build.
+    # - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
+    # - **Webhook:** Set based on which user is attached to the API Key used.
     BUILDKITE_BUILD_CREATOR = "BUILDKITE_BUILD_CREATOR"
     # The notification email of the user who created the build. The value differs depending on how the build was created:
-# 
-# - **Buildkite dashboard:** Set based on who manually created the build.
-# - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
-# - **Webhook:** Set based on which user is attached to the API Key used.
+    #
+    # - **Buildkite dashboard:** Set based on who manually created the build.
+    # - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
+    # - **Webhook:** Set based on which user is attached to the API Key used.
     BUILDKITE_BUILD_CREATOR_EMAIL = "BUILDKITE_BUILD_CREATOR_EMAIL"
     # A colon separated list of non-private team slugs that the build creator belongs to. The value differs depending on how the build was created:
-# 
-# - **Buildkite dashboard:** Set based on who manually created the build.
-# - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
-# - **Webhook:** Set based on which user is attached to the API Key used.
+    #
+    # - **Buildkite dashboard:** Set based on who manually created the build.
+    # - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
+    # - **Webhook:** Set based on which user is attached to the API Key used.
     BUILDKITE_BUILD_CREATOR_TEAMS = "BUILDKITE_BUILD_CREATOR_TEAMS"
     # The UUID of the build.
     BUILDKITE_BUILD_ID = "BUILDKITE_BUILD_ID"
@@ -178,8 +181,8 @@ class Environment(Enum):
     # The access URL for your [private S3 bucket](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;cli-artifact#using-your-private-aws-s3-bucket), if you are using a proxy. The variable is read by the &#x60;buildkite-agent artifact upload&#x60; command, as well as during the artifact upload phase of [command steps](&#x2F;docs&#x2F;pipelines&#x2F;command-step#command-step-attributes). The value can only be set by exporting the environment variable in the &#x60;environment&#x60;, &#x60;pre-checkout&#x60; or &#x60;pre-command&#x60; hooks.
     BUILDKITE_S3_ACCESS_URL = "BUILDKITE_S3_ACCESS_URL"
     # The Access Control List to be set on artifacts being uploaded to your [private S3 bucket](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;cli-artifact#using-your-private-aws-s3-bucket). The variable is read by the &#x60;buildkite-agent artifact upload&#x60; command, as well as during the artifact upload phase of [command steps](&#x2F;docs&#x2F;pipelines&#x2F;command-step#command-step-attributes). The value can only be set by exporting the environment variable in the &#x60;environment&#x60;, &#x60;pre-checkout&#x60; or &#x60;pre-command&#x60; hooks.
-# 
-# Must be one of the following values which map to [S3 Canned ACL grants](https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;dev&#x2F;acl-overview.html#canned-acl).
+    #
+    # Must be one of the following values which map to [S3 Canned ACL grants](https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;AmazonS3&#x2F;latest&#x2F;dev&#x2F;acl-overview.html#canned-acl).
     BUILDKITE_S3_ACL = "BUILDKITE_S3_ACL"
     # The region of your [private S3 bucket](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;cli-artifact#using-your-private-aws-s3-bucket). The variable is read by the &#x60;buildkite-agent artifact upload&#x60; command, as well as during the artifact upload phase of [command steps](&#x2F;docs&#x2F;pipelines&#x2F;command-step#command-step-attributes). The value can only be set by exporting the environment variable in the &#x60;environment&#x60;, &#x60;pre-checkout&#x60; or &#x60;pre-command&#x60; hooks.
     BUILDKITE_S3_DEFAULT_REGION = "BUILDKITE_S3_DEFAULT_REGION"
@@ -202,15 +205,17 @@ class Environment(Enum):
     # The number of minutes until Buildkite automatically cancels this job, if a timeout has been specified, otherwise it &#x60;false&#x60; if no timeout is set. Jobs that time out with an exit status of 0 are marked as &quot;passed&quot;.
     BUILDKITE_TIMEOUT = "BUILDKITE_TIMEOUT"
     # Set to &#x60;&quot;datadog&quot;&#x60; to send metrics to the [Datadog APM](https:&#x2F;&#x2F;docs.datadoghq.com&#x2F;tracing&#x2F;) using &#x60;localhost:8126&#x60;, or &#x60;DD_AGENT_HOST:DD_AGENT_APM_PORT&#x60;.
-# 
-# Also available as a [buildkite agent configuration option.](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;configuration#configuration-settings)
+    #
+    # Also available as a [buildkite agent configuration option.](&#x2F;docs&#x2F;agent&#x2F;v3&#x2F;configuration#configuration-settings)
     BUILDKITE_TRACING_BACKEND = "BUILDKITE_TRACING_BACKEND"
     # The UUID of the build that triggered this build. This will be empty if the build was not triggered from another build.
     BUILDKITE_TRIGGERED_FROM_BUILD_ID = "BUILDKITE_TRIGGERED_FROM_BUILD_ID"
     # The number of the build that triggered this build or &#x60;&quot;&quot;&#x60; if the build was not triggered from another build.
     BUILDKITE_TRIGGERED_FROM_BUILD_NUMBER = "BUILDKITE_TRIGGERED_FROM_BUILD_NUMBER"
     # The slug of the pipeline that was used to trigger this build or &#x60;&quot;&quot;&#x60; if the build was not triggered from another build.
-    BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG = "BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG"
+    BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG = (
+        "BUILDKITE_TRIGGERED_FROM_BUILD_PIPELINE_SLUG"
+    )
     # The name of the user who unblocked the build.
     BUILDKITE_UNBLOCKER = "BUILDKITE_UNBLOCKER"
     # The notification email of the user who unblocked the build.

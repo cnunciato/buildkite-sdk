@@ -3,6 +3,7 @@ from buildkite_sdk.environment import Environment
 import json
 import yaml
 
+
 class Pipeline:
     def __init__(self):
         self.steps = []
