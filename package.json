@@ -8,6 +8,7 @@
         "test": "nx test:all",
         "build": "nx build:all",
         "docs": "nx docs:all",
+        "docs:serve": "nx run-many --parallel --target 'docs:serve' --projects 'sdk-typescript,sdk-python,sdk-ruby'",
         "start": "nx start:all",
         "publish": "nx publish:all"
     },

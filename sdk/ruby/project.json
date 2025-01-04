@@ -20,6 +20,22 @@
                 "cwd": "sdk/ruby"
             },
             "cache": false
+        },
+        "docs:build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "bundle exec yard doc lib/buildkite --output-dir ../../dist/docs/ruby",
+                "cwd": "sdk/ruby"
+            },
+            "outputs": ["{workspaceRoot}/dist/docs/ruby"],
+            "cache": false
+        },
+        "docs:serve": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "port": 8082,
+                "buildTarget": "docs:build"
+            }
         }
     }
 }

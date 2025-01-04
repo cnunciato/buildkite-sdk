@@ -10,13 +10,19 @@ Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-s
 # Install dependencies.
 npm install
 
-# Test.
+# Test all SDKs and apps.
 npm test
 
-# Build.
+# Build  (to dist/sdk).
 npm run build
 
-# Run apps (e.g., to use the SDKs to generate pipelines).
+# Build the docs (to dist/docs).
+npm run docs
+
+# Serve the docs locally (which builds them implicitly, but doesn't yet watch).
+npm run docs:serve
+
+# Run all apps (e.g., to use the SDKs to generate pipelines).
 npm start
 
 # Publish to npm, PyPi pkg.go.dev, and RubyGems.
