@@ -1,0 +1,38 @@
+{
+    "name": "docs",
+    "$schema": "../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "../",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+        "build:typescript": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx typedoc --entryPoints sdk/typescript --entryPointStrategy packages --out ./dist/docs/typescript"
+            }
+        },
+        "build:python": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "uv run pdoc src/buildkite_sdk -o ../../dist/docs/python",
+                "cwd": "sdk/python"
+            }
+        },
+        "serve:typescript": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "port": 8080,
+                "buildTarget": "docs:python",
+                "staticFilePath": "dist/docs/python"
+            }
+        },
+        "serve:python": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "port": 8081,
+                "buildTarget": "docs:typescript",
+                "staticFilePath": "dist/docs/python"
+            }
+        }
+    }
+}

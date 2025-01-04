@@ -1,5 +1,16 @@
 {
     "targets": {
+        "test:all": {
+            "dependsOn": [
+                "sdk-typescript:test",
+                "sdk-python:test",
+                "sdk-go:test",
+                "sdk-ruby:test",
+                "app-typescript:test",
+                "app-python:test",
+                "app-go:test"
+            ]
+        },
         "gen:types": {
             "executor": "nx:run-commands",
             "options": {
@@ -12,23 +23,6 @@
                 "parallel": false
             }
         },
-        "gen:docs": {
-            "executor": "nx:run-commands",
-            "options": {
-                "commands": ["npx typedoc"]
-            }
-        },
-        "test:all": {
-            "dependsOn": [
-                "sdk-typescript:test",
-                "sdk-python:test",
-                "sdk-go:test",
-                "sdk-ruby:test",
-                "app-typescript:test",
-                "app-python:test",
-                "app-go:test"
-            ]
-        },
         "build:all": {
             "dependsOn": [
                 "sdk-typescript:build",
@@ -36,6 +30,9 @@
                 "sdk-go:build",
                 "sdk-ruby:build"
             ]
+        },
+        "docs:all": {
+            "dependsOn": ["docs:build:typescript", "docs:build:python"]
         },
         "start:all": {
             "dependsOn": [

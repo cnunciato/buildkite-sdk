@@ -7,7 +7,7 @@
         "types": "nx gen:types",
         "test": "nx test:all",
         "build": "nx build:all",
-        "docs": "nx gen:docs",
+        "docs": "nx docs:all",
         "start": "nx start:all",
         "publish": "nx publish:all"
     },
@@ -21,6 +21,7 @@
         "@nx/jest": "20.3.0",
         "@nx/js": "20.3.0",
         "@nx/node": "^20.3.0",
+        "@nx/web": "^20.3.0",
         "@nxlv/python": "^20.3.0",
         "@swc-node/register": "~1.9.1",
         "@swc/core": "~1.5.7",
