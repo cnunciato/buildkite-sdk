@@ -1,3 +1,3 @@
 module Buildkite
-  VERSION = "0.0.22".freeze
+  VERSION = "0.0.24".freeze
 end

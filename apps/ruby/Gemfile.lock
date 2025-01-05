@@ -1,7 +1,7 @@
 PATH
   remote: ../../sdk/ruby
   specs:
-    buildkite (0.0.22)
+    buildkite (0.0.24)
 
 GEM
   remote: https://rubygems.org/

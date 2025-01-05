@@ -15,7 +15,7 @@ wheels = [
 ]
 
 [[package]]
-name = "buildkite-sdk"
+name = "cnunciato-buildkite-sdk"
 version = "0.0.23"
 source = { editable = "." }
 dependencies = [

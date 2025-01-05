@@ -1,7 +1,7 @@
 require_relative "lib/buildkite/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "buildkite"
+  spec.name = "cnunciato-buildkite"
   spec.version = Buildkite::VERSION
   spec.authors = ["Christian Nunciato"]
   spec.email = ["chris@nunciato.org"]
