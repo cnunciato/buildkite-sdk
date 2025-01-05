@@ -64,6 +64,10 @@
                 "sdk-python:publish",
                 "sdk-go:build"
             ]
+        },
+
+        "rebuild:all": {
+            "dependsOn": ["build:all", "docs:all"]
         }
     }
 }
