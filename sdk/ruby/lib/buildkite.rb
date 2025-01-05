@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative "buildkite/version"
 require_relative "schema"
 require_relative "environment"

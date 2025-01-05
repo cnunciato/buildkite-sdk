@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe Buildkite do
   it "has a version number" do
     expect(Buildkite::VERSION).not_to be_nil
