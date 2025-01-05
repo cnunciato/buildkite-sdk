@@ -44,7 +44,7 @@ npm run docs:serve
 # Run all apps (e.g., to use the SDKs to generate pipelines).
 npm run apps
 
-# Watch all projects for changes, and rebuild the docs and SDKs on change.
+# Watch all projects for changes, and rebuild the docs, SDKs, and re-run all apps on change.
 npm run watch
 
 # Publish to npm, PyPi pkg.go.dev, and RubyGems.
