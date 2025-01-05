@@ -32,10 +32,10 @@ npm install
 # Test all SDKs and apps.
 npm test
 
-# Build  (to ./dist/sdks).
+# Build all SDKs (and write them to ./dist/sdks).
 npm run build
 
-# Build the docs (to ./dist/docs).
+# Build all SDK docs (and write them to ./dist/docs).
 npm run docs
 
 # Serve the docs locally (which builds them implicitly).
@@ -44,7 +44,7 @@ npm run docs:serve
 # Run all apps (which writes JSON and YAML pipelines to ./out).
 npm run apps
 
-# Watch all projects for changes, and rebuild the docs, SDKs, and re-run all apps on change.
+# Watch all projects for changes (which rebuilds the docs SDKs and re-runs all apps).
 npm run watch
 
 # Publish to npm, PyPi pkg.go.dev, and RubyGems.
