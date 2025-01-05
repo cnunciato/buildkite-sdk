@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cnunciato-buildkite (0.0.24)
+    cnunciato-buildkite (0.0.25)
 
 GEM
   remote: https://rubygems.org/

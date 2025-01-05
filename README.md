@@ -44,7 +44,7 @@ npm run docs:serve
 # Run all apps (which writes JSON and YAML pipelines to ./out).
 npm run apps
 
-# Watch all projects for changes (which rebuilds the docs SDKs and re-runs all apps).
+# Watch all projects for changes (which rebuilds the docs and SDKs and re-runs all apps).
 npm run watch
 
 # Launch web servers for all docsets and watch all projects for changes. (Requires reload.)
@@ -130,12 +130,21 @@ func main() {
 
 ### Ruby
 
-Still working on this one, so it's not yet publishing to RubyGems.
+```bash
+gem install cnunciato-buildkite
+```
+
+or in your `Gemfile`:
+
+```bash
+gem "cnunciato-buildkite"
+```
 
 ```ruby
 require "buildkite"
 
 pipeline = Buildkite::Pipeline.new
+
 pipeline.add_command_step(
   label: "some-label",
   command: "echo 'Hello, World!'"

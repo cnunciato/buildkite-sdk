@@ -34,6 +34,17 @@
             },
             "cache": false
         },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["gem push cnunciato-buildkite-$VERSION.gem"],
+                "cwd": "dist/sdks/ruby",
+                "env": {
+                    "VERSION": "0.0.25"
+                }
+            },
+            "cache": false
+        },
         "test": {
             "executor": "nx:run-commands",
             "options": {

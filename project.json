@@ -75,7 +75,8 @@
             "dependsOn": [
                 "sdk-typescript:publish",
                 "sdk-python:publish",
-                "sdk-go:build"
+                "sdk-go:publish",
+                "sdk-ruby:publish"
             ]
         },
         "rebuild:all": {
