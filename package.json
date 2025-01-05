@@ -13,6 +13,7 @@
         "publish": "nx publish:all",
         "clean": "nx clean",
         "watch": "npx nx watch --all -- nx rebuild:all",
+        "format": "npx nx format:all",
         "dev": "concurrently 'npm run docs:serve' 'npm run watch' --kill-others"
     },
     "private": true,

@@ -7,10 +7,12 @@ import yaml
 A pipeline.
 """
 
+
 class Pipeline:
     """
     A description of the class.
     """
+
     def __init__(self):
         """A description of the constructor."""
         self.steps = []

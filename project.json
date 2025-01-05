@@ -12,15 +12,22 @@
                 ]
             }
         },
-        "gen:types": {
+        "format:all": {
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "node ./sdk/gen-types.js",
                     "npx prettier --write ./sdk/typescript",
                     "black ./sdk/python/src",
-                    "go fmt ./sdk/go/sdk/buildkite/*"
+                    "go fmt ./sdk/go/sdk/buildkite/*",
+                    "cd ./sdk/ruby && bundle exec rubocop -A"
                 ],
+                "parallel": false
+            }
+        },
+        "gen:types": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["node ./sdk/gen-types.js", "npm run format"],
                 "parallel": false
             }
         },
