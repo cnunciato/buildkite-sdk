@@ -25,6 +25,11 @@ export class Pipeline {
         this.steps = [];
     }
 
+    /**
+     * Add a step to the pipeline.
+     * @param step
+     * @returns
+     */
     addStep(step: PipelineStep) {
         this.steps.push(step);
         return this;
