@@ -10,7 +10,7 @@ Consumes the [Buildkite pipeline schema](https://github.com/buildkite/pipeline-s
 
 For development, you'll need current versions of the following tools:
 
--   Node.js, Python, Go, Ruby
+-   [Node.js](https://nodejs.org/en/download), [Python](https://www.python.org/downloads/), [Go](https://go.dev/doc/install), [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 -   For Python: [uv](https://docs.astral.sh/uv/), [Black](https://black.readthedocs.io/en/stable/)
 -   For Ruby: [Bundler](https://bundler.io/)
 
