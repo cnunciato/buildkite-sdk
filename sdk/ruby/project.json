@@ -5,10 +5,31 @@
     "projectType": "library",
     "tags": [],
     "targets": {
-        "build": {
+        "clean": {
             "executor": "nx:run-commands",
             "options": {
-                "commands": ["gem build buildkite.gemspec"],
+                "commands": [
+                    "rm -rf .yardoc",
+                    "rm -rf .rspec_status",
+                    "rm -rf pkg"
+                ],
+                "cwd": "sdk/ruby"
+            },
+            "cache": false
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["bundle exec rubocop -A"],
+                "cwd": "sdk/ruby"
+            },
+            "cache": false
+        },
+        "build": {
+            "executor": "nx:run-commands",
+            "outputs": ["{projectRoot}/dist/sdks/ruby"],
+            "options": {
+                "commands": ["bundle exec rake build"],
                 "cwd": "sdk/ruby"
             },
             "cache": false
@@ -23,11 +44,11 @@
         },
         "docs:build": {
             "executor": "nx:run-commands",
+            "outputs": ["{workspaceRoot}/dist/docs/ruby"],
             "options": {
                 "command": "bundle exec yard doc lib --output-dir ../../dist/docs/ruby",
                 "cwd": "sdk/ruby"
             },
-            "outputs": ["{workspaceRoot}/dist/docs/ruby"],
             "cache": false
         },
         "docs:serve": {

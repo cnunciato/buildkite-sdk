@@ -1,6 +1,6 @@
 {
     "targets": {
-        "clean": {
+        "clean:all": {
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
@@ -10,19 +10,25 @@
                     "rm -rf coverage",
                     "rm -rf reports"
                 ]
-            }
+            },
+            "dependsOn": [
+                "sdk-typescript:clean",
+                "sdk-python:clean",
+                "sdk-go:clean",
+                "sdk-ruby:clean"
+            ]
         },
         "format:all": {
             "executor": "nx:run-commands",
             "options": {
-                "commands": [
-                    "npx prettier --write ./sdk/typescript",
-                    "black ./sdk/python/src",
-                    "go fmt ./sdk/go/sdk/buildkite/*",
-                    "cd ./sdk/ruby && bundle exec rubocop -A"
-                ],
-                "parallel": false
-            }
+                "commands": []
+            },
+            "dependsOn": [
+                "sdk-typescript:format",
+                "sdk-python:format",
+                "sdk-go:format",
+                "sdk-ruby:format"
+            ]
         },
         "gen:types": {
             "executor": "nx:run-commands",
@@ -30,6 +36,14 @@
                 "commands": ["node ./sdk/gen-types.js", "npm run format"],
                 "parallel": false
             }
+        },
+        "build:all": {
+            "dependsOn": [
+                "sdk-typescript:build",
+                "sdk-python:build",
+                "sdk-go:build",
+                "sdk-ruby:build"
+            ]
         },
         "test:all": {
             "dependsOn": [
@@ -40,14 +54,6 @@
                 "app-typescript:test",
                 "app-python:test",
                 "app-go:test"
-            ]
-        },
-        "build:all": {
-            "dependsOn": [
-                "sdk-typescript:build",
-                "sdk-python:build",
-                "sdk-go:build",
-                "sdk-ruby:build"
             ]
         },
         "docs:all": {

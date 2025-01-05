@@ -5,13 +5,29 @@
     "sourceRoot": "sdk/go/sdk/buildkite",
     "tags": [],
     "targets": {
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": []
+            },
+            "cache": false
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["go fmt ./sdk/buildkite/*"],
+                "cwd": "sdk/go"
+            },
+            "cache": false
+        },
         "build": {
             "executor": "nx:run-commands",
+            "outputs": ["{projectRoot}/dist/sdks/go"],
             "options": {
                 "commands": [
                     "rm -rf dist/sdks/go",
                     "mkdir -p dist/sdks/go",
-                    "cp -R sdk/go/* dist/sdks/go/"
+                    "cp -R sdk/go/go.* sdk dist/sdks/go/"
                 ],
                 "parallel": false
             },

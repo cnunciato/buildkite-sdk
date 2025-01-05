@@ -5,6 +5,21 @@
     "projectType": "library",
     "tags": [],
     "targets": {
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": []
+            },
+            "cache": false
+        },
+        "format": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["npx prettier --write ."],
+                "cwd": "sdk/typescript"
+            },
+            "cache": false
+        },
         "build": {
             "executor": "@nx/js:tsc",
             "outputs": ["{options.outputPath}"],
@@ -19,10 +34,10 @@
         },
         "docs:build": {
             "executor": "nx:run-commands",
+            "outputs": ["{workspaceRoot}/dist/docs/typescript"],
             "options": {
                 "command": "npx typedoc --entryPoints sdk/typescript --entryPointStrategy packages --out ./dist/docs/typescript"
             },
-            "outputs": ["{workspaceRoot}/dist/docs/typescript"],
             "cache": false
         },
         "docs:serve": {
