@@ -158,13 +158,9 @@ puts pipeline.to_yaml
 
 All SDKs version on the same cadence, and the versioning and publishing are still done manually. To upgrade all SDKs from `0.0.1` to `0.0.2`, for example, follow these steps:
 
--   Bump the version numbers in these files to `0.0.2`:
-    -   `sdk/go/project.json`
-    -   `sdk/python/pyproject.toml`
-    -   `sdk/typescript/package.json`
-    -   `sdk/ruby/lib/buildkite/version.rb`
--   Commit those changes with a message like `Release v0.0.2`
--   Tag thusly: `git tag v0.0.2 && git tag sdk/go/v0.0.2`
--   Push the commit and the tags to `main`: `git push origin main --tags`
--   Run a full build: `npm run build`
--   Run `npm run publish`
+-   Commit all changes.
+-   Update the FROM and TO versions in `./project.json`.
+-   Run the release script: `npm run release`.
+-   Examine the Git history with `git log` and `git tag` You should see one release commit and two tags with the new version.
+-   If you do, push the commit and tags to `main`: `git push origin main --tags`.
+-   Run `npm run publish`.

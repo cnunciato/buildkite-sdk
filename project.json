@@ -81,6 +81,16 @@
         },
         "rebuild:all": {
             "dependsOn": ["build:all", "docs:all", "run:all"]
+        },
+        "release:all": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["node ./release.js $VERSION_FROM $VERSION_TO"],
+                "env": {
+                    "VERSION_FROM": "0.0.25",
+                    "VERSION_TO": "0.0.26"
+                }
+            }
         }
     }
 }
