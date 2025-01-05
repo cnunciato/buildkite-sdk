@@ -64,6 +64,8 @@ npm run clean
 
 ### Node.js
 
+https://www.npmjs.com/package/@cnunciato/buildkite-sdk
+
 ```bash
 npm install @cnunciato/buildkite-sdk
 ```
@@ -83,6 +85,8 @@ console.log(pipeline.toYAML());
 
 ### Python
 
+https://test.pypi.org/project/cnunciato-buildkite-sdk/
+
 Currently publishing to TestPyPI (to leave `buildkite-sdk` unclaimed).
 
 ```bash
@@ -100,6 +104,8 @@ print(pipeline.to_yaml())
 ```
 
 ### Go
+
+https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go
 
 ```bash
 go get github.com/cnunciato/buildkite-sdk/sdk/go
@@ -130,6 +136,8 @@ func main() {
 
 ### Ruby
 
+https://rubygems.org/gems/cnunciato-buildkite
+
 ```bash
 gem install cnunciato-buildkite
 ```
@@ -156,7 +164,7 @@ puts pipeline.to_yaml
 
 ## Publishing new versions
 
-All SDKs version on the same cadence, and the versioning and publishing are still done manually. To upgrade all SDKs from `0.0.1` to `0.0.2`, for example, follow these steps:
+All SDKs version on the same cadence, and the versioning and publishing are still handled manually. To upgrade all SDKs, follow these steps:
 
 -   Commit all changes.
 -   Update the FROM and TO versions in `./project.json`.
