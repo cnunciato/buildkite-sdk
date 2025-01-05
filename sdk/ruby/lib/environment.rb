@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Environment
   # Always `true`
   BUILDKITE = "BUILDKITE"
@@ -38,19 +40,19 @@ module Environment
   # The notification email of the user who authored the commit being built. May be **[unverified](#unverified-commits)**. This value can be blank in some situations, including builds manually triggered using API or Buildkite web interface.
   BUILDKITE_BUILD_AUTHOR_EMAIL = "BUILDKITE_BUILD_AUTHOR_EMAIL"
   # The name of the user who created the build. The value differs depending on how the build was created:
-  # 
+  #
   # - **Buildkite dashboard:** Set based on who manually created the build.
   # - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
   # - **Webhook:** Set based on which user is attached to the API Key used.
   BUILDKITE_BUILD_CREATOR = "BUILDKITE_BUILD_CREATOR"
   # The notification email of the user who created the build. The value differs depending on how the build was created:
-  # 
+  #
   # - **Buildkite dashboard:** Set based on who manually created the build.
   # - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
   # - **Webhook:** Set based on which user is attached to the API Key used.
   BUILDKITE_BUILD_CREATOR_EMAIL = "BUILDKITE_BUILD_CREATOR_EMAIL"
   # A colon separated list of non-private team slugs that the build creator belongs to. The value differs depending on how the build was created:
-  # 
+  #
   # - **Buildkite dashboard:** Set based on who manually created the build.
   # - **GitHub webhook:** Set from the  **[unverified](#unverified-commits)** HEAD commit.
   # - **Webhook:** Set based on which user is attached to the API Key used.
@@ -176,7 +178,7 @@ module Environment
   # The access URL for your [private S3 bucket](/docs/agent/v3/cli-artifact#using-your-private-aws-s3-bucket), if you are using a proxy. The variable is read by the `buildkite-agent artifact upload` command, as well as during the artifact upload phase of [command steps](/docs/pipelines/command-step#command-step-attributes). The value can only be set by exporting the environment variable in the `environment`, `pre-checkout` or `pre-command` hooks.
   BUILDKITE_S3_ACCESS_URL = "BUILDKITE_S3_ACCESS_URL"
   # The Access Control List to be set on artifacts being uploaded to your [private S3 bucket](/docs/agent/v3/cli-artifact#using-your-private-aws-s3-bucket). The variable is read by the `buildkite-agent artifact upload` command, as well as during the artifact upload phase of [command steps](/docs/pipelines/command-step#command-step-attributes). The value can only be set by exporting the environment variable in the `environment`, `pre-checkout` or `pre-command` hooks.
-  # 
+  #
   # Must be one of the following values which map to [S3 Canned ACL grants](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl).
   BUILDKITE_S3_ACL = "BUILDKITE_S3_ACL"
   # The region of your [private S3 bucket](/docs/agent/v3/cli-artifact#using-your-private-aws-s3-bucket). The variable is read by the `buildkite-agent artifact upload` command, as well as during the artifact upload phase of [command steps](/docs/pipelines/command-step#command-step-attributes). The value can only be set by exporting the environment variable in the `environment`, `pre-checkout` or `pre-command` hooks.
@@ -200,7 +202,7 @@ module Environment
   # The number of minutes until Buildkite automatically cancels this job, if a timeout has been specified, otherwise it `false` if no timeout is set. Jobs that time out with an exit status of 0 are marked as "passed".
   BUILDKITE_TIMEOUT = "BUILDKITE_TIMEOUT"
   # Set to `"datadog"` to send metrics to the [Datadog APM](https://docs.datadoghq.com/tracing/) using `localhost:8126`, or `DD_AGENT_HOST:DD_AGENT_APM_PORT`.
-  # 
+  #
   # Also available as a [buildkite agent configuration option.](/docs/agent/v3/configuration#configuration-settings)
   BUILDKITE_TRACING_BACKEND = "BUILDKITE_TRACING_BACKEND"
   # The UUID of the build that triggered this build. This will be empty if the build was not triggered from another build.

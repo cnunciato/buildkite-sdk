@@ -6,10 +6,17 @@ AllCops:
   TargetRubyVersion: 3.0
   Exclude:
     - "lib/schema.rb"
-    - "lib/environment.rb"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Exclude:
+    - "lib/environment.rb"
+
+Metrics/ModuleLength:
+  Exclude:
+    - "lib/environment.rb"
