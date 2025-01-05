@@ -51,7 +51,7 @@ async function genTypes() {
         },
         go: {
             path: "./sdk/go/sdk/buildkite/schema.go",
-            options: { package: "buildkite" },
+            options: { package: "buildkite", omitEmpty: true },
         },
         ruby: {
             path: "./sdk/ruby/lib/schema.rb",
