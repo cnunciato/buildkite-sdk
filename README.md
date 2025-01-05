@@ -32,16 +32,16 @@ npm install
 # Test all SDKs and apps.
 npm test
 
-# Build  (to dist/sdks).
+# Build  (to ./dist/sdks).
 npm run build
 
-# Build the docs (to dist/docs).
+# Build the docs (to ./dist/docs).
 npm run docs
 
 # Serve the docs locally (which builds them implicitly).
 npm run docs:serve
 
-# Run all apps (e.g., to use the SDKs to generate pipelines).
+# Run all apps (which writes JSON and YAML pipelines to ./out).
 npm run apps
 
 # Watch all projects for changes, and rebuild the docs, SDKs, and re-run all apps on change.
