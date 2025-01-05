@@ -50,8 +50,14 @@ npm run watch
 # Launch web servers for all docsets and watch all projects for changes. (Requires reload.)
 npm run dev
 
+# Format all SDK code.
+npm run format
+
 # Publish to npm, PyPi pkg.go.dev, and RubyGems.
 npm run publish
+
+# Clear away build and test artifacts.
+npm run clean
 ```
 
 ## Installing and using the SDKs
