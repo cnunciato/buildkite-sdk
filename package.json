@@ -12,7 +12,8 @@
         "apps": "nx run:all",
         "publish": "nx publish:all",
         "clean": "nx clean",
-        "watch": "npx nx watch --all -- nx rebuild:all"
+        "watch": "npx nx watch --all -- nx rebuild:all",
+        "dev": "concurrently 'npm run docs:serve' 'npm run watch' --kill-others"
     },
     "private": true,
     "devDependencies": {
