@@ -28,8 +28,9 @@ if (!from || !to) {
     execSync("npm run build", { stdio: "inherit" });
 
     // Commit and tag.
-    simpleGit().add("sdk"); // Include everything here, as lockfiles will also have changed.
-    simpleGit().commit(`Release v${to}`);
-    simpleGit().addTag(`v${to}`);
-    simpleGit().addTag(`sdk/go/v${to}`);
+    await simpleGit().add("project.json"); // Include everything here, as lockfiles will also have changed.
+    await simpleGit().add("sdk"); // Include everything here, as lockfiles will also have changed.
+    await simpleGit().commit(`Release v${to}`);
+    await simpleGit().addTag(`v${to}`);
+    await simpleGit().addTag(`sdk/go/v${to}`);
 })();
