@@ -67,7 +67,7 @@
         },
 
         "rebuild:all": {
-            "dependsOn": ["build:all", "docs:all"]
+            "dependsOn": ["build:all", "docs:all", "run:all"]
         }
     }
 }

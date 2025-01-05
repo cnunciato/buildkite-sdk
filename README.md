@@ -38,7 +38,7 @@ npm run build
 # Build the docs (to dist/docs).
 npm run docs
 
-# Serve the docs locally (which builds them implicitly, but doesn't yet watch).
+# Serve the docs locally (which builds them implicitly).
 npm run docs:serve
 
 # Run all apps (e.g., to use the SDKs to generate pipelines).
