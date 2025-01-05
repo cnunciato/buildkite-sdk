@@ -47,7 +47,7 @@ npm run apps
 # Watch all projects for changes (which rebuilds the docs SDKs and re-runs all apps).
 npm run watch
 
-# Launch web servers for all docsets and watch all projects for changes. (Requires reload, though.)
+# Launch web servers for all docsets and watch all projects for changes. (Requires reload.)
 npm run dev
 
 # Publish to npm, PyPi pkg.go.dev, and RubyGems.
