@@ -87,10 +87,8 @@ console.log(pipeline.toYAML());
 
 https://test.pypi.org/project/cnunciato-buildkite-sdk/
 
-Currently publishing to TestPyPI (to leave `buildkite-sdk` unclaimed).
-
 ```bash
-uv add buildkite-sdk --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple
+uv add cnunciato-buildkite-sdk
 ```
 
 ```python

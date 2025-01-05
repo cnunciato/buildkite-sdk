@@ -102,7 +102,7 @@
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "uvx twine upload dist/sdks/python/* --repository testpypi --username __token__ --password $TEST_PYPI_TOKEN"
+                "command": "uvx twine upload dist/sdks/python/* --username __token__ --password $PYPI_TOKEN"
             }
         }
     },
