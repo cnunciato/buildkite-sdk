@@ -24,7 +24,7 @@
         "docs:build": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "bundle exec yard doc lib/buildkite --output-dir ../../dist/docs/ruby",
+                "command": "bundle exec yard doc lib --output-dir ../../dist/docs/ruby",
                 "cwd": "sdk/ruby"
             },
             "outputs": ["{workspaceRoot}/dist/docs/ruby"],

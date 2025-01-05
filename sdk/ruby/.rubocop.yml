@@ -13,7 +13,7 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 
-Layout/LineLength:
+Metrics/LineLength:
   Exclude:
     - "lib/environment.rb"
 
