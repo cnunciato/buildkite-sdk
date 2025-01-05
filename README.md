@@ -166,4 +166,5 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
 -   Commit those changes with a message like `Release v0.0.2`
 -   Tag thusly: `git tag v0.0.2 && git tag sdk/go/v0.0.2`
 -   Push the commit and the tags to `main`: `git push origin main --tags`
+-   Run a full build: `npm run build`
 -   Run `npm run publish`
