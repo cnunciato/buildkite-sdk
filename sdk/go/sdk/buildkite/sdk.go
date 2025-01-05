@@ -7,7 +7,7 @@ import (
 )
 
 type Pipeline struct {
-	Steps []CommandStep `json:"steps"`
+	Steps []CommandStep `json:"steps" yaml:"steps"`
 }
 
 func (p *Pipeline) AddCommandStep(step CommandStep) {
@@ -23,7 +23,7 @@ func (p *Pipeline) ToJSON() (string, error) {
 }
 
 func (p *Pipeline) ToYAML() (string, error) {
-	data, err := yaml.Marshal(p.Steps)
+	data, err := yaml.Marshal(p)
 	if err != nil {
 		return "", err
 	}

@@ -12,5 +12,9 @@ def generate_yaml():
     return pipeline.to_yaml()
 
 makedirs("../../out/apps/python", exist_ok=True)
+
 with open("../../out/apps/python/pipeline.json", "w") as file:
     file.write(generate_json())
+
+with open("../../out/apps/python/pipeline.yaml", "w") as file:
+    file.write(generate_yaml())
