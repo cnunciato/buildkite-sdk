@@ -191,12 +191,28 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
 
 -   Commit or stash all pending changes.
 -   Update the `FROM` and `TO` versions in the `release:all` task in `./project.json`.
--   Run the release script: `npm run release`. This updates the version numbers in all affected files, rebuilds all SDKs, commits the changes, and adds two new tags to mark the release. It does not (yet) push to GitHub or to any package repository.
--   Examine the Git history with `git log` and `git tag`. You should see one release commit `e.g., and two tags with the new version.
--   If you do, push the commit and tags to `main`: `git push origin main --tags`.
--   Run `npm run publish`.
+-   Run the release script:
+    ```bash
+    npm run release
+    ```
+    This updates the version numbers in all affected files, rebuilds all SDKs, commits the changes, and adds two new tags to mark the release. It does not (yet) push to GitHub or to any package repository.
+-   Examine the Git history:
+    ```bash
+    git log
+    git tag
+    ```
+    You should see one release commit (e.g., `Release v0.1.2`) and two new tags containing the new version. If all's well, push the release commit and tags to GitHub:
+    ```bash
+    git push origin main --tags
+    ```
+-   Publish all SDKs:
+    ```bash
+    npm run publish
+    ```
 
 ### Required environment variables
+
+The following environment variables are required for publishing:
 
 -   `NPM_TOKEN`
 -   `PYPI_TOKEN`
