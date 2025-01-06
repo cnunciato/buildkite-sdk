@@ -71,7 +71,7 @@ gem install cnunciato-buildkite
 ```
 
 ```ruby
-# In ~/.buildkite/pipeline.rb
+# In ~/.buildkite/pipeline.rb:
 require "buildkite"
 
 pipeline = Buildkite::Pipeline.new
