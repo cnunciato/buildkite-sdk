@@ -187,12 +187,12 @@ puts pipeline.to_yaml
 
 ## Publishing new versions
 
-All SDKs version on the same cadence, and the versioning and publishing are still handled manually. To upgrade all SDKs, follow these steps:
+All SDKs version on the same cadence, and the versioning and publishing are still handled manually. To publish new versions of all SDKs, follow these steps:
 
--   Commit all changes.
--   Update the FROM and TO versions in `./project.json`.
--   Run the release script: `npm run release`.
--   Examine the Git history with `git log` and `git tag` You should see one release commit and two tags with the new version.
+-   Commit or stash all pending changes.
+-   Update the `FROM` and `TO` versions in the `release:all` task in `./project.json`.
+-   Run the release script: `npm run release`. This updates the version numbers in all affected files, rebuilds all SDKs, commits the changes, and adds two new tags to mark the release. It does not (yet) push to GitHub or to any package repository.
+-   Examine the Git history with `git log` and `git tag`. You should see one release commit `e.g., and two tags with the new version.
 -   If you do, push the commit and tags to `main`: `git push origin main --tags`.
 -   Run `npm run publish`.
 
