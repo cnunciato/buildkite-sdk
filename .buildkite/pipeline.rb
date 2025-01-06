@@ -9,11 +9,7 @@ commands = [
   "npm run build",
 ]
 
-# When we create the release, we push two tags, which results in
-# two webhooks from GitHub. Since we need the Go SDK's tag to be
-# in place when we make the call to pkg.go.dev, we run the build
-# task on that one.
-if not tag.nil? and tag.start_with?("sdk/go/v")
+if not tag.nil? and tag.start_with?("v")
   commands.push("npm run publish")
 end
 

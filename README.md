@@ -193,12 +193,12 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     npm run release
     ```
 
-    This:
+    This script:
 
     -   Updates the version numbers in all affected files
     -   Rebuilds all SDKs
-    -   Commits all changes (e.g., to version files, lockfiles, and anything else that was pending)
-    -   Adds two new tags to mark the release
+    -   Commits all changes (e.g., to version files, lockfiles, and anything else under `./sdk`)
+    -   Adds two new tags to mark the release (`v0.0.0` and `sdk/go/v0.0.0`)
     -   Pushes the commit and tags to GitHub, triggering the `publish` task
     -   Creates a new GitHub release
 
