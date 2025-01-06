@@ -213,10 +213,10 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
     ```
 
 1.  Verify the new releases:
-    -   Node.js: https://www.npmjs.com/package/@cnunciato/buildkite-sdk
-    -   Python: https://pypi.org/project/cnunciato-buildkite-sdk/
-    -   Go: https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go (may be a slight delay)
-    -   Ruby: https://rubygems.org/gems/cnunciato-buildkite
+    -   https://www.npmjs.com/package/@cnunciato/buildkite-sdk
+    -   https://pypi.org/project/cnunciato-buildkite-sdk/
+    -   https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go (may be a slight delay)
+    -   https://rubygems.org/gems/cnunciato-buildkite
 
 ### Required environment variables
 
