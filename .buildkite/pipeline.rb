@@ -1,4 +1,5 @@
 require_relative("../sdk/ruby/lib/buildkite.rb")
+require_relative("../sdk/ruby/lib/environment.rb")
 
 pipeline = Buildkite::Pipeline.new
 pipeline.add_command_step(
@@ -9,8 +10,8 @@ pipeline.add_command_step(
   ]
 )
 
-if Environment::BUILDKITE_TAG != ""
-  puts "Triggered by tag: #{Environment::BUILDKITE_TAG.sub("v", "")}"
+if ENV[Environment::BUILDKITE_TAG]
+  puts "Triggered by tag: #{ENV[Environment::BUILDKITE_TAG].sub("v", "")}"
 end
 
 puts pipeline.to_json
