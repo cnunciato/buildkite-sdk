@@ -91,7 +91,9 @@ steps:
       command: ruby .buildkite/pipeline.rb | buildkite-agent pipeline upload
 ```
 
-This repository uses the same approach to ship the Buildkite SDK with the Buildkite SDK (i.e., [here](./.buildkite/pipeline.rb))! See below for more examples.
+This repository uses the same approach to ship the Buildkite SDK with the Buildkite SDK (i.e., [here](./.buildkite/pipeline.rb))!
+
+See below for more examples.
 
 ### Node.js
 
