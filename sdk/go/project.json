@@ -41,7 +41,7 @@
                 ],
                 "env": {
                     "GOPROXY": "proxy.golang.org",
-                    "VERSION": "0.0.28"
+                    "VERSION": "0.0.29"
                 }
             },
             "cache": false
