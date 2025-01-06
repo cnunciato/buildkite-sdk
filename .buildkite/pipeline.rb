@@ -10,8 +10,8 @@ pipeline.add_command_step(
   ]
 )
 
-if ENV[Environment::BUILDKITE_TAG]
-  puts "Triggered by tag: #{ENV[Environment::BUILDKITE_TAG].sub("v", "")}"
+if ENV["BUILDKITE_TAG"]
+  puts "Triggered by tag: #{ENV["BUILDKITE_TAG"].sub("v", "")}"
 end
 
 puts pipeline.to_json
