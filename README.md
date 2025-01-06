@@ -171,12 +171,6 @@ https://rubygems.org/gems/cnunciato-buildkite
 gem install cnunciato-buildkite
 ```
 
-or in your `Gemfile`:
-
-```bash
-gem "cnunciato-buildkite"
-```
-
 ```ruby
 require "buildkite"
 
@@ -201,3 +195,9 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
 -   Examine the Git history with `git log` and `git tag` You should see one release commit and two tags with the new version.
 -   If you do, push the commit and tags to `main`: `git push origin main --tags`.
 -   Run `npm run publish`.
+
+### Required environment variables
+
+-   `NPM_TOKEN`
+-   `PYPI_TOKEN`
+-   `RUBYGEMS_API_KEY`
