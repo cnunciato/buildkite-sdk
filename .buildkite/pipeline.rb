@@ -7,11 +7,9 @@ tag = ENV[Environment::BUILDKITE_TAG]
 commands = [
   "npm test",
   "npm run build",
-  "echo '#{Environment::BUILDKITE_TAG}'",
-  "echo '#{tag}'"
 ]
 
-if not tag.nil? and not tag == ""
+if not tag.nil? and not tag == "" and tag.start_with?("sdk/go/v")
   commands.push("npm run publish")
 end
 
