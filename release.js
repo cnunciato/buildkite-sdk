@@ -24,12 +24,12 @@ if (!from || !to) {
         to,
     });
 
-    // Build.
+    // Build all SDKs.
     execSync("npm run build", { stdio: "inherit" });
 
     // Commit and tag.
-    await simpleGit().add("project.json"); // Include everything here, as lockfiles will also have changed.
     await simpleGit().add("sdk"); // Include everything here, as lockfiles will also have changed.
+    await simpleGit().add("project.json"); // As this contains the new version.
     await simpleGit().commit(`Release v${to}`);
     await simpleGit().addTag(`v${to}`);
     await simpleGit().addTag(`sdk/go/v${to}`);
