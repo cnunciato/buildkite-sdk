@@ -191,7 +191,7 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
 
 1.  Commit or stash all pending changes.
 
-1.  Update the `FROM` and `TO` versions in the `release:all` task in `./project.json`.
+1.  Update the `FROM` and `TO` versions in the `release:all` task in [`./project.json`](./project.json).
 
 1.  Run the release script:
 
