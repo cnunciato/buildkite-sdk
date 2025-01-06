@@ -62,6 +62,12 @@ npm run clean
 
 ## Installing and using the SDKs
 
+```yaml
+steps:
+    - label: ":pipeline: Generate pipeline"
+      command: ruby .buildkite/pipeline.rb | buildkite-agent pipeline upload
+```
+
 ### Node.js
 
 https://www.npmjs.com/package/@cnunciato/buildkite-sdk
