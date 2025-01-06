@@ -35,9 +35,6 @@
             "plugin": "@nx-go/nx-go"
         },
         {
-            "plugin": "@nxlv/python"
-        },
-        {
             "plugin": "@nx/eslint/plugin",
             "options": {
                 "targetName": "lint"

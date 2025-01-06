@@ -5,62 +5,14 @@
     "sourceRoot": "apps/python/src",
     "targets": {
         "run": {
-            "executor": "@nxlv/python:run-commands",
+            "executor": "nx:run-commands",
             "options": {
                 "command": "PYTHONPATH=../../sdk/python/src uv run src/main.py",
                 "cwd": "apps/python"
             }
         },
-        "lock": {
-            "executor": "@nxlv/python:run-commands",
-            "options": {
-                "command": "uv lock",
-                "cwd": "apps/python"
-            }
-        },
-        "add": {
-            "executor": "@nxlv/python:add",
-            "options": {}
-        },
-        "update": {
-            "executor": "@nxlv/python:update",
-            "options": {}
-        },
-        "remove": {
-            "executor": "@nxlv/python:remove",
-            "options": {}
-        },
-        "build": {
-            "executor": "@nxlv/python:build",
-            "outputs": ["{projectRoot}/dist"],
-            "options": {
-                "outputPath": "apps/python/dist",
-                "publish": false,
-                "lockedVersions": true,
-                "bundleLocalDependencies": true,
-                "keepBuildFolder": false
-            },
-            "cache": true
-        },
-        "install": {
-            "executor": "@nxlv/python:install",
-            "options": {
-                "silent": false,
-                "args": "",
-                "verbose": false,
-                "debug": false
-            }
-        },
-        "lint": {
-            "executor": "@nxlv/python:ruff-check",
-            "outputs": [],
-            "options": {
-                "lintFilePatterns": ["src", "tests"]
-            },
-            "cache": true
-        },
         "test": {
-            "executor": "@nxlv/python:run-commands",
+            "executor": "nx:run-commands",
             "outputs": [
                 "{workspaceRoot}/reports/apps/python/unittests",
                 "{workspaceRoot}/coverage/apps/python"
@@ -70,12 +22,6 @@
                 "cwd": "apps/python"
             },
             "cache": true
-        }
-    },
-    "tags": [],
-    "release": {
-        "version": {
-            "generator": "@nxlv/python:release-version"
         }
     }
 }

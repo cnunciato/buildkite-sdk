@@ -24,33 +24,12 @@
             },
             "cache": false
         },
-        "lock": {
-            "executor": "@nxlv/python:run-commands",
-            "options": {
-                "command": "uv lock",
-                "cwd": "sdk/python"
-            }
-        },
-        "add": {
-            "executor": "@nxlv/python:add",
-            "options": {}
-        },
-        "update": {
-            "executor": "@nxlv/python:update",
-            "options": {}
-        },
-        "remove": {
-            "executor": "@nxlv/python:remove",
-            "options": {}
-        },
         "build": {
-            "executor": "@nxlv/python:build",
-            "outputs": ["{projectRoot}/dist/sdks/python"],
+            "executor": "nx:run-commands",
+            "outputs": ["{workspaceRoot}/dist/docs/python"],
             "options": {
-                "outputPath": "dist/sdks/python",
-                "publish": false,
-                "lockedVersions": true,
-                "bundleLocalDependencies": true
+                "command": "uv build -o ../../dist/sdks/python",
+                "cwd": "sdk/python"
             },
             "cache": false
         },
@@ -70,25 +49,8 @@
                 "buildTarget": "docs:build"
             }
         },
-        "install": {
-            "executor": "@nxlv/python:install",
-            "options": {
-                "silent": false,
-                "args": "",
-                "verbose": false,
-                "debug": false
-            }
-        },
-        "lint": {
-            "executor": "@nxlv/python:ruff-check",
-            "outputs": [],
-            "options": {
-                "lintFilePatterns": ["src", "tests"]
-            },
-            "cache": true
-        },
         "test": {
-            "executor": "@nxlv/python:run-commands",
+            "executor": "nx:run-commands",
             "outputs": [
                 "{workspaceRoot}/reports/sdk/python/unittests",
                 "{workspaceRoot}/coverage/sdk/python"
@@ -102,14 +64,8 @@
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "uvx twine upload dist/sdks/python/* --username __token__ --password $PYPI_TOKEN"
+                "command": "uv publish --username __token__ --password $PYPI_TOKEN dist/sdks/python/*"
             }
-        }
-    },
-    "tags": [],
-    "release": {
-        "version": {
-            "generator": "@nxlv/python:release-version"
         }
     }
 }
