@@ -95,8 +95,6 @@ This repository [uses this approach](./.buildkite/pipeline.rb) to ship the Build
 
 ### Node.js
 
-https://www.npmjs.com/package/@cnunciato/buildkite-sdk
-
 ```bash
 npm install @cnunciato/buildkite-sdk
 ```
@@ -116,8 +114,6 @@ console.log(pipeline.toYAML());
 
 ### Python
 
-https://test.pypi.org/project/cnunciato-buildkite-sdk/
-
 ```bash
 uv add cnunciato-buildkite-sdk
 ```
@@ -133,8 +129,6 @@ print(pipeline.to_yaml())
 ```
 
 ### Go
-
-https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go
 
 ```bash
 go get github.com/cnunciato/buildkite-sdk/sdk/go
@@ -164,8 +158,6 @@ func main() {
 ```
 
 ### Ruby
-
-https://rubygems.org/gems/cnunciato-buildkite
 
 ```bash
 gem install cnunciato-buildkite
@@ -215,9 +207,16 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
     ```
 
 1.  Publish all SDKs:
+
     ```bash
     npm run publish
     ```
+
+1.  Verify the new releases:
+    -   https://www.npmjs.com/package/@cnunciato/buildkite-sdk
+    -   https://test.pypi.org/project/cnunciato-buildkite-sdk/
+    -   https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go
+    -   https://rubygems.org/gems/cnunciato-buildkite
 
 ### Required environment variables
 
