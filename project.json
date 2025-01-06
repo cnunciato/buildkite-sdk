@@ -87,8 +87,8 @@
             "options": {
                 "commands": ["node ./release.js $VERSION_FROM $VERSION_TO"],
                 "env": {
-                    "VERSION_FROM": "0.0.46",
-                    "VERSION_TO": "0.0.47"
+                    "VERSION_FROM": "0.0.47",
+                    "VERSION_TO": "0.0.48"
                 }
             }
         }
