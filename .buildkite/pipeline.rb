@@ -8,7 +8,7 @@ commands = [
   "npm run build"
 ]
 
-if ENV[Environment::BUILDKITE_TAG]
+if ENV[Environment::BUILDKITE_TAG] != ""
   commands.push("npm run publish")
 end
 
