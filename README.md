@@ -181,7 +181,7 @@ puts pipeline.to_yaml
 
 ## Publishing new versions
 
-All SDKs version on the same cadence, and the versioning and publishing are still handled manually. To publish new versions of all SDKs, follow these steps:
+All SDKs version on the same cadence. To publish new versions of all SDKs, follow these steps:
 
 1.  Commit or stash all pending changes.
 
@@ -208,7 +208,9 @@ All SDKs version on the same cadence, and the versioning and publishing are stil
     git push origin main --tags
     ```
 
-1.  Publish all SDKs:
+    The Buildkite pipeline will recognize the tag and publish all SDKs automatically.
+
+    If for some reason that doesn't happen, you can also publish them manually (provided you've set the environment variables listed below) with the `publish` task:
 
     ```bash
     npm run publish
