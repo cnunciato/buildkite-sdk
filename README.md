@@ -189,23 +189,32 @@ puts pipeline.to_yaml
 
 All SDKs version on the same cadence, and the versioning and publishing are still handled manually. To publish new versions of all SDKs, follow these steps:
 
--   Commit or stash all pending changes.
--   Update the `FROM` and `TO` versions in the `release:all` task in `./project.json`.
--   Run the release script:
+1.  Commit or stash all pending changes.
+
+1.  Update the `FROM` and `TO` versions in the `release:all` task in `./project.json`.
+
+1.  Run the release script:
+
     ```bash
     npm run release
     ```
+
     This updates the version numbers in all affected files, rebuilds all SDKs, commits the changes, and adds two new tags to mark the release. It does not (yet) push to GitHub or to any package repository.
--   Examine the Git history:
+
+1.  Examine the Git history:
+
     ```bash
     git log
     git tag
     ```
+
     You should see one release commit (e.g., `Release v0.1.2`) and two new tags containing the new version. If all's well, push the release commit and tags to GitHub:
+
     ```bash
     git push origin main --tags
     ```
--   Publish all SDKs:
+
+1.  Publish all SDKs:
     ```bash
     npm run publish
     ```
