@@ -51,7 +51,12 @@ if (!from || !to) {
         repo: "buildkite-sdk",
         tag_name: `v${to}`,
         name: `Release v${to}`,
-        body: "Here is a description of the release.",
+        body: [
+            `* https://www.npmjs.com/package/@cnunciato/buildkite-sdk/v/${to}`,
+            `* https://pypi.org/project/cnunciato-buildkite-sdk/${to}/`,
+            `* https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go@v${to}`,
+            `* https://rubygems.org/gems/cnunciato-buildkite/versions/${to}`,
+        ].join("\n"),
         draft: false,
         prerelease: false,
     });
