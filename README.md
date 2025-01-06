@@ -183,7 +183,7 @@ puts pipeline.to_yaml
 
 All SDKs version on the same cadence. To publish new versions of all SDKs, follow these steps:
 
-1.  Commit or stash all pending changes.
+1.  Commit all pending changes. We want the release commit to be "clean" (i.e., to consist only of changes related to the release itself.)
 
 1.  Update the `FROM` and `TO` versions in the `release:all` task in [`./project.json`](./project.json).
 
@@ -193,7 +193,14 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     npm run release
     ```
 
-    This updates the version numbers in all affected files, rebuilds all SDKs, commits the changes, and adds two new tags to mark the release. It does not (yet) push to GitHub or to any package repository.
+    This:
+
+    -   Updates the version numbers in all affected files
+    -   Rebuilds all SDKs
+    -   Commits all changes (e.g., to version files, lockfiles, and anything else that was pending)
+    -   Adds two new tags to mark the release
+    -   Pushes the commit and tags to GitHub, triggering the `publish` task
+    -   Creates a new GitHub release
 
 1.  Examine the Git history:
 
@@ -216,16 +223,19 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     npm run publish
     ```
 
-1.  Verify the new releases:
+1.  Once the Buildkite job completes, verify the releases at their respective URLs:
+
+    -   https://github.com/cnunciato/buildkite-sdk/releases
     -   https://www.npmjs.com/package/@cnunciato/buildkite-sdk
     -   https://pypi.org/project/cnunciato-buildkite-sdk/
-    -   https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go (may be a slight delay)
+    -   https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go (usually a slight delay)
     -   https://rubygems.org/gems/cnunciato-buildkite
 
 ### Required environment variables
 
 The following environment variables are required for publishing:
 
--   `NPM_TOKEN`
--   `PYPI_TOKEN`
--   `RUBYGEMS_API_KEY`
+-   `NPM_TOKEN` for publishing to npm
+-   `PYPI_TOKEN` fror publishing to PyPI
+-   `RUBYGEMS_API_KEY` for publishing to RubyGems
+-   `GITHUB_TOKEN` for creating GitHub releases

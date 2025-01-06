@@ -9,6 +9,7 @@ if (!from || !to) {
     const { replaceInFileSync } = await import("replace-in-file");
     const { simpleGit } = await import("simple-git");
     const { execSync } = await import("child_process");
+    const { Octokit } = await import("@octokit/rest");
 
     const paths = [
         "sdk/go/project.json",
@@ -29,9 +30,31 @@ if (!from || !to) {
     execSync("npm run build", { stdio: "inherit" });
 
     // Commit and tag.
-    await simpleGit().add("sdk"); // Include everything here, as lockfiles will also have changed.
-    await simpleGit().add("project.json"); // As this contains the new version.
-    await simpleGit().commit(`Release v${to}`);
-    await simpleGit().addTag(`v${to}`);
-    await simpleGit().addTag(`sdk/go/v${to}`);
+    const git = simpleGit();
+    await git.add("sdk"); // Include everything here, as lockfiles will also have changed.
+    await git.add("project.json"); // As this contains the new version.
+    await git.commit(`Release v${to}`);
+    await git.addTag(`v${to}`);
+    await git.addTag(`sdk/go/v${to}`);
+
+    // Push the commit and tags. This is what triggers publishing.
+    await git.push("origin", "main", { "--tags": true });
+
+    // Auth with GitHub.
+    const octokit = new Octokit({
+        auth: process.env.GITHUB_TOKEN,
+    });
+
+    // Create a GitHub release.
+    const response = await octokit.rest.repos.createRelease({
+        owner: "cnunciato",
+        repo: "buildkite-sdk",
+        tag_name: `v${to}`,
+        name: `Release v${to}`,
+        body: "Here is a description of the release.",
+        draft: false,
+        prerelease: false,
+    });
+
+    console.log("Release created successfully:", response.data.html_url);
 })();
