@@ -187,7 +187,7 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
 
 1.  Update the `FROM` and `TO` versions in the `release:all` task in [`./project.json`](./project.json).
 
-1.  With that single change uncommitted, run the release script:
+1.  With that single change uncommitted, make sure you've exported a GitHub access token (as `GITHUB_TOKEN` -- see below) with push access to the repository, then run the release script:
 
     ```bash
     npm run release
@@ -202,16 +202,16 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     -   Pushes the commit and tags to GitHub, triggering the `publish` task
     -   Creates a new GitHub release
 
-    If for some reason the Buildkite publish job doesn't complete successfully, you can run some or all publish tasks manually by running:
+    If for some reason the Buildkite publish job doesn't complete successfully, you can run some or all publish tasks manually by exporting the applicable environment variables (again, see below), then running:
 
     ```bash
     npm run clean
     npm run build
     npm run publish                # To publish all packages
-    npx nx publish sdk/typescript  # To publish the Node.js package only
-    npx nx publish sdk/python      # To publish the Node.js package only
-    npx nx publish sdk/go          # To publish the Node.js package only
-    npx nx publish sdk/ruby        # To publish the Node.js package only
+    npx nx publish sdk/typescript  # To publish only the Node.js package
+    npx nx publish sdk/python      # To publish only the Python package
+    npx nx publish sdk/go          # To publish only the Go package
+    npx nx publish sdk/ruby        # To publish only the Ruby package
     ```
 
 1.  Once the Buildkite job completes, verify the releases at their respective URLs:
