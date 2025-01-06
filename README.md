@@ -202,6 +202,18 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     -   Pushes the commit and tags to GitHub, triggering the `publish` task
     -   Creates a new GitHub release
 
+    If for some reason the Buildkite publish job doesn't complete successfully, you can run some or all publish tasks manually by running:
+
+    ```bash
+    npm run clean
+    npm run build
+    npm run publish                # To publish all packages
+    npx nx publish sdk/typescript  # To publish the Node.js package only
+    npx nx publish sdk/python      # To publish the Node.js package only
+    npx nx publish sdk/go          # To publish the Node.js package only
+    npx nx publish sdk/ruby        # To publish the Node.js package only
+    ```
+
 1.  Once the Buildkite job completes, verify the releases at their respective URLs:
 
     -   https://github.com/cnunciato/buildkite-sdk/releases
