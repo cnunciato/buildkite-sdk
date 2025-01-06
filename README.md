@@ -202,27 +202,6 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     -   Pushes the commit and tags to GitHub, triggering the `publish` task
     -   Creates a new GitHub release
 
-1.  Examine the Git history:
-
-    ```bash
-    git log
-    git tag
-    ```
-
-    You should see one release commit (e.g., `Release v0.1.2`) and two new tags containing the new version. If all's well, push the release commit and tags to GitHub:
-
-    ```bash
-    git push origin main --tags
-    ```
-
-    The Buildkite pipeline will recognize the tag and publish all SDKs automatically.
-
-    If for some reason that doesn't happen, you can also publish them manually (provided you've set the environment variables listed below) with the `publish` task:
-
-    ```bash
-    npm run publish
-    ```
-
 1.  Once the Buildkite job completes, verify the releases at their respective URLs:
 
     -   https://github.com/cnunciato/buildkite-sdk/releases
