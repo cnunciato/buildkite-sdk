@@ -62,7 +62,9 @@ npm run clean
 
 ## Installing and using the SDKs
 
-The easiest way to use the SDK is to install the appropriate package for your language of choice, import the library into your program, assemble your pipeline steps programmatically, and serialize the pipeline to JSON or YAML, passing the output to `buildkite-agent pipeline upload`. For example, if your language of choice were Ruby:
+The easiest way to use the SDK is to install the appropriate package for your language of choice, import the library into your program, assemble your pipeline steps programmatically, and serialize the pipeline to JSON or YAML, passing the output to `buildkite-agent pipeline upload`.
+
+For example, if your language of choice were Ruby:
 
 ```bash
 gem install cnunciato-buildkite
