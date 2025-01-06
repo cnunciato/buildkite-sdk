@@ -62,11 +62,34 @@ npm run clean
 
 ## Installing and using the SDKs
 
+The easiest way to use the SDK is to install the appropriate package for your language of choice, import the library into your program, assemble your pipeline steps programmatically, and serialize the pipeline to JSON or YAML, passing the output to `buildkite-agent pipeline upload`. For example, if your language of choice were Ruby:
+
+```bash
+gem install cnunciato-buildkite
+```
+
+```ruby
+# ~/.buildkite/pipeline.rb
+require "buildkite"
+
+pipeline = Buildkite::Pipeline.new
+
+pipeline.add_command_step(
+  label: "some-label",
+  command: "echo 'Hello, World!'"
+)
+
+puts pipeline.to_json
+```
+
 ```yaml
+# In your pipeline's Settings > Steps:
 steps:
     - label: ":pipeline: Generate pipeline"
       command: ruby .buildkite/pipeline.rb | buildkite-agent pipeline upload
 ```
+
+This repository uses the same approach to ship the Buildkite SDK with the Buildkite SDK (i.e., [here](./.buildkite/pipeline.rb))! See below for more examples.
 
 ### Node.js
 
