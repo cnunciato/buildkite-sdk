@@ -187,7 +187,7 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
 
 1.  Update the `FROM` and `TO` versions in the `release:all` task in [`./project.json`](./project.json).
 
-1.  Run the release script:
+1.  With that single change uncommitted, run the release script:
 
     ```bash
     npm run release
@@ -212,9 +212,9 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
 
 ### Required environment variables
 
-The following environment variables are required for publishing:
+The following environment variables are required for releasing and publishing:
 
+-   `GITHUB_TOKEN` for creating GitHub releases
 -   `NPM_TOKEN` for publishing to npm
 -   `PYPI_TOKEN` fror publishing to PyPI
 -   `RUBYGEMS_API_KEY` for publishing to RubyGems
--   `GITHUB_TOKEN` for creating GitHub releases
