@@ -15,6 +15,7 @@ if (!from || !to) {
         "sdk/python/pyproject.toml",
         "sdk/typescript/package.json",
         "sdk/ruby/lib/buildkite/version.rb",
+        "sdk/ruby/project.json",
     ];
 
     // Bump versions.
