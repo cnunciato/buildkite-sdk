@@ -37,6 +37,15 @@
                 "parallel": false
             }
         },
+        "gen:pipeline": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "ruby ./.buildkite/pipeline.rb | buildkite-agent pipeline upload"
+                ],
+                "parallel": false
+            }
+        },
         "build:all": {
             "dependsOn": [
                 "sdk-typescript:build",

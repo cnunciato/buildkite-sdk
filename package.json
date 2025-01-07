@@ -4,6 +4,7 @@
     "license": "MIT",
     "scripts": {
         "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK --parallel 5",
+        "pipeline": "nx gen:pipeline",
         "types": "nx gen:types",
         "test": "nx test:all",
         "build": "nx build:all",
