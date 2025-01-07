@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK",
+        "agent:local": "buildkite-agent start --token $BUILDKITE_AGENT_TOKEN_LOCAL_BUILDKITE_SDK --parallel 5",
         "types": "nx gen:types",
         "test": "nx test:all",
         "build": "nx build:all",

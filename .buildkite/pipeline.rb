@@ -1,23 +1,23 @@
-require_relative("../sdk/ruby/lib/buildkite")
-require_relative("../sdk/ruby/lib/environment")
+require_relative("../sdk/ruby/lib/buildkite.rb")
+require_relative("../sdk/ruby/lib/environment.rb")
 
 pipeline = Buildkite::Pipeline.new
-
-%w[test build apps].each do |task|
-  pipeline.add_step(
-    id: task,
-    label: ":hammer_and_wrench: #{task}",
-    command: "npm run #{task}"
-  )
-end
-
 tag = ENV[Environment::BUILDKITE_TAG]
-if !tag.nil? and tag.start_with?("v")
-  pipeline.add_step(
-    label: ":rocket: Publish",
-    command: "npm run publish",
-    depends_on: "build"
-  )
+
+commands = [
+  "npm test",
+  "npm run build",
+  "npm run docs",
+  "npm run apps",
+]
+
+if not tag.nil? and tag.start_with?("v")
+  commands.push("npm run publish")
 end
+
+pipeline.add_command_step(
+  label: ":hammer_and_wrench: Install, test, build, publish",
+  commands: commands,
+)
 
 puts pipeline.to_json
