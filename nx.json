@@ -58,8 +58,5 @@
             "inputs": ["production", "^production"]
         }
     },
-    "release": {
-        "projects": ["sdk-typescript", "sdk-python", "sdk-go"]
-    },
     "neverConnectToCloud": true
 }

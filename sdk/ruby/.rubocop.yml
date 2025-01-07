@@ -4,8 +4,8 @@ require:
 
 AllCops:
   TargetRubyVersion: 3.0
-  Exclude:
-    - "lib/schema.rb"
+  # Exclude:
+  #   - "lib/schema.rb"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
