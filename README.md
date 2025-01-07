@@ -97,9 +97,13 @@ See below for more examples.
 
 ### Node.js
 
+Install the package:
+
 ```bash
 npm install @cnunciato/buildkite-sdk
 ```
+
+Use it in your program:
 
 ```javascript
 const { Pipeline } = require("@cnunciato/buildkite-sdk");
@@ -116,9 +120,13 @@ console.log(pipeline.toYAML());
 
 ### Python
 
+Install the package:
+
 ```bash
 uv add cnunciato-buildkite-sdk
 ```
+
+Use it in your program:
 
 ```python
 from buildkite_sdk import Pipeline
@@ -132,9 +140,13 @@ print(pipeline.to_yaml())
 
 ### Go
 
+Install the package:
+
 ```bash
 go get github.com/cnunciato/buildkite-sdk/sdk/go
 ```
+
+Use it in your program:
 
 ```go
 package main
@@ -161,9 +173,13 @@ func main() {
 
 ### Ruby
 
+Install the package:
+
 ```bash
 gem install cnunciato-buildkite
 ```
+
+Use it in your program:
 
 ```ruby
 require "buildkite"
@@ -181,13 +197,13 @@ puts pipeline.to_yaml
 
 ## Publishing new versions
 
-All SDKs version on the same cadence. To publish new versions of all SDKs, follow these steps:
+All SDKs version on the same cadence. To publish a new version (of all SDKs), follow these steps:
 
 1.  Commit all pending changes. We want the release commit to be "clean" (i.e., to consist only of changes related to the release itself.)
 
 1.  Update the `FROM` and `TO` versions in the `release:all` task in [`./project.json`](./project.json).
 
-1.  With that single change uncommitted, make sure you've exported a GitHub access token (as `GITHUB_TOKEN` -- see below) with push access to the repository, then run the release script:
+1.  Leaving that single change uncommitted, make sure you've exported a GitHub access token (as `GITHUB_TOKEN` -- see below) with push access to `main` branch of the repository, then run the release script:
 
     ```bash
     npm run release
@@ -202,7 +218,7 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     -   Pushes the commit and tags to GitHub, triggering the `publish` task
     -   Creates a new GitHub release
 
-    If for some reason the Buildkite publish job doesn't complete successfully, you can run some or all publish tasks manually by exporting the applicable environment variables (again, see below), then running:
+    If for some reason the Buildkite publish job doesn't finish successfully, you can run some or all publish tasks from your local machine by exporting the applicable environment variables (again, see below), then running:
 
     ```bash
     npm run clean
@@ -214,12 +230,12 @@ All SDKs version on the same cadence. To publish new versions of all SDKs, follo
     npx nx publish sdk/ruby        # To publish only the Ruby package
     ```
 
-1.  Once the Buildkite job completes, verify the releases at their respective URLs:
+1.  Once the `publish` job completes, verify the releases at their respective URLs:
 
     -   https://github.com/cnunciato/buildkite-sdk/releases
     -   https://www.npmjs.com/package/@cnunciato/buildkite-sdk
     -   https://pypi.org/project/cnunciato-buildkite-sdk/
-    -   https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go (usually a slight delay)
+    -   https://pkg.go.dev/github.com/cnunciato/buildkite-sdk/sdk/go (this usually takes a minute or two)
     -   https://rubygems.org/gems/cnunciato-buildkite
 
 ### Required environment variables
