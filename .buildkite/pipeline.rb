@@ -7,6 +7,8 @@ tag = ENV[Environment::BUILDKITE_TAG]
 commands = [
   "npm test",
   "npm run build",
+  "npm run docs",
+  "npm run apps",
 ]
 
 if not tag.nil? and tag.start_with?("v")
