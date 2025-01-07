@@ -5,7 +5,10 @@ RSpec.describe Buildkite do
 
   it "does something useful" do
     pipeline = Buildkite::Pipeline.new
-    pipeline.add_command_step(label: "some-label", command: "echo 'Hello, World!'")
+
+    pipeline.add_step(
+      label: "some-label", command: "echo 'Hello, World!'"
+    )
 
     json = { steps: [{ label: "some-label", "command": "echo 'Hello, World!'" }] }
     expected = JSON.pretty_generate(json, indent: "    ")

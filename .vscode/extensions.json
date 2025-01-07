@@ -10,7 +10,6 @@
         "ms-python.vscode-pylance",
         "rubocop.vscode-rubocop",
         "golang.go",
-        "dawhite.mustache",
-        "DJSaunders1997.uv-wingman"
+        "dawhite.mustache"
     ]
 }

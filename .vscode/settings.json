@@ -9,5 +9,7 @@
     "python.analysis.extraPaths": ["./sdk/python/src"],
     "[ruby]": {
         "editor.defaultFormatter": "rubocop.vscode-rubocop"
-    }
+    },
+    "rubocop.mode": "enableViaGemfileOrMissingGemfile",
+    "rubocop.autocorrect": true
 }

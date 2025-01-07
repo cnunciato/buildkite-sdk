@@ -1,8 +1,5 @@
 source "https://rubygems.org"
 
 gem "cnunciato-buildkite", path: "../../sdk/ruby"
-gem "ostruct"
 
-# Why do I need these? I shouldn't.
-gem "dry-types", '~> 1.7', '>= 1.7.2'
-gem "dry-struct", '~> 1.6'
+gem "rubocop", "~> 1.21"
