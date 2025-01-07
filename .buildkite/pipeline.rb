@@ -17,7 +17,7 @@ end
 
 pipeline.add_command_step(
   label: ":hammer_and_wrench: Install, test, build, publish",
-  commands: commands
+  commands: commands,
 )
 
 puts pipeline.to_json
