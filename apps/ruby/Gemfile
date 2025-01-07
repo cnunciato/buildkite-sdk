@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "buildkite", path: "../../sdk/ruby"
+gem "cnunciato-buildkite", path: "../../sdk/ruby"
 gem "ostruct"
 
 # Why do I need these? I shouldn't.
