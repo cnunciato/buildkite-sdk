@@ -1,6 +1,4 @@
-.nx/cache
-.nx/workspace-data
-
+.nx
 apps/python/.coverage
 apps/python/.pytest_cache
 apps/python/.venv

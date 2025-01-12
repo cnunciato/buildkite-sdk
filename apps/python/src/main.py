@@ -1,4 +1,4 @@
-from buildkite_sdk.sdk import Pipeline
+from buildkite_sdk import Pipeline
 from os import makedirs
 
 def generate_json():
