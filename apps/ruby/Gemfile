@@ -2,4 +2,5 @@ source "https://rubygems.org"
 
 gem "cnunciato-buildkite", path: "../../sdk/ruby"
 
+gem "rake", "~> 13.0"
 gem "rubocop", "~> 1.21"

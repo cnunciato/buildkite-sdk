@@ -5,6 +5,19 @@
     "sourceRoot": "apps/go",
     "tags": [],
     "targets": {
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": []
+            },
+            "cache": false
+        },
+        "install": {
+            "executor": "@nx-go/nx-go:tidy",
+            "options": {
+                "main": "{projectRoot}/main.go"
+            }
+        },
         "build": {
             "executor": "@nx-go/nx-go:build",
             "options": {

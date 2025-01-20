@@ -17,6 +17,14 @@
             },
             "cache": false
         },
+        "install": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["bundle install"],
+                "cwd": "sdk/ruby"
+            },
+            "cache": false
+        },
         "format": {
             "executor": "nx:run-commands",
             "options": {

@@ -14,11 +14,11 @@ For development, you'll need current versions of the following tools:
 -   For Python: [uv](https://docs.astral.sh/uv/), [Black](https://black.readthedocs.io/en/stable/)
 -   For Ruby: [Bundler](https://bundler.io/)
 
-See `.tool-versions` for details. If you're on a Mac, and you use [Homebrew](https://brew.sh/), you can run `brew bundle` and `asdf install` to get all you need:
+See `.tool-versions` for details. If you're on a Mac, and you use [Homebrew](https://brew.sh/), you can run `brew bundle` and `mise install` to get all you need:
 
 ```bash
 brew bundle
-asdf install
+mise install
 ```
 
 If you hit any rough edges during development, please file an issue. Thanks!
@@ -26,7 +26,7 @@ If you hit any rough edges during development, please file an issue. Thanks!
 ### Useful commands
 
 ```bash
-# Install dependencies.
+# Install all project dependencies.
 npm install
 
 # Test all SDKs and apps.

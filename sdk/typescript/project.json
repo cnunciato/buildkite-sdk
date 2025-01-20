@@ -12,6 +12,13 @@
             },
             "cache": false
         },
+        "install": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["echo 'Skipping, as this one's managed by Nx."],
+                "cwd": "sdk/typescript"
+            }
+        },
         "format": {
             "executor": "nx:run-commands",
             "options": {

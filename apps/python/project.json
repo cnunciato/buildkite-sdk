@@ -4,6 +4,25 @@
     "projectType": "application",
     "sourceRoot": "apps/python/src",
     "targets": {
+        "install": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["uv pip install -r pyproject.toml"],
+                "cwd": "apps/python"
+            }
+        },
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "rm -rf .pytest_cache",
+                    "rm -rf .venv",
+                    "rm -rf .coverage"
+                ],
+                "cwd": "app/python"
+            },
+            "cache": false
+        },
         "run": {
             "executor": "nx:run-commands",
             "options": {

@@ -12,6 +12,12 @@
             },
             "cache": false
         },
+        "install": {
+            "executor": "@nx-go/nx-go:tidy",
+            "options": {
+                "main": "{projectRoot}/main.go"
+            }
+        },
         "format": {
             "executor": "nx:run-commands",
             "options": {

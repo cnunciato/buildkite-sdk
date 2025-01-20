@@ -5,6 +5,20 @@
     "projectType": "application",
     "tags": [],
     "targets": {
+        "install": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [],
+                "cwd": "apps/typescript"
+            }
+        },
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": []
+            },
+            "cache": false
+        },
         "build": {
             "executor": "@nx/esbuild:esbuild",
             "outputs": ["{options.outputPath}"],

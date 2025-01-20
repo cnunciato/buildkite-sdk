@@ -5,6 +5,26 @@
     "projectType": "library",
     "tags": [],
     "targets": {
+        "clean": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "rm -rf .yardoc",
+                    "rm -rf .rspec_status",
+                    "rm -rf pkg"
+                ],
+                "cwd": "app/ruby"
+            },
+            "cache": false
+        },
+        "install": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["bundle install"],
+                "cwd": "apps/ruby"
+            },
+            "cache": false
+        },
         "run": {
             "executor": "nx:run-commands",
             "options": {
