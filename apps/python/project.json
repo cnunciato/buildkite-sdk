@@ -15,11 +15,11 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "rm -rf .pytest_cache",
-                    "rm -rf .venv",
-                    "rm -rf .coverage"
+                    "rimraf .pytest_cache",
+                    "rimraf .venv",
+                    "rimraf .coverage"
                 ],
-                "cwd": "app/python"
+                "cwd": "apps/python"
             },
             "cache": false
         },

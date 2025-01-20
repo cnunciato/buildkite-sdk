@@ -9,11 +9,12 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "rm -rf .yardoc",
-                    "rm -rf .rspec_status",
-                    "rm -rf pkg"
+                    "rimraf .yardoc",
+                    "rimraf .rspec_status",
+                    "rimraf pkg"
                 ],
-                "cwd": "app/ruby"
+                "parallel": false,
+                "cwd": "apps/ruby"
             },
             "cache": false
         },

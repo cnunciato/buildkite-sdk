@@ -31,7 +31,7 @@
             "outputs": ["{projectRoot}/dist/sdks/go"],
             "options": {
                 "commands": [
-                    "rm -rf dist/sdks/go",
+                    "rimraf dist/sdks/go",
                     "mkdir -p dist/sdks/go",
                     "cp -R sdk/go/go.* sdk dist/sdks/go/"
                 ],
