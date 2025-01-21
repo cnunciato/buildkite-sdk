@@ -38,8 +38,13 @@
                 "{workspaceRoot}/coverage/apps/python"
             ],
             "options": {
-                "command": "PYTHONPATH=../../sdk/python/src uv run pytest tests/",
-                "cwd": "apps/python"
+                "commands": [
+                    "uv venv",
+                    "uv pip install -r pyproject.toml",
+                    "PYTHONPATH=../../sdk/python/src uv run pytest tests/"
+                ],
+                "cwd": "apps/python",
+                "parallel": false
             },
             "cache": true
         }
