@@ -48,7 +48,7 @@
                 "commands": ["gem push cnunciato-buildkite-$VERSION.gem"],
                 "cwd": "dist/sdks/ruby",
                 "env": {
-                    "VERSION": "0.0.49"
+                    "VERSION": "0.0.50"
                 }
             },
             "cache": false
