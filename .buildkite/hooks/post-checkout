@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-asdf install
+mise install
 npm install

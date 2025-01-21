@@ -201,7 +201,7 @@ All SDKs version on the same cadence. To publish a new version (of all SDKs), fo
 
 1.  Commit all pending changes. We want the release commit to be "clean" (i.e., to consist only of changes related to the release itself.)
 
-1.  Update the `FROM` and `TO` versions in the `release:all` task in [`./project.json`](./project.json).
+1.  Update the `VERSION_FROM` and `VERSION_TO` values in the `release:all` task in [`./project.json`](./project.json).
 
 1.  Leaving that single change uncommitted, make sure you've exported a GitHub access token (as `GITHUB_TOKEN` -- see below) with push access to `main` branch of the repository, then run the release script:
 
