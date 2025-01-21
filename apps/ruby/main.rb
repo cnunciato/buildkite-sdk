@@ -1,4 +1,5 @@
 require "buildkite"
+require "fileutils"
 
 pipeline = Buildkite::Pipeline.new
 
