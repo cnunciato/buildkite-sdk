@@ -33,7 +33,7 @@
         },
         "build": {
             "executor": "nx:run-commands",
-            "outputs": ["{workspaceRoot}/dist/docs/python"],
+            "outputs": ["{workspaceRoot}/dist/sdks/python"],
             "options": {
                 "command": "uv build -o ../../dist/sdks/python",
                 "cwd": "sdk/python"
@@ -63,10 +63,10 @@
                 "{workspaceRoot}/coverage/sdk/python"
             ],
             "options": {
-                "command": "uv run pytest tests/",
-                "cwd": "sdk/python"
-            },
-            "cache": true
+                "commands": ["uv run pytest tests/"],
+                "cwd": "sdk/python",
+                "parallel": false
+            }
         },
         "publish": {
             "executor": "nx:run-commands",
