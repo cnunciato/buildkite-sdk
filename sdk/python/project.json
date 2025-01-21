@@ -20,7 +20,8 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": ["uv venv", "uv pip install -r pyproject.toml"],
-                "cwd": "sdk/python"
+                "cwd": "sdk/python",
+                "parallel": false
             }
         },
         "format": {
@@ -63,7 +64,11 @@
                 "{workspaceRoot}/coverage/sdk/python"
             ],
             "options": {
-                "commands": ["uv run pytest tests/"],
+                "commands": [
+                    "uv venv",
+                    "uv pip install -r pyproject.toml",
+                    "uv run pytest tests/"
+                ],
                 "cwd": "sdk/python",
                 "parallel": false
             }
