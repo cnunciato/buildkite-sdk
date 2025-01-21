@@ -47,6 +47,8 @@
                     "uv venv",
                     "uv pip install -r pyproject.toml",
                     "mise shell latest",
+                    "which python",
+                    "python -V",
                     "PYTHONPATH=../../sdk/python/src uv run pytest tests/"
                 ],
                 "cwd": "apps/python",
