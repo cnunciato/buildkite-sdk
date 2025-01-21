@@ -6,6 +6,7 @@ require "yaml"
 module Buildkite
   class Error < StandardError; end
 
+  # Here is a comment.
   class Pipeline
     def initialize
       @steps = []
