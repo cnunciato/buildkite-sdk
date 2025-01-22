@@ -28,13 +28,12 @@
             "executor": "nx:run-commands",
             "options": {
                 "commands": [
-                    "uv venv",
-                    "uv pip install -r pyproject.toml",
                     "PYTHONPATH=../../sdk/python/src uv run src/main.py"
                 ],
                 "cwd": "apps/python",
                 "parallel": false
-            }
+            },
+            "dependsOn": ["install"]
         },
         "test": {
             "executor": "nx:run-commands",
@@ -44,16 +43,12 @@
             ],
             "options": {
                 "commands": [
-                    "uv venv",
-                    "uv pip install -r pyproject.toml",
-                    "mise shell latest",
-                    "which python",
-                    "python -V",
                     "PYTHONPATH=../../sdk/python/src uv run pytest tests/"
                 ],
                 "cwd": "apps/python",
                 "parallel": false
-            }
+            },
+            "dependsOn": ["install"]
         }
     }
 }

@@ -64,14 +64,11 @@
                 "{workspaceRoot}/coverage/sdk/python"
             ],
             "options": {
-                "commands": [
-                    "uv venv",
-                    "uv pip install -r pyproject.toml",
-                    "uv run pytest tests/"
-                ],
+                "commands": ["uv run pytest tests/"],
                 "cwd": "sdk/python",
                 "parallel": false
-            }
+            },
+            "dependsOn": ["install"]
         },
         "publish": {
             "executor": "nx:run-commands",
